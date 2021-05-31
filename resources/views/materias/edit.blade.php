@@ -38,6 +38,7 @@
                                     @csrf
                                     @method('put')
                                     <div class="row row-sm mg-t-20">
+                                        <input type="hidden" value="{{$materia->producto_id}}" name="refe_pro">
                                         <div class="col-lg">
                                             <p class="mg-b-10">Producto*</p>
                                             <div class="form-group">

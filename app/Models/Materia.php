@@ -25,11 +25,12 @@ class Materia extends Model
         $producto->add_stock();
     }
 
-    // public function categoria(){
-    //     return $this->belongsTo(Categoria::class);
-    // }
-
-    // public function proveedor(){
-    //     return $this->belongsTo(Proveedor::class);
-    // }
+    public function producto_stock($id, $refe_pro){
+        $producto_anterior = Producto::find($refe_pro);
+        $producto = Producto::find($id);
+        if ($id != $refe_pro) {
+            $producto_anterior->restar_stock();
+            $producto->add_stock();
+        }
+    }
 }
