@@ -7,6 +7,14 @@ use Illuminate\Database\Eloquent\Model;
 
 class Proveedor extends Model
 {
+    use HasFactory;
+    
+    protected $table = 'proveedors';
+
+    protected $primaryKey = 'id';
+
+    public $timestamps = true;
+
     protected $fillable=[
         'nombre',
         'email',
@@ -15,10 +23,4 @@ class Proveedor extends Model
         'telefono'
     ];
 
-    public function productos(){
-        return $this->hasMany(Producto::class);
-    }
-    public function materias(){
-        return $this->hasMany(Materia::class);
-    }
 }

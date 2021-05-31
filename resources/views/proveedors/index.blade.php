@@ -1,85 +1,111 @@
 @extends('includes/base')
 @section('content')
-<div class="app-main__outer">
-    <div class="app-main__inner">
-        <div class="app-page-title">
-            <div class="page-title-wrapper">
-                <div class="page-title-heading">
-                    <div class="page-title-icon">
-                        <i class="pe-7s-car icon-gradient bg-mean-fruit"></i>
+
+    <div class="main-content side-content pt-0">
+        <div class="container-fluid">
+            <div class="inner-body">
+
+                <br>@include('flash::message')
+                <!-- Page Header -->
+                <div class="page-header">
+                    <div>
+                        <h1 class="main-content-title tx-24 mg-b-5">LISTADO DE PROVEEDORES</h1><br>
+                        <ol class="breadcrumb">
+                            <li class="breadcrumb-item"><a href="{{ url('/dashboard') }}">Inicio</a></li>
+                            <li class="breadcrumb-item active" aria-current="page">proveedores</li>
+                        </ol>
                     </div>
-                    <div>Proveedores
-                        <div class="page-title-subheading">Listado genereal de proveedores.</div>
+                    <div class="d-flex">
+                        <div class="justify-content-center">
+                            <a type="button" href="{{route('proveedors.create')}}" data-toggle="tooltip" title="Agregar proveedor" data-placement="bottom"
+                        class="mb-2 mr-2 btn-hover-shine btn btn-primary">
+                            <i class="fe fe-download-cloud mr-2"></i> Nuevo proveedor
+                        </a>
+                        </div>
                     </div>
-                </div>  
-                <div class="page-title-actions">
-                    <a type="button" href="{{route('proveedors.create')}}" data-toggle="tooltip" title="Agregar categoría" data-placement="bottom"
-                        class="mb-2 mr-2 btn-hover-shine btn btn-success">Agregar 
-                        <i class="fa fa-plus-square"></i>
-                    </a>
-                </div>   
-            </div>
-        </div>
-        <div class="main-card mb-3 card">
-            <div class="card-header-tab card-header">
-                <div class="card-header-title font-size-lg text-capitalize font-weight-normal"><i
-                        class="header-icon lnr-laptop-phone mr-3 text-muted opacity-6"> </i>Proveedores
                 </div>
-                <div class="btn-actions-pane-right actions-icon-btn">
-                    <div class="btn-group dropdown">
-                        <button type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"
-                            class="btn-icon btn-icon-only btn btn-link">
-                            <i class="pe-7s-menu btn-icon-wrapper"></i>
-                        </button>
-                        <div tabindex="-1" role="menu" aria-hidden="true" class="dropdown-menu-right rm-pointers dropdown-menu-shadow dropdown-menu-hover-link dropdown-menu">
-                            <h6 tabindex="-1" class="dropdown-header">Header</h6>
-                            <button type="button" tabindex="0" class="dropdown-item">
-                                <i class="dropdown-icon lnr-inbox"> </i><span>Menus</span>
-                            </button>
-                            <button type="button" tabindex="0" class="dropdown-item">
-                                <i class="dropdown-icon lnr-file-empty"> </i><span>Settings</span>
-                            </button>
-                            <button type="button" tabindex="0" class="dropdown-item">
-                                <i class="dropdown-icon lnr-book"> </i><span>Actions</span>
-                            </button>
-                            <div tabindex="-1" class="dropdown-divider"></div>
+                <div class="row row-sm">
+                    <div class="col-lg-12">
+                        <div class="card custom-card">
+                            <div class="card-body">
+                                <div class="table-responsive">
+                                    <table class="table table-bordered" id="example2" width="100%" cellspacing="0">
+                                        <thead>
+                                            <tr>
+                                                <th>#</th>
+                                                <th>Nombre</th>
+                                                <th>Email</th>                                    
+                                                <th>Numero de RUC</th>
+                                                <th>Teléfono</th>
+                                                <th>Opciones</th>
+                                            </tr>
+                                        </thead>
+                                        <tfoot>
+                                            <tr>
+                                                <th>#</th>
+                                                <th>Nombre</th>
+                                                <th>Email</th>                                    
+                                                <th>Numero de RUC</th>
+                                                <th>Teléfono</th>
+                                                <th>Opciones</th>
+                                            </tr>
+                                        </tfoot>
+                                        <tbody>
+                                            @foreach ($proveedors as $prov)
+                                                <tr>
+                                                    <td>{{$n++}}</td>
+                                                    <td>{{$prov->nombre}}</a></td>
+                                                    <td>{{$prov->email}}</td>
+                                                    <td>{{$prov->numero_ruc}}</td>
+                                                    <td>{{$prov->telefono}}</td>
+                                                    <td>
+                                                        <a href="{{route('proveedors.edit', $prov->id)}}" class="btn btn-sm btn-warning"><i class="fe fe-edit-2"></i></a>
+                                                        <a href="#" class="btn btn-sm btn-danger" data-toggle="modal" data-target="#deleteModal" data-proveedorid="{{$prov['id']}}"><i class="fe fe-trash"></i></a>
+                                                    </td>
+                                                </tr>
+                                            @endforeach
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
-            <div class="card-body">
-                <table style="width: 100%;" id="example" class="table table-hover table-striped table-bordered">
-                    <thead>
-                    <tr>
-                        <th>Código</th>
-                        <th>Nombre</th>
-                        <th>Email</th>
-                        <th>Teléfono</th>
-                        <th>Opciones</th>
-                    </tr>
-                    </thead>
-                    <tbody>
-                        @foreach ($proveedors as $item)
-                            <tr>
-                                <td>{{$item->id}}</td>
-                                <td><a href="{{route('proveedors.show', $item->id)}}">{{$item->nombre}}</a></td>
-                                <td>{{$item->email}}</td>
-                                <td>{{$item->telefono}}</td>
-                                <td>
-                                    <form action="{{route('proveedors.destroy', $item->id)}}" method="POST">
-                                        @csrf
-                                        @method('delete')
-                                        <a href="{{route('proveedors.edit', $item->id)}}" class="mb-2 mr-2 btn-icon btn-icon-only btn-pill btn btn-outline-warning"><i class="lnr-magic-wand btn-icon-wrapper"> </i></a>
-                                        <button type="submit" class="mb-2 mr-2 btn-icon btn-icon-only btn-pill btn btn-outline-danger"><i class="pe-7s-trash btn-icon-wrapper"> </i></button>
-                                    </form>
-                                    
-                                </td>
-                            </tr>
-                        @endforeach
-                    </tbody>
-                </table>
+        </div>
+
+    </div>
+
+
+    @section('modal')
+    <div class="modal fade" id="deleteModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">¿Estás seguro de que quieres eliminar este proveedor?</h5>
+                    <button class="close" type="button" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">×</span>
+                    </button>
+                </div>
+           
+                <div class="modal-body">Confirme si desea Eliminar el proveedor. </div>
+                
+                    <div class="modal-footer">
+                    <button class="btn btn-primary" type="button" data-dismiss="modal">Cerrar</button>
+                    @if ($cont>0)
+                    <form method="POST" action="{{route('proveedors.destroy', $prov->id)}}">
+                        @method('delete')
+                        @csrf
+                        {{-- <input type="hidden" id="proveedor_id" name="proveedor_id" value=""> --}}
+                        <a class="btn btn-danger" style="color:White" role="button" onclick="$(this).closest('form').submit();">Confirmar</a>
+                    </form>
+                    @endif
+                    
+    
+                </div>
             </div>
         </div>
     </div>
-</div>
+    @endsection
+
 @endsection

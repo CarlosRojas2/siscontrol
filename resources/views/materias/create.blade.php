@@ -63,7 +63,7 @@
                                         <div class="col-lg">
                                             <p class="mg-b-10">Importe total*</p>
                                             <input type="hidden" id="importe" name="importe">
-                                            <input id="importever" name="importever" class="form-control" placeholder="S/" type="number">
+                                            <input id="importever" name="importever" class="form-control" placeholder="S/" type="number" disabled="true">
                                         </div>
                                     </div>
                                     <div class="form-group row justify-content-end mb-0" align="center">

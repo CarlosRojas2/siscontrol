@@ -1,36 +1,61 @@
 @extends('includes/base')
 @section('content')
-<div class="app-main__outer">
-    <div class="app-main__inner">
-        <div class="app-page-title">
-            <div class="page-title-wrapper">
-                <div class="page-title-heading">
-                    <div class="page-title-icon">
-                        <i class="lnr-picture text-danger"></i>
-                    </div>
-                    <div>Nueva categoría
-                        <div class="page-title-subheading">Agregar nueva categoría.</div>
+
+<div class="main-content side-content pt-0">
+        <div class="container-fluid">
+            <div class="inner-body">
+
+                <!-- Page Header -->
+                <div class="page-header">
+                    <div>
+                        <h1 class="main-content-title tx-24 mg-b-5">REGISTRAR NUEVA CATEGORÍA</h1><br>
+                        <ol class="breadcrumb">
+                            <li class="breadcrumb-item"><a href="{{ url('/dashboard') }}">Inicio</a></li>
+                            <li class="breadcrumb-item active" aria-current="page">Categorias</li>
+                        </ol>
                     </div>
                 </div>
-                <div class="page-title-actions">
-                    <a type="button" href="{{route('categorias.index')}}" data-toggle="tooltip" title="Agregar categoría" data-placement="bottom"
-                        class="mb-2 mr-2 btn-hover-shine btn btn-success">Ver ctegorías 
-                        <i class="fa fa-plus-square"></i>
-                    </a>
-                </div>     
-            </div>
-        </div>        
-        <div class="main-card mb-3 card">
-            <div class="card-body">
-                <form id="categorias" class="col-md-10 mx-auto" method="POST" action="{{route('categorias.store')}}">
-                    @csrf
-                    @include('categorias/_form')
-                    
-                    <div class="form-group" align="center">
-                        <button type="submit" class="mb-2 mr-2 btn-hover-shine btn btn-alternate" value="guardar">Registrar</button>
-                        <a type="submit" href="{{route('categorias.index')}}"  class="mb-2 mr-2 btn-hover-shine btn btn-light" name="signup" value="Sign up">Cancelar</a>
+                @if ($errors->any())
+                    <div class="alert alert-danger">
+                        <ul>
+                            @foreach ($errors->all() as $error)
+                                <li>{{ $error }}</li>
+                            @endforeach
+                        </ul>
                     </div>
-                </form>
+                @endif      
+                <div class="main-card mb-3 card">
+                    <div class="card-body">
+                        <form class="col-md-10 mx-auto" method="POST" action="{{route('categorias.index')}}" enctype="multipart/form-data">
+                            {{ csrf_field() }}
+                            <div class="row">
+                                <div class="col-lg-12 col-md-12 col-sm-12">
+                                    <div class="form-group">
+                                        <label for="nombre">Nombre</label>
+                                        <div>
+                                            <input type="text" class="form-control" name="nombre" placeholder="Nombre ..." value="{{ old('nombre') }}" required maxlength="60">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-lg-12 col-md-12 col-sm-12">
+                                    <div class="form-group">
+                                        <label for="descripcion">Descripción</label>
+                                        <div>
+                                            <input type="text" class="form-control" name="descripcion" placeholder="Descripcion ... " value="{{ old('descripcion') }}" required maxlength="60">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="form-group" align="center">
+                                <button type="submit" class="btn btn-success">Registrar</button>
+                                <a type="submit" href="{{route('categorias.index')}}"  class="btn btn-danger">Cancelar</a>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+                                    
+      
             </div>
         </div>
     </div>

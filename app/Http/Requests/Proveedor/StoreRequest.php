@@ -24,10 +24,10 @@ class StoreRequest extends FormRequest
     public function rules()
     {
         return [
-            'nombre'=>'required|string|max:255',
-            'email'=>'required|email|string|max:255|unique:proveedors',
+            'nombre'=>'required|string|max:60',
+            'email'=>'required|email|string|max:60|unique:proveedors',
             'numero_ruc'=>'required|string|max:11|min:11|unique:proveedors',
-            'direccion'=>'nullable|string|max:255',
+            'direccion'=>'nullable|string|max:60',
             'telefono'=>'required|string|max:9|min:9|unique:proveedors',
         ];
     }
@@ -36,33 +36,33 @@ class StoreRequest extends FormRequest
         return [
             'nombre.required'=>'Este campo es requerido.',
             'nombre.string'=>'El valor no es correcto.',
-            'nombre.max'=>'Solo se permite 50 caracteres.',
+            'nombre.max'=>'El nombre Solo permite 60 caracteres.',
 
 
             'email.required'=>'Este campo es requerido.',
             'email.email'=>'No es un correo electrónico.',
             'email.string'=>'El valor no es correcto.',
-            'email.max'=>'Solo se permite 255 caracteres.',
-            'email.unique'=>'Ya se encuentra registrado.',
+            'email.max'=>'EL email solo permite 60 caracteres.',
+            'email.unique'=>'Este email ya se encuentra registrado.',
 
 
 
             'numero_ruc.required'=>'Este campo es requerido.',
             'numero_ruc.string'=>'El valor no es correcto.',
-            'numero_ruc.max'=>'Solo se permite 50 caracteres.',
-            'numero_ruc.min'=>'Se requiere de 11 caracteres.',
-            'numero_ruc.unique'=>'Ya se encuentra registrado.',
+            'numero_ruc.max'=>'El RUC requiere de 11 caracteres.',
+            'numero_ruc.min'=>'El RUC requiere de 11 caracteres.',
+            'numero_ruc.unique'=>'Este RUC ya se encuentra registrado.',
 
 
             'direccion.string'=>'El valor no es correcto.',
-            'direccion.max'=>'Solo se permite 255 caracteres.',
+            'direccion.max'=>'La dirección Solo permite 60 caracteres.',
 
 
             'telefono.required'=>'Este campo es requerido.',
             'telefono.string'=>'El valor no es correcto.',
-            'telefono.max'=>'Solo se permite 9 caracteres.',
-            'telefono.min'=>'Se requiere de 9 caracteres.',
-            'telefono.unique'=>'Ya se encuentra registrado.',
+            'telefono.max'=>'El telefono solo permite 9 caracteres.',
+            'telefono.min'=>'El telefono requiere de 9 caracteres.',
+            'telefono.unique'=>'Este número de telefono ya se encuentra registrado.',
         ];
     }
 }
