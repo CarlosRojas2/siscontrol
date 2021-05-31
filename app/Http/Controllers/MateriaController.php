@@ -45,6 +45,7 @@ class MateriaController extends Controller
 
     public function update(Request $request, Materia $materia)
     {
+        $materia->producto_stock($request->producto_id, $request->refe_pro);
         $materia->update($request->all());
         return redirect()->route('materias.index');
     }
