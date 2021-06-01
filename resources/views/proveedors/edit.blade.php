@@ -67,7 +67,7 @@
                             
                             <div class="form-group" align="center">
                                 <button type="submit" class="btn btn-success">Actualizar</button>
-                                <a type="submit" href="/proveedors"  class="btn btn-danger">Cancelar</a>
+                                <a type="submit" href="{{route('proveedors.index')}}"  class="btn btn-danger">Cancelar</a>
                             </div>
                         </form>
                     </div>
