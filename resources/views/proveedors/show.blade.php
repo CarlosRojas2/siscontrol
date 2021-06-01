@@ -9,7 +9,7 @@
                 <!-- Page Header -->
                 <div class="page-header">
                     <div>
-                        <h1 class="main-content-title tx-24 mg-b-5">DATOS DE LA PROVEEDORES {{$proveedor->id}}</h1><br>
+                        <h1 class="main-content-title tx-24 mg-b-5">DATOS DEL PROVEEDORES {{$proveedor->id}}</h1><br>
                         <ol class="breadcrumb">
                             <li class="breadcrumb-item"><a href="{{ url('/dashboard') }}">Inicio</a></li>
                             <li class="breadcrumb-item active" aria-current="page">proveedors</li>
