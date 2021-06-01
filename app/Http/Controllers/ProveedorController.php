@@ -15,8 +15,7 @@ class ProveedorController extends Controller
         where('estado','=','1')
         ->orderBy('id', 'asc')
         ->get();
-        $cont= count($proveedors);
-        return view('proveedors.index', ['proveedors'=>$proveedors])->with('n',$n)->with('cont',$cont);
+        return view('proveedors.index', ['proveedors'=>$proveedors])->with('n',$n);
     }
     public function create()
     {
