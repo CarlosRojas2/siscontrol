@@ -36,7 +36,7 @@ class ProveedorController extends Controller
     }
     public function show(proveedor $proveedor)
     {
-        
+        return view('proveedors.show',['proveedor'=>$proveedor]);
     }
     public function edit(Proveedor $proveedor)
     {   

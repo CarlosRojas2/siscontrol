@@ -36,7 +36,7 @@ class CategoriaController extends Controller
     }
     public function show(Categoria $categoria)
     {
-        
+        return view('categorias.show',['categoria'=>$categoria]);
     }
     public function edit( Categoria $categoria)
     {   

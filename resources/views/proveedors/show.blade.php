@@ -9,24 +9,27 @@
                 <!-- Page Header -->
                 <div class="page-header">
                     <div>
-                        <h1 class="main-content-title tx-24 mg-b-5">DATOS DE LA CATEGORÍA {{$categoria->id}}</h1><br>
+                        <h1 class="main-content-title tx-24 mg-b-5">DATOS DE LA PROVEEDORES {{$proveedor->id}}</h1><br>
                         <ol class="breadcrumb">
                             <li class="breadcrumb-item"><a href="{{ url('/dashboard') }}">Inicio</a></li>
-                            <li class="breadcrumb-item active" aria-current="page">Categorias</li>
+                            <li class="breadcrumb-item active" aria-current="page">proveedors</li>
                         </ol>
                     </div>
                 </div>
                 <div class="main-card mb-3 card">
                     <div class="card-body">
-                            <h4>Nombre: {{$categoria['nombre']}}</h4>  
-                            <h4>Descripcion: {{$categoria['descripcion']}}</h4>    
-                            <h4>Fecha de Registro: {{$categoria['created_at']}}</h4>
-                            @if ($categoria->estado=='1')
+                            <h4>Nombre: {{$proveedor['nombre']}}</h4>  
+                            <h4>Email: {{$proveedor['email']}}</h4>    
+                            <h4>Numero de RUC: {{$proveedor['numero_ruc']}}</h4>    
+                            <h4>Telefono: {{$proveedor['telefono']}}</h4>    
+                            <h4>Direccion: {{$proveedor['direccion']}}</h4>    
+                            <h4>Fecha de Registro: {{$proveedor['created_at']}}</h4>
+                            @if ($proveedor->estado=='1')
                                 <h4>Estado: {{'Activo'}}</h4> 
                             @endif 
                     </div>
                     <div class="card-footer">
-                        <a href="{{route('categorias.index')}}" class="btn btn-info">Atras</a>
+                        <a href="{{route('proveedors.index')}}" class="btn btn-info">Atras</a>
                     </div>
                 </div>
             </div>

@@ -59,7 +59,8 @@
                                                     <td>{{$prov->numero_ruc}}</td>
                                                     <td>{{$prov->telefono}}</td>
                                                     <td>
-                                                        <a href="{{route('proveedors.edit', $prov->id)}}" class="btn btn-sm btn-warning"><i class="fe fe-edit-2"></i></a>
+                                                        <a href="{{route('proveedors.show', $prov->id)}}" class="btn btn-sm btn-warning"><i class="fe fe-eye"></i></a>
+                                                        <a href="{{route('proveedors.edit', $prov->id)}}" class="btn btn-sm btn-success"><i class="fe fe-edit-2"></i></a>
                                                         <a href="#" class="btn btn-sm btn-danger" data-toggle="modal" data-target="#deleteModal"><i class="fe fe-trash"></i></a>
                                                     </td>
                                                 </tr>
