@@ -31,6 +31,9 @@
 		<!-- Color css-->
 		<link id="theme" rel="stylesheet" type="text/css" media="all" href="{{asset('assets/css/colors/color.css')}}">
 
+		<!-- Otros css-->
+		<link id="theme" rel="stylesheet" type="text/css" media="all" href="{{asset('css/my_otros.css')}}">
+
 		<!-- Select2 css-->
         <link href="{{asset('assets/plugins/select2/css/select2.min.css')}}" rel="stylesheet">
 

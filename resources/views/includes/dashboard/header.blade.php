@@ -15,17 +15,17 @@
             
             <div class="dropdown main-profile-menu">
                 <a class="d-flex" href="#">
-                    <span class="main-img-user" ><img alt="avatar" src="{{asset('assets/img/users/1.jpg')}}"></span>
+                    <span class="main-img-user" ><img alt="avatar" src="{{asset('assets/img/users/1.png')}}"></span>
                 </a>
                 <div class="dropdown-menu">
                     <div class="header-navheading">
-                        <h6 class="main-notification-title">{{ Auth::user()->name }}</h6>
-                        <p class="main-notification-text">Admin</p>
+                        <h6 class="main-notification-title o_o_text_minucula">{{ strtolower(Auth::user()->name) }}</h6>
+                        <p class="main-notification-text">Administrador</p>
                     </div>
                     <form method="POST" action="{{ route('logout') }}">
                         @csrf
 
-                        <button class="dropdown-item border-top" :href="route('logout')"
+                        <button class="dropdown-item border-top o_o_bt_salir" :href="route('logout')"
                                 onclick="event.preventDefault();
                                             this.closest('form').submit();">
                             {{ __('Cerrar Sesión') }}

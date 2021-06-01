@@ -9,16 +9,16 @@
                 <!-- Page Header -->
                 <div class="page-header">
                     <div>
-                        <h2 class="main-content-title tx-24 mg-b-5">Bienvenido al Dashboard</h2>
+                        <h2 class="main-content-title tx-24 mg-b-5">Sección de productos</h2>
                         <ol class="breadcrumb">
-                            <li class="breadcrumb-item"><a href="#">Inicio</a></li>
-                            <li class="breadcrumb-item active" aria-current="page">Proyecto de prácticas</li>
+                            <li class="breadcrumb-item"><a href="{{route('dashboard')}}">Inicio</a></li>
+                            <li class="breadcrumb-item active" aria-current="page">Productos</li>
                         </ol>
                     </div>
                     <div class="d-flex">
                         <div class="justify-content-center text-white">
-                            <a type="button" href="{{route('productos.index')}}" class="btn btn-primary my-2 btn-icon-text">
-                            <i class="fe fe-download-cloud mr-2"></i> Ver Productos
+                            <a type="button" href="{{route('productos.index')}}" class="o_o_pd_top_7 btn btn-primary my-2 btn-icon-text">
+                            <i class="si si-layers mr-2 o_o_ico_btn"></i> Ver Productos
                             </a>
                         </div>
                     </div>
@@ -32,7 +32,7 @@
                             <div class="card-body">
                                 <div>
                                     <h6 class="main-content-label mb-1">Registros de productos</h6>
-                                    <p class="text-muted card-sub-title">Registrar nuevo producto.</p>
+                                    <p class="text-muted card-sub-title">Complete el formulario para registrar una nueva Materia Prima.</p>
                                 </div>
                                 <form id="productos" method="POST" action="{{route('productos.store')}}">
                                     @csrf

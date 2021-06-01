@@ -5,31 +5,35 @@
         <div class="container-fluid">
             <div class="inner-body">
 
-                <br>@include('flash::message')
+                @include('flash::message')
                 <!-- Page Header -->
                 <div class="page-header">
                     <div>
-                        <h1 class="main-content-title tx-24 mg-b-5">LISTADO DE CATEGORÍAS</h1><br>
+                        <h2 class="main-content-title tx-24 mg-b-5">Sección de Categorías</h2>
                         <ol class="breadcrumb">
-                            <li class="breadcrumb-item"><a href="{{ url('/dashboard') }}">Inicio</a></li>
-                            <li class="breadcrumb-item active" aria-current="page">Categorias</li>
+                            <li class="breadcrumb-item"><a href="{{route('dashboard')}}">Inicio</a></li>
+                            <li class="breadcrumb-item active" aria-current="page"> Categorías</li>
                         </ol>
                     </div>
                     <div class="d-flex">
-                        <div class="justify-content-center">
-                            <a type="button" href="{{route('categorias.create')}}" data-toggle="tooltip" title="Agregar categoría" data-placement="bottom"
-                        class="mb-2 mr-2 btn-hover-shine btn btn-primary">
-                            <i class="fe fe-download-cloud mr-2"></i> Nueva Categoria
-                        </a>
+                        <div class="justify-content-center text-white">
+                            <a type="button" href="{{route('categorias.create')}}" class="o_o_pd_top_7 btn btn-primary my-2 btn-icon-text">
+                            <i class="fe fe-plus mr-2"></i>Registrar Categoría
+                            </a>
                         </div>
                     </div>
                 </div>
+                <!--Row-->
                 <div class="row row-sm">
                     <div class="col-lg-12">
-                        <div class="card custom-card">
+                        <div class="card custom-card overflow-hidden">
                             <div class="card-body">
+                                <div>
+                                    <h6 class="main-content-label mb-1">Listado de Categorías</h6>
+                                    <p class="text-muted card-sub-title">Eres libre de exportar los datos</p>
+                                </div>
                                 <div class="table-responsive">
-                                    <table class="table table-bordered" id="example2" width="100%" cellspacing="0">
+                                    <table id="exportexample" class="table table-bordered border-t0 key-buttons text-nowrap w-100" >
                                         <thead>
                                             <tr>
                                                 <th>#</th>
@@ -38,14 +42,6 @@
                                                 <th>Opciones</th>
                                             </tr>
                                         </thead>
-                                        <tfoot>
-                                            <tr>
-                                                <th>#</th>
-                                                <th>Nombre</th>
-                                                <th>Descripción</th>
-                                                <th>Opciones</th>
-                                            </tr>
-                                        </tfoot>
                                         <tbody>
                                             @foreach ($categorias as $cat)
                                                 <tr>
@@ -53,7 +49,7 @@
                                                     <td>{{$cat->nombre}}</a></td>
                                                     <td>{{$cat->descripcion}}</td>
                                                     <td>
-                                                        <a href="{{route('categorias.edit', $cat->id)}}" class="btn btn-sm btn-warning"><i class="fe fe-edit-2"></i></a>
+                                                        <a href="{{route('categorias.edit', $cat->id)}}" class="btn btn-sm btn-success"><i class="fe fe-edit-2"></i></a>
                                                         <a href="#" class="btn btn-sm btn-danger" data-toggle="modal" data-target="#deleteModal" data-categoriaid="{{$cat['id']}}"><i class="fe fe-trash"></i></a>
                                                         </form>
                                                     </td>
@@ -66,6 +62,7 @@
                         </div>
                     </div>
                 </div>
+                <!-- Row end -->
             </div>
         </div>
     </div>

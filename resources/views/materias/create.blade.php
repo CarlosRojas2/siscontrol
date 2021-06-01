@@ -9,16 +9,16 @@
                 <!-- Page Header -->
                 <div class="page-header">
                     <div>
-                        <h2 class="main-content-title tx-24 mg-b-5">Sección de materia prima</h2>
-                        <ol class="breadcrumb">
+                        <h2 class="main-content-title tx-24 mg-b-5">Sección de Materia Prima</h2>
+                       <ol class="breadcrumb">
                             <li class="breadcrumb-item"><a href="{{route('dashboard')}}">Inicio</a></li>
-                            <li class="breadcrumb-item active" aria-current="page">Proyecto de prácticas</li>
+                            <li class="breadcrumb-item active" aria-current="page">Materia prima</li>
                         </ol>
                     </div>
-                    <div class="d-flex">
+                    <div class="d-flex"> 
                         <div class="justify-content-center text-white">
-                            <a type="button" href="{{route('materias.index')}}" class="btn btn-primary my-2 btn-icon-text">
-                            <i class="fe fe-eye mr-2"></i> Ver Materias
+                            <a type="button" href="{{route('materias.index')}}" class="o_o_pd_top_7 btn btn-primary my-2 btn-icon-text">
+                            <i class="si si-layers mr-2 o_o_ico_btn"></i> Ver Materias
                             </a>
                         </div>
                     </div>
@@ -32,11 +32,10 @@
                             <div class="card-body">
                                 <div>
                                     <h6 class="main-content-label mb-1">Registro de materia prima</h6>
-                                    <p class="text-muted card-sub-title">Registrar nueva materia prima.</p>
+                                    <p class="text-muted card-sub-title">Complete el formulario para registrar una nueva Materia Prima.</p>
                                 </div>
                                 <form id="materias" method="POST" action="{{route('materias.store')}}">
                                     @csrf
-                                    
                                     <div class="row row-sm mg-t-20">
                                         <div class="col-lg">
                                             <p class="mg-b-10">Producto*</p>

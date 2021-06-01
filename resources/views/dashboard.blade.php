@@ -9,10 +9,10 @@
                 <!-- Page Header -->
                 <div class="page-header">
                     <div>
-                        <h2 class="main-content-title tx-24 mg-b-5">Bienvenido al Dashboard</h2>
+                        <h2 class="main-content-title tx-24 mg-b-5">Bienvenido Sr(a). <span class="o_o_text_minucula">{{ strtolower(Auth::user()->name) }}</span></h2>
                         <ol class="breadcrumb">
-                            <li class="breadcrumb-item"><a href="#">Inicio</a></li>
-                            <li class="breadcrumb-item active" aria-current="page">Proyecto de prácticas</li>
+                            <li class="breadcrumb-item"><a href="#">SisCodetime</a></li>
+                            <li class="breadcrumb-item active" aria-current="page">Inicio</li>
                         </ol>
                     </div>
                     <div class="d-flex">
@@ -20,9 +20,9 @@
                             <button type="button" class="btn btn-white btn-icon-text my-2 mr-2">
                             <i class="fe fe-download mr-2"></i> Import
                             </button>
-                            <button type="button" class="btn btn-white btn-icon-text my-2 mr-2">
+                            <!--<button type="button" class="btn btn-white btn-icon-text my-2 mr-2">
                             <i class="fe fe-filter mr-2"></i> Filter
-                            </button>
+                            </button>-->
                             <button type="button" class="btn btn-primary my-2 btn-icon-text">
                             <i class="fe fe-download-cloud mr-2"></i> Download Report
                             </button>
@@ -43,12 +43,11 @@
                                         <div class="row align-items-center">
                                             <div class="offset-xl-3 offset-sm-6 col-xl-8 col-sm-6 col-12 img-bg ">
                                                 <h4 class="d-flex  mb-3">
-                                                    <span class="font-weight-bold text-white ">Sonia Taylor!</span>
+                                                    <span class="font-weight-bold text-white ">Datos actuales!</span>
                                                 </h4>
-                                                <p class="tx-white-7 mb-1">You have two projects to finish, you had completed <b class="text-warning">57%</b> from your montly level,
-                                                Keep going to your level
+                                                <p class="tx-white-7 mb-1">Desde este apartado podrá visualizar de manera grafica los datos actuales del sistema.
                                             </div>
-                                            <img src="assets/img/pngs/work3.png" alt="user-img" class="wd-200">
+                                            <img src="assets/img/pngs/codetime.png" alt="user-img" class="wd-200">
                                         </div>
                                     </div>
                                 </div>

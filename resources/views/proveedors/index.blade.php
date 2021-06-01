@@ -1,35 +1,40 @@
 @extends('includes/base')
-@section('content')
+@section('content') 
 
     <div class="main-content side-content pt-0">
         <div class="container-fluid">
             <div class="inner-body">
-
-                <br>@include('flash::message')
+ 
+                @include('flash::message')
                 <!-- Page Header -->
                 <div class="page-header">
                     <div>
-                        <h1 class="main-content-title tx-24 mg-b-5">LISTADO DE PROVEEDORES</h1><br>
+                        <h2 class="main-content-title tx-24 mg-b-5">Sección de Proveedores</h2>
                         <ol class="breadcrumb">
-                            <li class="breadcrumb-item"><a href="{{ url('/dashboard') }}">Inicio</a></li>
-                            <li class="breadcrumb-item active" aria-current="page">proveedores</li>
+                            <li class="breadcrumb-item"><a href="{{route('dashboard')}}">Inicio</a></li>
+                            <li class="breadcrumb-item active" aria-current="page"> Proveedores</li>
                         </ol>
                     </div>
                     <div class="d-flex">
-                        <div class="justify-content-center">
-                            <a type="button" href="{{route('proveedors.create')}}" data-toggle="tooltip" title="Agregar proveedor" data-placement="bottom"
-                        class="mb-2 mr-2 btn-hover-shine btn btn-primary">
-                            <i class="fe fe-download-cloud mr-2"></i> Nuevo proveedor
-                        </a>
+                        <div class="justify-content-center text-white">
+                            <a type="button" href="{{route('proveedors.create')}}" class="o_o_pd_top_7 btn btn-primary my-2 btn-icon-text">
+                            <i class="mdi mdi-account-plus mr-2"></i>Registrar proveedor
+                            </a>
                         </div>
                     </div>
                 </div>
+                <!-- End Page Header -->
+                <!--Row-->
                 <div class="row row-sm">
                     <div class="col-lg-12">
-                        <div class="card custom-card">
+                        <div class="card custom-card overflow-hidden">
                             <div class="card-body">
+                                <div>
+                                    <h6 class="main-content-label mb-1">Listado de proveedores</h6>
+                                    <p class="text-muted card-sub-title">Eres libre de exportar los datos</p>
+                                </div>
                                 <div class="table-responsive">
-                                    <table class="table table-bordered" id="example2" width="100%" cellspacing="0">
+                                    <table id="exportexample" class="table table-bordered border-t0 key-buttons text-nowrap w-100" >
                                         <thead>
                                             <tr>
                                                 <th>#</th>
@@ -40,16 +45,6 @@
                                                 <th>Opciones</th>
                                             </tr>
                                         </thead>
-                                        <tfoot>
-                                            <tr>
-                                                <th>#</th>
-                                                <th>Nombre</th>
-                                                <th>Email</th>                                    
-                                                <th>Numero de RUC</th>
-                                                <th>Teléfono</th>
-                                                <th>Opciones</th>
-                                            </tr>
-                                        </tfoot>
                                         <tbody>
                                             @foreach ($proveedors as $prov)
                                                 <tr>
@@ -59,7 +54,7 @@
                                                     <td>{{$prov->numero_ruc}}</td>
                                                     <td>{{$prov->telefono}}</td>
                                                     <td>
-                                                        <a href="{{route('proveedors.edit', $prov->id)}}" class="btn btn-sm btn-warning"><i class="fe fe-edit-2"></i></a>
+                                                        <a href="{{route('proveedors.edit', $prov->id)}}" class="btn btn-sm btn-success"><i class="fe fe-edit-2"></i></a>
                                                         <a href="#" class="btn btn-sm btn-danger" data-toggle="modal" data-target="#deleteModal" data-proveedorid="{{$prov['id']}}"><i class="fe fe-trash"></i></a>
                                                     </td>
                                                 </tr>
@@ -71,6 +66,7 @@
                         </div>
                     </div>
                 </div>
+                <!-- Row end -->
             </div>
         </div>
 

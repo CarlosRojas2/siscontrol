@@ -17,8 +17,8 @@
                     </div>
                     <div class="d-flex">
                         <div class="justify-content-center text-white">
-                            <a type="button" href="{{route('productos.create')}}" class="btn btn-primary my-2 btn-icon-text">
-                            <i class="fe fe-download-cloud mr-2"></i> Nuevo Producto
+                            <a type="button" href="{{route('productos.create')}}" class="o_o_pd_top_7 btn btn-primary my-2 btn-icon-text">
+                            <i class="fe fe-plus mr-2 o_o_ico_btn"></i> Nuevo Producto
                             </a>
                         </div>
                     </div>
@@ -32,7 +32,7 @@
                             <div class="card-body">
                                 <div>
                                     <h6 class="main-content-label mb-1">Listado de productos</h6>
-                                    <p class="text-muted card-sub-title">Eres libre de exportar los datos:</p>
+                                    <p class="text-muted card-sub-title">Eres libre de exportar los datos</p>
                                 </div>
                                 <div class="table-responsive">
                                     <table id="exportexample" class="table table-bordered border-t0 key-buttons text-nowrap w-100" >

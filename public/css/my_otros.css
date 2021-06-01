@@ -1,0 +1,17 @@
+.o_o_text_minucula{
+	text-transform: capitalize;
+}
+.o_o_bt_salir{
+	text-align: center !important;
+	display: inline !important;
+}
+.o_o_pd_lef_15em{
+	padding-left: 15em;
+}
+.o_o_pd_top_7{
+	padding-top: 7px;
+}
+.o_o_ico_btn{
+	top: 1px;
+    position: relative;
+}

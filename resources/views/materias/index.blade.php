@@ -3,13 +3,13 @@
 
     <div class="main-content side-content pt-0">
         <div class="container-fluid">
-            <div class="inner-body">
+            <div class="inner-body"> 
 
 
                 <!-- Page Header -->
                 <div class="page-header">
                     <div>
-                        <h2 class="main-content-title tx-24 mg-b-5">Sección de materia prima</h2>
+                        <h2 class="main-content-title tx-24 mg-b-5">Sección de Materia Prima</h2>
                         <ol class="breadcrumb">
                             <li class="breadcrumb-item"><a href="{{route('dashboard')}}">Inicio</a></li>
                             <li class="breadcrumb-item active" aria-current="page">Materia prima</li>
@@ -17,8 +17,8 @@
                     </div>
                     <div class="d-flex">
                         <div class="justify-content-center text-white">
-                            <a type="button" href="{{route('materias.create')}}" class="btn btn-primary my-2 btn-icon-text">
-                            <i class="fe fe-plus mr-2"></i> Registrar materia
+                            <a type="button" href="{{route('materias.create')}}" class="o_o_pd_top_7 btn btn-primary my-2 btn-icon-text">
+                            <i class="fe fe-plus mr-2 o_o_ico_btn"></i> Registrar materia
                             </a>
                         </div>
                     </div>
@@ -32,13 +32,13 @@
                             <div class="card-body">
                                 <div>
                                     <h6 class="main-content-label mb-1">Listado de materias</h6>
-                                    <p class="text-muted card-sub-title">Eres libre de exportar los datos:</p>
+                                    <p class="text-muted card-sub-title">Eres libre de exportar los datos</p>
                                 </div>
                                 <div class="table-responsive">
                                     <table id="exportexample" class="table table-bordered border-t0 key-buttons text-nowrap w-100" >
                                         <thead>
                                             <tr>
-                                                <th>Cod</th>
+                                                <th>#</th>
                                                 <th>Nombre</th>
                                                 <th>Cantidad</th>
                                                 <th>Precio compra</th>
