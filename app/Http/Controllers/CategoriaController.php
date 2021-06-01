@@ -18,8 +18,7 @@ class CategoriaController extends Controller
         where('estado','=','1')
         ->orderBy('id', 'asc')
         ->get();
-        $cont= count($categorias);
-        return view('categorias.index', ['categorias'=>$categorias])->with('n',$n)->with('cont',$cont);
+        return view('categorias.index', ['categorias'=>$categorias])->with('n',$n);
     }
     public function create()
     {
@@ -37,7 +36,7 @@ class CategoriaController extends Controller
     }
     public function show(Categoria $categoria)
     {
-        
+        return view('categorias.show',['categoria'=>$categoria]);
     }
     public function edit( Categoria $categoria)
     {   

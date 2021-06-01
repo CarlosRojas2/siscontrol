@@ -49,8 +49,19 @@
                                                     <td>{{$cat->nombre}}</a></td>
                                                     <td>{{$cat->descripcion}}</td>
                                                     <td>
-                                                        <a href="{{route('categorias.edit', $cat->id)}}" class="btn btn-sm btn-success"><i class="fe fe-edit-2"></i></a>
-                                                        <a href="#" class="btn btn-sm btn-danger" data-toggle="modal" data-target="#deleteModal" data-categoriaid="{{$cat['id']}}"><i class="fe fe-trash"></i></a>
+                                                        <form action="{{route('categorias.destroy', $cat)}}" class="eliminar-categoria" method="POST">
+                                                            @csrf
+                                                            @method('delete')
+
+                                                            <a href="{{route('categorias.show', $cat->id)}}" class="btn btn-sm btn-warning">
+                                                                <i class="fe fe-eye"></i>
+                                                            </a>
+                                                            <a href="{{route('categorias.edit', $cat->id)}}" class="btn btn-sm btn-success">
+                                                                <i class="fe fe-edit-2"></i>
+                                                            </a>
+                                                            <button tipe="submit" class="btn btn-sm btn-danger">
+                                                                <i class="fe fe-trash"></i>
+                                                            </button>
                                                         </form>
                                                     </td>
                                                 </tr>
@@ -66,35 +77,30 @@
             </div>
         </div>
     </div>
-    @section('modal')
-    <div class="modal fade" id="deleteModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-        <div class="modal-dialog" role="document">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLabel">¿Estás seguro de que quieres eliminar esta categoria?</h5>
-                    <button class="close" type="button" data-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true">×</span>
-                    </button>
-                </div>
-           
-                <div class="modal-body">Confirme si desea Eliminar la categoria. </div>
-                
-                    <div class="modal-footer">
-                    <button class="btn btn-primary" type="button" data-dismiss="modal">Cerrar</button>
-                    @if ($cont>0)
-                    <form method="POST" action="{{route('categorias.destroy', $cat->id)}}">
-                        @method('delete')
-                        @csrf
-                        {{-- <input type="hidden" id="categoria_id" name="categoria_id" value=""> --}}
-                        <a class="btn btn-danger" style="color:White" role="button" onclick="$(this).closest('form').submit();">Confirmar</a>
-                    </form>
-                    @endif
-                    
-    
-                </div>
-            </div>
-        </div>
-    </div>
-    @endsection
+@endsection
+@section('scripts')
+<script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script>
+
+        $('.eliminar-categoria').submit(function(e){
+            e.preventDefault();
+            swal.fire({
+              title: "¿Estas seguro?",
+              text: "Confirmar si deceas Elimnar",
+              type: "warning",
+              showCancelButton: true,
+              confirmButtonClass: "btn btn-danger",
+              confirmButtonText: "Confirmar",
+              cancelButtonText: "Cancelar",
+              closeOnConfirm: false
+            }).then((result)=>{
+                if(result.value){
+                    this.submit();
+                    // swal.fire("Deleted!", "Your imaginary file has been deleted.", "success")
+                }
+            })
+            
+        })
+    </script>
 
 @endsection

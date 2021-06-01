@@ -54,8 +54,9 @@
                                                     <td>{{$prov->numero_ruc}}</td>
                                                     <td>{{$prov->telefono}}</td>
                                                     <td>
+                                                        <a href="{{route('proveedors.show', $prov->id)}}" class="btn btn-sm btn-warning"><i class="fe fe-eye"></i></a>
                                                         <a href="{{route('proveedors.edit', $prov->id)}}" class="btn btn-sm btn-success"><i class="fe fe-edit-2"></i></a>
-                                                        <a href="#" class="btn btn-sm btn-danger" data-toggle="modal" data-target="#deleteModal" data-proveedorid="{{$prov['id']}}"><i class="fe fe-trash"></i></a>
+                                                        <a href="#" class="btn btn-sm btn-danger" data-toggle="modal" data-target="#deleteModal"><i class="fe fe-trash"></i></a>
                                                     </td>
                                                 </tr>
                                             @endforeach
@@ -78,17 +79,17 @@
         <div class="modal-dialog" role="document">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLabel">¿Estás seguro de que quieres eliminar este proveedor?</h5>
+                    <h5 class="modal-title" id="exampleModalLabel">¿Estás seguro que quieres eliminar este proveedor?</h5>
                     <button class="close" type="button" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">×</span>
                     </button>
                 </div>
            
-                <div class="modal-body">Confirme si desea Eliminar el proveedor. </div>
+                <div class="modal-body">Confirme si desea Eliminar el proveedor</div>
                 
                     <div class="modal-footer">
                     <button class="btn btn-primary" type="button" data-dismiss="modal">Cerrar</button>
-                    @if ($cont>0)
+                    @if (!empty($prov))
                     <form method="POST" action="{{route('proveedors.destroy', $prov->id)}}">
                         @method('delete')
                         @csrf
