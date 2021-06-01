@@ -23,15 +23,6 @@ class ProductoController extends Controller
     }
     public function store(StoreRequest $request)
     {
-        // $producto = new Producto();
-        // $producto->codigo = $producto->id;
-        // $producto->nombre = $request->nombre;
-        // $producto->categoria_id = $request->categoria_id;
-        // $producto->proveedor_id = $request->proveedor_id;
-
-        // print_r($producto);
-        // exit();
-        // $producto->save();
 
         $producto = Producto::create($request->all());
         $producto->update(['codigo'=>$producto->id]);
@@ -54,11 +45,15 @@ class ProductoController extends Controller
     }
     public function destroy(Producto $producto)
     {
-        $producto->delete();
-        return redirect()->route('productos.index')->with('eliminar','ok');
+        $estado =  $producto->relacionMateria($producto->id);
+        if($estado == 1)
+        {
+            return redirect()->route('productos.index')->with('eliminar','error');
+        }else{
+            $producto->delete();
+            return redirect()->route('productos.index')->with('eliminar','ok');
+        }
+        
+        
     }
-    // public function codigo(){
-    //     $productos = Producto::get();
-    //     return json_encode($productos);
-    // }
 }

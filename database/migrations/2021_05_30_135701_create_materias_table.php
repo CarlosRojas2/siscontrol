@@ -24,7 +24,7 @@ class CreateMateriasTable extends Migration
             $table->decimal('precio_compra', 12, 2);
             $table->decimal('importe', 12, 2);
             $table->enum('estado',['ACTIVO', 'INACTIVO'])->default('ACTIVO');
-            
+            $table->softDeletes();
             $table->timestamps();
         });
     }

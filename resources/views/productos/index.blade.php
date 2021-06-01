@@ -96,6 +96,19 @@
 @section('scripts')
 <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
+@if (session('eliminar')=='error')
+
+    <script>
+        Swal.fire({
+        icon: 'error',
+        title: 'UPS...',
+        text: '!Algo salio mal!',
+        footer: 'Acción denegada, el producto tiene stock en materias'
+        })
+    </script>
+    
+@endif
+
 @if (session('eliminar')=='ok')
     <script>
         swal.fire("¡Eliminado!", "El producto se eliminó con éxito.", "success")
