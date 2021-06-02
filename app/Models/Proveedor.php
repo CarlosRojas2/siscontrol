@@ -5,6 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
+use DB;
 
 class Proveedor extends Model
 {
@@ -26,5 +27,11 @@ class Proveedor extends Model
         'direccion',
         'telefono'
     ];
-
+    public function fk_proveedorProducto($id)
+    {
+        $productos = DB::table('productos')->where('proveedor_id', $id)->first();
+        if (!empty($productos)) {
+            return 1;
+        }
+    }
 }

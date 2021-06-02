@@ -5,7 +5,6 @@
         <div class="container-fluid">
             <div class="inner-body">
 
-                <br>@include('flash::message')
                 <!-- Page Header -->
                 <div class="page-header">
                     <div>
@@ -77,6 +76,25 @@
 @endsection
 @section('scripts')
 <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    
+@if (session('eliminar')=='error')
+
+    <script>
+        Swal.fire({
+        icon: 'error',
+        title: 'UPS...',
+        text: '!Algo salio mal!',
+        footer: 'Acción denegada, el proveedor tiene referencias en productos'
+        })
+    </script>
+    
+@endif
+
+@if (session('eliminar')=='ok')
+    <script>
+        swal.fire("¡Eliminado!", "El Proveedor se eliminó con éxito.", "success")
+    </script>
+@endif
     <script>
 
         $('.eliminar-proveedor').submit(function(e){
