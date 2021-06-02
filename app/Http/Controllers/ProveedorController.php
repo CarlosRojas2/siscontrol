@@ -28,7 +28,7 @@ class ProveedorController extends Controller
         $proveedor->telefono = $request->telefono;
         $proveedor->direccion = $request->direccion;
         $proveedor->save();
-        return redirect()->route('proveedors.index');
+        return redirect()->route('proveedors.index')->with('registrar','ok');
     }
     public function show(proveedor $proveedor)
     {
@@ -48,7 +48,7 @@ class ProveedorController extends Controller
         $proveedor->telefono = $request->telefono;
         $proveedor->direccion = $request->direccion;
         $proveedor->update();
-        return redirect()->route('proveedors.index');
+        return redirect()->route('proveedors.index')->with('editar','ok');
     }
     public function destroy(proveedor $proveedor)
     {

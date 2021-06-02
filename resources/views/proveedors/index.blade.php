@@ -77,7 +77,7 @@
 @section('scripts')
 <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     
-@if (session('eliminar')=='error')
+    @if (session('eliminar')=='error')
 
     <script>
         Swal.fire({
@@ -88,13 +88,24 @@
         })
     </script>
     
-@endif
+    @endif
 
-@if (session('eliminar')=='ok')
+    @if (session('eliminar')=='ok')
     <script>
-        swal.fire("¡Eliminado!", "El Proveedor se eliminó con éxito.", "success")
+        swal.fire("¡Eliminado!", "El Proveedor fue eliminado con éxito.", "success")
     </script>
-@endif
+    @endif
+
+    @if (session('registrar')=='ok')
+    <script>
+        swal.fire("¡Registrado!", "El proveedor fue registrado con éxito.", "success")
+    </script>
+    @endif
+    @if (session('editar')=='ok')
+    <script>
+        swal.fire("¡Editado!", "El proveedor fue editado con éxito.", "success")
+    </script>
+    @endif
     <script>
 
         $('.eliminar-proveedor').submit(function(e){

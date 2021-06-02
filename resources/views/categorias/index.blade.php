@@ -87,9 +87,21 @@
     
     @if (session('eliminar')=='ok')
         <script>
-            swal.fire("¡Eliminado!", "La categoria se eliminó con éxito.", "success")
+            swal.fire("¡Eliminado!", "La categoria fue eliminada con éxito.", "success")
         </script>
     @endif
+
+    @if (session('registrar')=='ok')
+    <script>
+        swal.fire("¡Registrado!", "La categoria fue registrada con éxito.", "success")
+    </script>
+    @endif
+    @if (session('editar')=='ok')
+    <script>
+        swal.fire("¡Editado!", "La categoria fue editada con éxito.", "success")
+    </script>
+    @endif
+
     
     <script>
         $('.eliminar-categoria').submit(function(e){

@@ -28,7 +28,7 @@ class CategoriaController extends Controller
         $categoria->nombre = $request->nombre;
         $categoria->descripcion = $request->descripcion;
         $categoria->save();
-        return redirect()->route('categorias.index');
+        return redirect()->route('categorias.index')->with('registrar','ok');
     }
     public function show(Categoria $categoria)
     {
@@ -44,7 +44,7 @@ class CategoriaController extends Controller
         $categoria->nombre = $request->nombre;
         $categoria->descripcion = $request->descripcion;
         $categoria->update();
-        return redirect()->route('categorias.index');
+        return redirect()->route('categorias.index')->with('editar','ok');
     }
     public function destroy(Categoria $categoria)
     {

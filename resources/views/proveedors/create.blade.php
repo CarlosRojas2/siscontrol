@@ -61,13 +61,13 @@
                                         <div class="col-md-6">
                                             <div class="position-relative form-group">
                                                 <label for="ruc" class="">Numero ruc</label>
-                                                <input name="numero_ruc" id="numero_ruc" placeholder="Numero ruc ..." type="number" class="form-control" value="{{ old('numero_ruc') }}" required maxlength="11">
+                                                <input name="numero_ruc" id="numero_ruc" placeholder="Numero ruc ..." type="number" class="form-control" value="{{ old('numero_ruc') }}" required>
                                             </div>
                                         </div>
                                         <div class="col-md-6">
                                             <div class="position-relative form-group">
                                                 <label for="telefono" class="">Teléfono</label>
-                                                <input name="telefono"  placeholder="Telefono ..." type="number" class="form-control" value="{{ old('telefono') }}" required maxlength="9">
+                                                <input name="telefono"  placeholder="Telefono ..." type="number" class="form-control" value="{{ old('telefono') }}" required>
                                             </div>
                                         </div>
                                         <div class="col-lg-12 col-md-12 col-sm-12">
