@@ -5,7 +5,7 @@
         <div class="container-fluid">
             <div class="inner-body">
 
-                @include('flash::message')
+                <br>@include('flash::message')
                 <!-- Page Header -->
                 <div class="page-header">
                     <div>
@@ -52,16 +52,9 @@
                                                         <form action="{{route('categorias.destroy', $cat)}}" class="eliminar-categoria" method="POST">
                                                             @csrf
                                                             @method('delete')
-
-                                                            <a href="{{route('categorias.show', $cat->id)}}" class="btn btn-sm btn-warning">
-                                                                <i class="fe fe-eye"></i>
-                                                            </a>
-                                                            <a href="{{route('categorias.edit', $cat->id)}}" class="btn btn-sm btn-success">
-                                                                <i class="fe fe-edit-2"></i>
-                                                            </a>
-                                                            <button tipe="submit" class="btn btn-sm btn-danger">
-                                                                <i class="fe fe-trash"></i>
-                                                            </button>
+                                                            <a href="{{route('categorias.show', $cat->id)}}" class="btn btn-sm btn-warning"><i class="fe fe-eye"></i></a>
+                                                            <a href="{{route('categorias.edit', $cat->id)}}" class="btn btn-sm btn-success"><i class="fe fe-edit-2"></i></a>
+                                                            <button tipe="submit" class="btn btn-sm btn-danger"><i class="fe fe-trash"></i></button>
                                                         </form>
                                                     </td>
                                                 </tr>

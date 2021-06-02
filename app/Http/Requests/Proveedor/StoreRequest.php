@@ -24,7 +24,7 @@ class StoreRequest extends FormRequest
     public function rules()
     {
         return [
-            'nombre'=>'required|string|max:60',
+            'nombre'=>'required|string|max:60|unique:proveedors',
             'email'=>'required|email|string|max:60|unique:proveedors',
             'numero_ruc'=>'required|string|max:11|min:11|unique:proveedors',
             'direccion'=>'nullable|string|max:60',
@@ -35,6 +35,7 @@ class StoreRequest extends FormRequest
     {
         return [
             'nombre.required'=>'Este campo es requerido.',
+            'nombre.unique'=>'Ya existe un proveedor con este nombre.',
             'nombre.string'=>'El valor no es correcto.',
             'nombre.max'=>'El nombre Solo permite 60 caracteres.',
 

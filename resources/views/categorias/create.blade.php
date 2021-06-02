@@ -8,7 +8,7 @@
                  <!-- Page Header -->
                 <div class="page-header">
                     <div>
-                        <h2 class="main-content-title tx-24 mg-b-5">Sección de Categoría</h2>
+                        <h2 class="main-content-title tx-24 mg-b-5">Sección de Categorías</h2>
                         <ol class="breadcrumb">
                             <li class="breadcrumb-item"><a href="{{ url('dashboard') }}">Inicio</a></li>
                             <li class="breadcrumb-item active" aria-current="page">Categorías</li>
@@ -40,7 +40,7 @@
                         <div class="card custom-card">
                             <div class="card-body">
                                 <div>
-                                    <h6 class="main-content-label mb-1">Registro de Proveedor</h6>
+                                    <h6 class="main-content-label mb-1">Registro de Categoria</h6>
                                     <p class="text-muted card-sub-title">Complete el formulario para registrar una nueva Categoría.</p>
                                 </div>
                                 <form method="POST" action="{{route('categorias.index')}}">
@@ -50,7 +50,7 @@
                                             <div class="form-group">
                                                 <label for="nombre">Nombre</label>
                                                 <div>
-                                                    <input type="text" class="form-control" name="nombre" placeholder="Nombre ..." value="{{ old('nombre') }}" required maxlength="60">
+                                                    <input type="text" class="form-control" name="nombre" placeholder="Nombre ..." value="{{ old('nombre') }}" required maxlength="120">
                                                 </div>
                                             </div>
                                         </div>
@@ -58,7 +58,7 @@
                                             <div class="form-group">
                                                 <label for="descripcion">Descripción</label>
                                                 <div>
-                                                    <input type="text" class="form-control" name="descripcion" placeholder="Descripcion ... " value="{{ old('descripcion') }}" required maxlength="60">
+                                                    <input type="text" class="form-control" name="descripcion" placeholder="Descripcion ... " value="{{ old('descripcion') }}" required maxlength="120">
                                                 </div>
                                             </div>
                                         </div>

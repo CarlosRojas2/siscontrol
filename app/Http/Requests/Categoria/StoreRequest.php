@@ -24,18 +24,20 @@ class StoreRequest extends FormRequest
     public function rules()
     {
         return [
-            'nombre'=>'required|string|max:60',
-            'descripcion'=>'nullable|string|max:60'
+            'nombre'=>'required|string|max:120|unique:categorias',
+            'descripcion'=>'nullable|string|max:120'
         ];
     }
     public function messages()
     {
         return [
             'nombre.required'=>'Este campo es requerido.',
+            'nombre.unique'=>'Ya existe una categoria con este nombre.',
             'nombre.string'=>'el valor no es correcto.',
-            'nombre.max'=>'Solo se permite 60 caracteres.',
+            'nombre.max'=>'Solo se permite 120 caracteres.',
+
             'descripcion.string'=>'el valor no es correcto.',
-            'descripcion.max'=>'Solo se permite 60 caracteres.'
+            'descripcion.max'=>'Solo se permite 120 caracteres.'
 
         ];
     }

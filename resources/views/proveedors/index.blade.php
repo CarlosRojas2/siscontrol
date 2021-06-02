@@ -1,29 +1,28 @@
 @extends('includes/base')
-@section('content') 
+@section('content')
 
     <div class="main-content side-content pt-0">
         <div class="container-fluid">
             <div class="inner-body">
- 
-                @include('flash::message')
+
+                <br>@include('flash::message')
                 <!-- Page Header -->
                 <div class="page-header">
                     <div>
-                        <h2 class="main-content-title tx-24 mg-b-5">Sección de Proveedores</h2>
+                        <h2 class="main-content-title tx-24 mg-b-5">Sección de proveedores</h2>
                         <ol class="breadcrumb">
                             <li class="breadcrumb-item"><a href="{{route('dashboard')}}">Inicio</a></li>
-                            <li class="breadcrumb-item active" aria-current="page"> Proveedores</li>
+                            <li class="breadcrumb-item active" aria-current="page"> proveedores</li>
                         </ol>
                     </div>
                     <div class="d-flex">
                         <div class="justify-content-center text-white">
                             <a type="button" href="{{route('proveedors.create')}}" class="o_o_pd_top_7 btn btn-primary my-2 btn-icon-text">
-                            <i class="mdi mdi-account-plus mr-2"></i>Registrar proveedor
+                            <i class="fe fe-plus mr-2"></i>Registrar proveedor
                             </a>
                         </div>
                     </div>
                 </div>
-                <!-- End Page Header -->
                 <!--Row-->
                 <div class="row row-sm">
                     <div class="col-lg-12">
@@ -54,9 +53,13 @@
                                                     <td>{{$prov->numero_ruc}}</td>
                                                     <td>{{$prov->telefono}}</td>
                                                     <td>
-                                                        <a href="{{route('proveedors.show', $prov->id)}}" class="btn btn-sm btn-warning"><i class="fe fe-eye"></i></a>
-                                                        <a href="{{route('proveedors.edit', $prov->id)}}" class="btn btn-sm btn-success"><i class="fe fe-edit-2"></i></a>
-                                                        <a href="#" class="btn btn-sm btn-danger" data-toggle="modal" data-target="#deleteModal"><i class="fe fe-trash"></i></a>
+                                                        <form action="{{route('proveedors.destroy', $prov)}}" class="eliminar-proveedor" method="POST">
+                                                            @csrf
+                                                            @method('delete')
+                                                            <a href="{{route('proveedors.show', $prov->id)}}" class="btn btn-sm btn-warning"><i class="fe fe-eye"></i></a>
+                                                            <a href="{{route('proveedors.edit', $prov->id)}}" class="btn btn-sm btn-success"><i class="fe fe-edit-2"></i></a>
+                                                            <button tipe="submit" class="btn btn-sm btn-danger"><i class="fe fe-trash"></i></button>
+                                                        </form>
                                                     </td>
                                                 </tr>
                                             @endforeach
@@ -70,39 +73,31 @@
                 <!-- Row end -->
             </div>
         </div>
-
     </div>
+@endsection
+@section('scripts')
+<script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script>
 
-
-    @section('modal')
-    <div class="modal fade" id="deleteModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-        <div class="modal-dialog" role="document">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLabel">¿Estás seguro que quieres eliminar este proveedor?</h5>
-                    <button class="close" type="button" data-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true">×</span>
-                    </button>
-                </div>
-           
-                <div class="modal-body">Confirme si desea Eliminar el proveedor</div>
-                
-                    <div class="modal-footer">
-                    <button class="btn btn-primary" type="button" data-dismiss="modal">Cerrar</button>
-                    @if (!empty($prov))
-                    <form method="POST" action="{{route('proveedors.destroy', $prov->id)}}">
-                        @method('delete')
-                        @csrf
-                        {{-- <input type="hidden" id="proveedor_id" name="proveedor_id" value=""> --}}
-                        <a class="btn btn-danger" style="color:White" role="button" onclick="$(this).closest('form').submit();">Confirmar</a>
-                    </form>
-                    @endif
-                    
-    
-                </div>
-            </div>
-        </div>
-    </div>
-    @endsection
+        $('.eliminar-proveedor').submit(function(e){
+            e.preventDefault();
+            swal.fire({
+              title: "¿Estas seguro?",
+              text: "Confirmar si deceas Elimnar",
+              type: "warning",
+              showCancelButton: true,
+              confirmButtonClass: "btn btn-danger",
+              confirmButtonText: "Confirmar",
+              cancelButtonText: "Cancelar",
+              closeOnConfirm: false
+            }).then((result)=>{
+                if(result.value){
+                    this.submit();
+                    // swal.fire("Deleted!", "Your imaginary file has been deleted.", "success")
+                }
+            })
+            
+        })
+    </script>
 
 @endsection
