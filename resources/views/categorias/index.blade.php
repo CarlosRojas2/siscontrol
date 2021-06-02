@@ -59,7 +59,7 @@
                                                             <a href="{{route('categorias.edit', $cat->id)}}" class="btn btn-sm btn-success">
                                                                 <i class="fe fe-edit-2"></i>
                                                             </a>
-                                                            <button tipe="submit" class="btn btn-sm btn-danger">
+                                                            <button type="submit" class="btn btn-sm btn-danger">
                                                                 <i class="fe fe-trash"></i>
                                                             </button>
                                                         </form>
