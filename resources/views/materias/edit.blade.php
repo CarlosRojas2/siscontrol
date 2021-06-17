@@ -38,7 +38,6 @@
                                     @csrf
                                     @method('put')
                                     <div class="row row-sm mg-t-20">
-                                        <input type="hidden" value="{{$materia->producto_id}}" name="refe_pro">
                                         <div class="col-lg">
                                             <p class="mg-b-10">Producto*</p>
                                             <div class="form-group">
@@ -54,6 +53,26 @@
                                         </div>
 
                                         <div class="col-lg">
+                                            <p class="mg-b-10">Proveedor*</p>
+                                            <div class="form-group">
+                                                <select name="proveedor_id" id="proveedor_id" class="form-control select-lg select2">
+                                                    <option value="">Large Select</option>
+                                                    @foreach ($proveedors as $item)
+                                                    <option value="{{$item->id}}" @if ($materia->proveedor_id == $item->id)
+                                                        selected
+                                                    @endif>{{$item->nombre}}</option>
+                                                    @endforeach
+                                                </select>
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                    
+                                    <div class="row row-sm">
+                                        <input type="hidden" value="{{$materia->producto_id}}" name="refe_pro">
+                                        
+
+                                        <div class="col-lg">
                                             <p class="mg-b-10">Cantidad kg*</p>
                                             <input id="cantidad" name="cantidad" class="form-control" placeholder="Kg" type="number" onkeyup="calculoimporte()" value="{{$materia->cantidad}}">
                                         </div>
@@ -66,10 +85,10 @@
                                         <div class="col-lg">
                                             <p class="mg-b-10">Importe total*</p>
                                             <input type="hidden" id="importe" name="importe" value="{{$materia->importe}}">
-                                            <input id="importever" name="importever" class="form-control" placeholder="S/" type="number" value="{{$materia->importe}}">
+                                            <input id="importever" name="importever" class="form-control" placeholder="S/" type="number" value="{{$materia->importe}}" disabled="true">
                                         </div>
                                     </div>
-                                    <div class="form-group row justify-content-end mb-0" align="center">
+                                    <div class="form-group row justify-content-end mb-0 mg-t-20" align="center">
                                         <div class="col-md-12 pl-md-6 text-white">
                                             <button type="submit" class="btn ripple btn-primary pd-x-30 mg-r-10" value="registrar">Editar</button>
                                             <a type="button" href="{{route('materias.index')}}" class="btn ripple btn-secondary pd-x-30">Cancelar</a>

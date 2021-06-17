@@ -16,10 +16,8 @@ class ProductoController extends Controller
     }
     public function create()
     {
-        $categorias = Categoria::get();
-        $proveedors = Proveedor::get();
-        
-        return view('productos.create', compact('categorias', 'proveedors'));
+        $categorias = Categoria::get();        
+        return view('productos.create', compact('categorias'));
     }
     public function store(StoreRequest $request)
     {

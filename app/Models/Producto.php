@@ -16,16 +16,20 @@ class Producto extends Model
         'nombre',
         'stock',
         'estado',
-        'categoria_id',
-        'proveedor_id'
+        'categoria_id'
     ];
 
     public function add_stock(){
         $this->increment('stock', 1);
+
     }
 
     public function restar_stock(){
         $this->decrement('stock', 1);
+    }
+
+    public function add_cantidad($cantidad){
+        $this->increment('cantidad_inicial', $cantidad);
     }
 
     public function relacionMateria($id)
@@ -41,9 +45,7 @@ class Producto extends Model
         return $this->belongsTo(Categoria::class);
     }
 
-    public function proveedor(){
-        return $this->belongsTo(Proveedor::class);
-    }
+    
 
     public function materias(){
         return $this->hasMany(Materia::class);

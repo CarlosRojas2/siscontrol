@@ -21,8 +21,12 @@ class CreateProductosTable extends Migration
             $table->enum('estado',['ACTIVO', 'INACTIVO'])->default('ACTIVO');
             $table->unsignedBigInteger('categoria_id');
             $table->foreign('categoria_id')->references('id')->on('categorias');
-            $table->unsignedBigInteger('proveedor_id');
-            $table->foreign('proveedor_id')->references('id')->on('proveedors');
+
+            $table->integer('cantidad_inicial')->default(0);
+            $table->integer('cantidad_cortada')->default(0);
+            $table->integer('cantidad_restante')->default(0);
+            $table->integer('cantidad_merma')->default(0);
+            
             $table->softDeletes();
             $table->timestamps();
         });

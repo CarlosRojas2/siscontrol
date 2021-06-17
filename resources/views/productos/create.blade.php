@@ -41,26 +41,13 @@
                                             <p class="mg-b-10">Descripción*</p>
                                             <input id="nombre" name="nombre" class="form-control" placeholder="...." type="text">
                                         </div>
-                                    </div>
-                                    <div class="row row-sm mg-t-20">
+
                                         <div class="col-lg">
                                             <p class="mg-b-10">Categoría*</p>
                                             <div class="form-group">
                                                 <select name="categoria_id" id="categoria_id" class="form-control select-lg select2">
                                                     <option value="">Large Select</option>
                                                     @foreach ($categorias as $item)
-                                                    <option value="{{$item->id}}">{{$item->nombre}}</option>
-                                                    @endforeach
-                                                </select>
-                                            </div>
-                                        </div>
-                                        
-                                        <div class="col-lg">
-                                            <p class="mg-b-10">Proveedor*</p>
-                                            <div class="form-group">
-                                                <select name="proveedor_id" id="proveedor_id" class="form-control select-lg select2">
-                                                    <option value="">Large Select</option>
-                                                    @foreach ($proveedors as $item)
                                                     <option value="{{$item->id}}">{{$item->nombre}}</option>
                                                     @endforeach
                                                 </select>

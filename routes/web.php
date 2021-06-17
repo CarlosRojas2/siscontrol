@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\CategoriaController;
+use App\Http\Controllers\DesgloseController;
 use App\Http\Controllers\MateriaController;
 use App\Http\Controllers\ProductoController;
 use App\Http\Controllers\ProveedorController;

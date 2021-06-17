@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Materia;
 use App\Models\Producto;
+use App\Models\Proveedor;
 use Illuminate\Http\Request;
 
 class MateriaController extends Controller
@@ -16,9 +17,10 @@ class MateriaController extends Controller
 
     public function create()
     {
+        $proveedors = Proveedor::get();
         $productos = Producto::get();
         
-        return view('materias.create', compact('productos'));
+        return view('materias.create', compact('productos', 'proveedors'));
     }
 
     public function store(Request $request)
@@ -27,7 +29,7 @@ class MateriaController extends Controller
         $materia->update(['codigo'=>$materia->id]);
         
         // foreach ($request as $key => $id) {
-            $materia->update_stock($request->producto_id);
+            $materia->update_stock($request->producto_id, $request->cantidad);
         // }
         return redirect()->route('materias.index');
     }
@@ -39,13 +41,14 @@ class MateriaController extends Controller
 
     public function edit(Materia $materia)
     {
+        $proveedors = Proveedor::get();
         $productos = Producto::get();
-        return view('materias.edit', compact('materia', 'productos'));
+        return view('materias.edit', compact('materia', 'productos', 'proveedors'));
     }
 
     public function update(Request $request, Materia $materia)
     {
-        $materia->producto_stock($request->producto_id, $request->refe_pro);
+        $materia->producto_stock($request->producto_id, $request->refe_pro, $request->cantidad);
         $materia->update($request->all());
         return redirect()->route('materias.index');
     }

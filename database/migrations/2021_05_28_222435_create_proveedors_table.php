@@ -19,7 +19,6 @@ class CreateProveedorsTable extends Migration
             $table->string('email');
             $table->string('numero_ruc');
             $table->string('direccion')->nullable();
-            $table->string('estado')->nullable();
             $table->string('telefono');
             $table->softDeletes();
             $table->timestamps();

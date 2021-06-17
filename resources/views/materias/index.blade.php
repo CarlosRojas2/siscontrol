@@ -40,6 +40,7 @@
                                             <tr>
                                                 <th>#</th>
                                                 <th>Nombre</th>
+                                                <th>Proveedor</th>
                                                 <th>Cantidad</th>
                                                 <th>Precio compra</th>
                                                 <th>Importe total</th>
@@ -53,6 +54,7 @@
                                                     <tr>
                                                         <td>{{$item->codigo}}</td>
                                                         <td><a href="{{route('materias.show', $item->id)}}">{{$item->producto->nombre}}</a></td>
+                                                        <td>{{$item->proveedor->nombre}}</td>
                                                         <td>{{$item->cantidad}} Kg</td>
                                                         <td>{{$item->precio_compra}} S/</td>
                                                         <td>{{$item->importe}} S/</td>

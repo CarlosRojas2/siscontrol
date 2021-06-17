@@ -11,10 +11,7 @@ class ProveedorController extends Controller
     public function index()
     {
         $n=1;
-        $proveedors = Proveedor::
-        where('estado','=','1')
-        ->orderBy('id', 'asc')
-        ->get();
+        $proveedors = Proveedor::orderBy('id', 'asc')->get();
         return view('proveedors.index', ['proveedors'=>$proveedors])->with('n',$n);
     }
     public function create()
@@ -29,7 +26,6 @@ class ProveedorController extends Controller
         $proveedor->numero_ruc = $request->numero_ruc;
         $proveedor->telefono = $request->telefono;
         $proveedor->direccion = $request->direccion;
-        $proveedor->estado = '1';
         $proveedor->save();
         flash::success('El proveedor fue registrado con éxito');
         return redirect ('/proveedors');
@@ -57,8 +53,7 @@ class ProveedorController extends Controller
     }
     public function destroy(proveedor $proveedor)
     {
-        $proveedor->estado = '0';
-        $proveedor->update();
+        $proveedor->delete();
         flash::error('El proveedor fue eliminado con éxito');
         return redirect('/proveedors');
     }

@@ -15,8 +15,7 @@ class CategoriaController extends Controller
         $n=1;
         
         $categorias=Categoria::
-        where('estado','=','1')
-        ->orderBy('id', 'asc')
+        orderBy('id', 'asc')
         ->get();
         return view('categorias.index', ['categorias'=>$categorias])->with('n',$n);
     }
@@ -29,7 +28,6 @@ class CategoriaController extends Controller
         $categoria = new Categoria;
         $categoria->nombre = $request->nombre;
         $categoria->descripcion = $request->descripcion;
-        $categoria->estado = '1';
         $categoria->save();
         flash::success('La categoria fue registrada con éxito');
         return redirect ('/categorias');
@@ -54,8 +52,7 @@ class CategoriaController extends Controller
     public function destroy(Categoria $categoria)
     {
         
-        $categoria->estado = '0';
-        $categoria->update();
+        $categoria->delete();
         flash::error('La categoria fue eliminada con éxito');
         return redirect('/categorias');
     }

@@ -25,8 +25,7 @@ class UpdateRequest extends FormRequest
     {
         return [
             'nombre'=>'string|required|unique:productos,nombre,'.$this->route('producto')->id.'|max:255',
-            'categoria_id'=>'integer|required|exists:App\Models\Categoria,id',
-            'proveedor_id'=>'integer|required|exists:App\Models\Proveedor,id'
+            'categoria_id'=>'integer|required|exists:App\Models\Categoria,id'
 
         ];
     }
@@ -41,10 +40,6 @@ class UpdateRequest extends FormRequest
             'categoria_id.integer'=>'El valor tiene que ser entero.',
             'categoria_id.required'=>'El campo es requerido.',
             'categoria_id.exists'=>'La categoría no existe.',
-
-            'proveedor_id.integer'=>'El valor tiene que ser entero.',
-            'proveedor_id.required'=>'El campo es requerido.',
-            'proveedor_id.exists'=>'El proveedor no existe.'
         ];
     }
 }

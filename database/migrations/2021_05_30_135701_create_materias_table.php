@@ -20,10 +20,12 @@ class CreateMateriasTable extends Migration
             $table->unsignedBigInteger('producto_id');
             $table->foreign('producto_id')->references('id')->on('productos');
 
+            $table->unsignedBigInteger('proveedor_id');
+            $table->foreign('proveedor_id')->references('id')->on('proveedors');
+
             $table->integer('cantidad');
             $table->decimal('precio_compra', 12, 2);
             $table->decimal('importe', 12, 2);
-            $table->enum('estado',['ACTIVO', 'INACTIVO'])->default('ACTIVO');
             $table->softDeletes();
             $table->timestamps();
         });

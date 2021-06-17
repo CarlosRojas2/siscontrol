@@ -37,13 +37,17 @@
                                 <form id="productos" method="POST" action="{{route('productos.update', $producto)}}">
                                     @csrf
                                     @method('put')
+                                    <input id="cantidad_inicial" name="cantidad_inicial" class="form-control" value="{{$producto->cantidad_inicial}}" type="hidden">
+                                    <input id="cantidad_cortada" name="cantidad_cortada" class="form-control" value="{{$producto->cantidad_cortada}}" type="hidden">
+                                    <input id="cantidad_restante" name="cantidad_restante" class="form-control" value="{{$producto->cantidad_restante}}" type="hidden">
+                                    <input id="cantidad_merma" name="cantidad_merma" class="form-control" value="{{$producto->cantidad_merma}}" type="hidden">
+
                                     <div class="row row-sm">
                                         <div class="col-lg">
                                             <p class="mg-b-10">Descripción*</p>
                                             <input id="nombre" name="nombre" class="form-control" value="{{$producto->nombre}}" type="text">
                                         </div>
-                                    </div>
-                                    <div class="row row-sm mg-t-20">
+
                                         <div class="col-lg">
                                             <p class="mg-b-10">Categoría*</p>
                                             <div class="form-group">
@@ -57,22 +61,9 @@
                                                 </select>
                                             </div>
                                         </div>
-                                        
-                                        <div class="col-lg">
-                                            <p class="mg-b-10">Proveedor*</p>
-                                            <div class="form-group">
-                                                <select name="proveedor_id" id="proveedor_id" class="form-control select-lg select2">
-                                                    <option value="">Large Select</option>
-                                                    @foreach ($proveedors as $item)
-                                                    <option value="{{$item->id}}" @if ($producto->proveedor_id == $item->id)
-                                                        selected
-                                                    @endif>{{$item->nombre}}</option>
-                                                    @endforeach
-                                                </select>
-                                            </div>
-                                        </div>
+
                                     </div>
-                                    <div class="form-group row justify-content-end mb-0" align="center">
+                                    <div class="form-group row justify-content-end mb-0 mg-t-20" align="center">
                                         <div class="col-md-12 pl-md-6 text-white">
                                             <button type="submit" class="btn ripple btn-primary pd-x-30 mg-r-10" value="registrar">Editar</button>
                                             <a type="button" href="{{route('productos.index')}}" class="btn ripple btn-secondary pd-x-30">Cancelar</a>

@@ -5,7 +5,7 @@
         <div class="container-fluid">
             <div class="inner-body">
 
-                @include('flash::message')
+                <br>@include('flash::message')
                 <!-- Page Header -->
                 <div class="page-header">
                     <div>

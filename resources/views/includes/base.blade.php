@@ -81,7 +81,6 @@
 			<!-- Mobile-header closed -->
 			<!-- Main Content-->
             @yield('content')
-			@yield('modal')
 			<!-- End Main Content-->
 
 		<!-- Main Footer-->

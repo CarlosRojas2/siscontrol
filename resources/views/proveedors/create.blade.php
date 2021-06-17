@@ -74,7 +74,7 @@
                                             <div class="form-group">
                                                 <label for="direccion">Direccion</label>
                                                 <div>
-                                                    <input type="text" class="form-control" name="direccion" placeholder="Direccion ... " value="{{ old('direccion') }}" required maxlength="60">
+                                                    <input type="text" class="form-control" name="direccion" placeholder="Direccion ... " value="{{ old('direccion') }}" maxlength="60">
                                                 </div>
                                             </div>
                                         </div>

@@ -16,16 +16,21 @@ class Materia extends Model
         'cantidad',
         'precio_compra',
         'importe',
-        'estado'
+        'proveedor_id'
     ];
 
     public function producto(){
         return $this->belongsTo(Producto::class);
     }
 
-    public function update_stock($id){
+    public function proveedor(){
+        return $this->belongsTo(Proveedor::class);
+    }
+
+    public function update_stock($id, $cantidad){
         $producto = Producto::find($id);
         $producto->add_stock();
+        $producto->add_cantidad($cantidad);
     }
 
     public function producto_stock($id, $refe_pro){
@@ -35,5 +40,10 @@ class Materia extends Model
             $producto_anterior->restar_stock();
             $producto->add_stock();
         }
+    }
+
+    public function cantidad_materia()
+    {
+        
     }
 }
