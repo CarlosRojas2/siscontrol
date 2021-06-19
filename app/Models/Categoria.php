@@ -5,6 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
+use DB;
 
 class Categoria extends Model
 {
@@ -23,5 +24,13 @@ class Categoria extends Model
         'nombre',
         'descripcion'
     ];
+
+    public function fk_categoriaProducto($id)
+    {
+        $productos = DB::table('productos')->where('categoria_id', $id)->first();
+        if (!empty($productos)) {
+            return 1;
+        }
+    }
     
 }

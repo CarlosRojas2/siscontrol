@@ -34,9 +34,6 @@
                             <h4>Telefono: {{$proveedor['telefono']}}</h4>    
                             <h4>Direccion: {{$proveedor['direccion']}}</h4>    
                             <h4>Fecha de Registro: {{$proveedor['created_at']}}</h4>
-                            @if ($proveedor->estado=='1')
-                                <h4>Estado: {{'Activo'}}</h4> 
-                            @endif 
                     </div>
                     <div class="card-footer">
                         <a href="{{route('proveedors.index')}}" class="btn btn-info">Atras</a>

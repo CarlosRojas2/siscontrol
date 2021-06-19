@@ -45,13 +45,13 @@
                                 <div class="col-md-6">
                                     <div class="position-relative form-group">
                                         <label for="nombres" class="">Nombres</label>
-                                        <input name="nombre" id="nombre" placeholder="Nombres ..." type="text" class="form-control" value="{{$proveedor->nombre}}" required>
+                                        <input name="nombre" id="nombre" placeholder="Nombres ..." type="text" class="form-control" value="{{$proveedor->nombre}}" required maxlength="60">
                                     </div>
                                 </div>
                                 <div class="col-md-6">
                                     <div class="position-relative form-group">
                                         <label for="email" class="">Email</label>
-                                        <input name="email" id="email" placeholder="ejemplo@gmail.com" type="email" class="form-control" value="{{$proveedor->email}}" required>
+                                        <input name="email" id="email" placeholder="ejemplo@gmail.com" type="email" class="form-control" value="{{$proveedor->email}}" required maxlength="60">
                                     </div>
                                 </div>
                                 <div class="col-md-6">

@@ -32,9 +32,6 @@
                             <h4>Nombre: {{$categoria['nombre']}}</h4>  
                             <h4>Descripcion: {{$categoria['descripcion']}}</h4>    
                             <h4>Fecha de Registro: {{$categoria['created_at']}}</h4>
-                            @if ($categoria->estado=='1')
-                                <h4>Estado: {{'Activo'}}</h4> 
-                            @endif 
                     </div>
                     <div class="card-footer">
                         <a href="{{route('categorias.index')}}" class="btn btn-info">Atras</a>

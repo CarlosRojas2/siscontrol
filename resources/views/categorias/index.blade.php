@@ -4,8 +4,6 @@
     <div class="main-content side-content pt-0">
         <div class="container-fluid">
             <div class="inner-body">
-
-                <br>@include('flash::message')
                 <!-- Page Header -->
                 <div class="page-header">
                     <div>
@@ -77,20 +75,51 @@
             </div>
         </div>
     </div>
-@endsection
-@section('scripts')
-<script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-    <script>
+    @endsection
+    @section('scripts')
+    <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    
+    @if (session('eliminar')=='error')
+    
+        <script>
+            Swal.fire({
+            icon: 'error',
+            title: 'UPS...',
+            text: '!Algo salio mal!',
+            footer: 'Acción denegada, la categoria tiene referencias en productos'
+            })
+        </script>
+        
+    @endif
+    
+    @if (session('eliminar')=='ok')
+        <script>
+            swal.fire("¡Eliminado!", "La categoria fue eliminada con éxito.", "success")
+        </script>
+    @endif
 
+    @if (session('registrar')=='ok')
+    <script>
+        swal.fire("¡Registrado!", "La categoria fue registrada con éxito.", "success")
+    </script>
+    @endif
+    @if (session('editar')=='ok')
+    <script>
+        swal.fire("¡Editado!", "La categoria fue editada con éxito.", "success")
+    </script>
+    @endif
+
+    
+    <script>
         $('.eliminar-categoria').submit(function(e){
             e.preventDefault();
             swal.fire({
-              title: "¿Estas seguro?",
-              text: "Confirmar si deceas Elimnar",
+              title: "¿Está seguro?",
+              text: "Confirmar si deceas Eliminar",
               type: "warning",
               showCancelButton: true,
               confirmButtonClass: "btn btn-danger",
-              confirmButtonText: "Confirmar",
+              confirmButtonText: "¡Sí, Bórralo!",
               cancelButtonText: "Cancelar",
               closeOnConfirm: false
             }).then((result)=>{
@@ -102,5 +131,5 @@
             
         })
     </script>
-
-@endsection
+        
+    @endsection
