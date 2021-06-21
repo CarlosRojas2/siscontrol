@@ -95,6 +95,9 @@
 		<!-- Jquery js-->
 		<script src="{{asset('assets/plugins/jquery/jquery.min.js')}}"></script>
 
+		<!-- MY JS-->
+		<script src="{{asset('myjs/myjs.js')}}"></script>
+
 		<!-- Bootstrap js-->
 		<script src="{{asset('assets/plugins/bootstrap/js/popper.min.js')}}"></script>
         <script src="{{asset('assets/plugins/bootstrap/js/bootstrap.min.js')}}"></script>
@@ -162,5 +165,6 @@
 		<!-- Switcher js -->
 		<script src="{{asset('assets/switcher/js/switcher.js')}}"></script>
 		@yield('scripts')
+		@yield('myjs')
 	</body>
 </html>

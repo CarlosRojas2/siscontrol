@@ -46,14 +46,14 @@
                                             </tr>
                                         </thead>
                                         <tbody>
-                                            @if (!empty($pro))
+                                            @if (!empty($consulta))
                                             <?php $n = 0; ?>
-                                                @foreach ($pro as $item)
+                                                @foreach ($consulta as $item)
                                                     <tr>
                                                         <td>{{$n=$n+1}}</td>
-                                                        <td>{{$item->proveedor_id}}</td>
+                                                        <td>{{$item->proveedor}}</td>
                                                         <td>{{$item->producto}}</td>
-                                                        <td>{{$item->productos}}</td>
+                                                        <td>{{$item->cargas}}</td>
                                                         <td>{{$item->cantidad}} Kg</td>
                                                     </tr>
                                                 @endforeach

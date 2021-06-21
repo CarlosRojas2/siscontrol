@@ -8,7 +8,7 @@ use Illuminate\Support\Facades\DB;
 
 class MateriaController extends Controller
 {
-    public function index()
+    public function index() 
     {
         $materias=Materia::get();
         return view('materias.index', compact('materias'));
@@ -45,6 +45,18 @@ class MateriaController extends Controller
     public function destroy(Materia $materia)
     {
         //
+    }
+    public function detalle()
+    {
+        $consulta=Materia::select('productos.nombre as producto','proveedors.nombre as proveedor',
+                DB::raw('COUNT(materias.producto_id) as cargas'),
+                DB::raw('SUM(materias.cantidad) as cantidad'))
+                ->join('productos','productos.id','=','materias.producto_id')
+                ->join('proveedors','proveedors.id','=','materias.proveedor_id')
+                ->groupBy('producto', 'proveedor')
+                ->orderby('materias.proveedor_id')->get();
+        
+        return view('productosproveedor.index',compact('consulta'));
     }
     
 }
