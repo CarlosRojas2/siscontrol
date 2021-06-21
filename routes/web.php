@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\CargaController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\CategoriaController;
 use App\Http\Controllers\DesgloseController;
@@ -30,3 +31,4 @@ Route::resource('categorias', CategoriaController ::class)->middleware(['auth'])
 Route::resource('productos', ProductoController ::class)->middleware(['auth']);
 Route::resource('proveedors', ProveedorController ::class)->middleware(['auth']);
 Route::resource('materias', MateriaController ::class)->middleware(['auth']);
+Route::resource('cargas', CargaController::class)->only(['index'])->middleware(['auth']);

@@ -33,11 +33,10 @@
                         <a class="nav-sub-link" href="{{route('productos.index')}}">PRODUCTOS</a>
                     </li>
                     <li class="nav-sub-item">
-                        <a class="nav-sub-link" href="icons03.html">Simple Line Icons</a>
+                        <a class="nav-sub-link" href="{{route('cargas.index')}}">PRODUCTOS PROVEEDOR</a>
                     </li>
                 </ul>
             </li>
-            
             <li class="nav-item">
                 <a class="nav-link with-sub" href="#"><span class="shape1"></span><span class="shape2"></span><i class="ti-bar-chart sidemenu-icon"></i><span class="sidemenu-label">Reportes</span><i class="angle fe fe-chevron-right"></i></a>
                 <ul class="nav-sub">
