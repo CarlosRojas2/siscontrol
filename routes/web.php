@@ -4,10 +4,11 @@ use App\Http\Controllers\HomeController;
 use App\Http\Controllers\CategoriaController;
 use App\Http\Controllers\DesgloseController;
 use App\Http\Controllers\MateriaController;
+use App\Http\Controllers\CorteController;
 use App\Http\Controllers\ProductoController;
 use App\Http\Controllers\ProveedorController;
 use Illuminate\Support\Facades\Route;
-
+ 
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -30,3 +31,4 @@ Route::resource('categorias', CategoriaController ::class)->middleware(['auth'])
 Route::resource('productos', ProductoController ::class)->middleware(['auth']);
 Route::resource('proveedors', ProveedorController ::class)->middleware(['auth']);
 Route::resource('materias', MateriaController ::class)->middleware(['auth']);
+Route::resource('corte', CorteController ::class)->middleware(['auth']);

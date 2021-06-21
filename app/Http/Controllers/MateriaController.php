@@ -9,7 +9,7 @@ use Illuminate\Http\Request;
 
 class MateriaController extends Controller
 {
-    public function index()
+    public function index() 
     {
         $materias=Materia::get();
         return view('materias.index', compact('materias'));
