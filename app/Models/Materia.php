@@ -13,6 +13,7 @@ class Materia extends Model
         'codigo',
         'producto_id',
         'cantidad',
+        'resto',
         'precio_compra',
         'importe',
         'proveedor_id'

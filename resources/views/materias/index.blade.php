@@ -42,9 +42,9 @@
                                                 <th>Nombre</th>
                                                 <th>Proveedor</th>
                                                 <th>Cantidad</th>
+                                                <th>Sin procesar</th>
                                                 <th>Precio compra</th>
                                                 <th>Importe total</th>
-                                                <th>Estado</th>
                                                 <th>Opciones</th>
                                             </tr>
                                         </thead>
@@ -56,9 +56,9 @@
                                                         <td><a href="{{route('materias.show', $item->id)}}">{{$item->producto->nombre}}</a></td>
                                                         <td>{{$item->proveedor->nombre}}</td>
                                                         <td>{{$item->cantidad}} Kg</td>
+                                                        <td>{{$item->resto}} Kg</td>
                                                         <td>{{$item->precio_compra}} S/</td>
                                                         <td>{{$item->importe}} S/</td>
-                                                        <td>{{$item->estado}}</td>
                                                         <td>
 
                                                             <form action="{{route('materias.destroy', $item)}}" class="eliminar-materia" method="POST">

@@ -23,6 +23,8 @@ class MateriaController extends Controller
     {
         $materia = Materia::create($request->all());
         $materia->update(['codigo'=>$materia->id]);
+        $materia->update(['resto'=>$materia->cantidad]);
+
             $materia->update_stock($request->producto_id, $request->cantidad);
         return redirect()->route('materias.index');
     }
