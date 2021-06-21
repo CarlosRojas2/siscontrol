@@ -44,9 +44,6 @@ class Producto extends Model
     public function categoria(){
         return $this->belongsTo(Categoria::class);
     }
-
-    
-
     public function materias(){
         return $this->hasMany(Materia::class);
     }

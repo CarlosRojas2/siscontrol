@@ -51,7 +51,5 @@ class ProductoController extends Controller
             $producto->delete();
             return redirect()->route('productos.index')->with('eliminar','ok');
         }
-        
-        
     }
 }
