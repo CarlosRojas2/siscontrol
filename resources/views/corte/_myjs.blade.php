@@ -47,13 +47,13 @@ var cant_t=0;
 		else{
 			$('#cantidad_detalle').val(e.value);
 		}
+
 		calcular_total(e.value);
-		if($('#merma').val() == e.value){
-			$('#merma').val('');
+		if($('#resto').val() == e.value){
+			$('#resto').val('');
 		}
 		else{
-			$('#total').removeClass('o_o_error');
-			$('#merma').removeClass('o_o_error');
+			$('#resto').removeClass('o_o_error');
 			$('#reg_bt').attr('disabled',false);
 		}
 		$('#table_1 input').attr('readonly',false);  
@@ -67,25 +67,39 @@ var cant_t=0;
 		var cant_usar	= $('#cantidad').val();
 	   	calcular_total(cant_usar);
 	   	if (cant_t==0) {
-	   		$('#merma').val('');
-	   		$('#total').removeClass('o_o_error');
-			$('#merma').removeClass('o_o_error');
+	   		$('#resto').val('');
+			$('#resto').removeClass('o_o_error');
 			$('#reg_bt').attr('disabled',true);
 			return false;
 	   	}
 		if(cant_t>cant_usar){
-			$('#total').addClass('o_o_error');
-			$('#merma').addClass('o_o_error');
+			$('#resto').addClass('o_o_error');
 			$('#reg_bt').attr('disabled',true);
 			return false;
 		}
-		$('#total').removeClass('o_o_error');
-		$('#merma').removeClass('o_o_error');
+		$('#resto').removeClass('o_o_error');
 		$('#reg_bt').attr('disabled',false);
 	});
+	const cal_merma=(e)=>{
+		if (cant_t==0) {return false;}
+		cant_usar=$('#cantidad').val();
+		calcular_total(cant_usar);
+		resto=$('#resto').val();
 
+		if (resto < 0){
+			$('#resto').addClass('o_o_error');
+			$('#reg_bt').attr('disabled',true);
+			return false;
+		}
+
+		$('#resto').removeClass('o_o_error');
+		$('#reg_bt').attr('disabled',false);
+	}
 	const calcular_total=(cant_usar)=>{
 		cant_t=0;
+		var merma=parseInt($('#merma').val());
+		if (isNaN(merma) | merma == undefined){ merma=0;}
+
 		$('.cant_clas').each(function(item, e){
 	      	var num = parseInt($(e).val());
 	      	if (isNaN(num) | num == undefined){ //Validamos si está vacío o no es un número para acumular
@@ -93,9 +107,9 @@ var cant_t=0;
 	       	}
 	       	cant_t += num;
 	    });
-
+		cant_t+=merma;
 		$('#total').val(cant_t);
-		$('#merma').val(cant_usar-cant_t);
+		$('#resto').val(cant_usar-(cant_t+merma));
 	}
 </script>
 @endsection

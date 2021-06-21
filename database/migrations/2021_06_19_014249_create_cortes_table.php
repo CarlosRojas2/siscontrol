@@ -39,6 +39,7 @@ class CreateCortesTable extends Migration
             $table->double('carne_file',8, 2)->nullable();
             $table->double('total',8, 2)->nullable();
             $table->double('merma',8, 2)->nullable();
+            $table->double('resto',8, 2)->nullable();
             $table->timestamps();
         });
     }

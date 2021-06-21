@@ -35,7 +35,7 @@
                                     <p class="text-muted card-sub-title">Complete el formulario para registrar un nuevo Corte.</p>
                                 </div>
                                 <form id="cortes" onsubmit="create_corte(event)">
-                                    
+
                                    <meta name="csrf-token" content="{{ csrf_token() }}">
                                     <div class="row row-sm">
                                         
@@ -181,7 +181,7 @@
                                                     </table>
 
                                             </div>
-                                            <br><br><br>
+                                            <br><br>
                                             <div class="form-group row justify-content-center mb-0 mg-t-30" align="center">
                                                 <div class="col-xl-8 input-group mb-1">
                                                         <div class="input-group-prepend">
@@ -195,11 +195,17 @@
                                                         </div>
                                                         <input  type="text" class="text-center form-control" name="total" id="total" value=0 readonly> 
                                                 </div>
-                                                <div class="col-xl-8 input-group mb-1">
+                                                <div class="col-xl-8 input-group mb-5">
                                                         <div class="input-group-prepend">
-                                                            <span class="btn ripple btn-primary">&nbsp;&nbsp;&nbsp;MERMA&nbsp;&nbsp;</span>
+                                                            <span class="btn ripple btn-primary">&nbsp;&nbsp;&nbsp;&nbsp;RESTO&nbsp;&nbsp;&nbsp;</span>
                                                         </div>
-                                                        <input  type="text" class="text-center form-control" name="merma" id="merma" readonly> 
+                                                        <input  type="text" class="text-center form-control" name="resto" id="resto" readonly> 
+                                                </div>
+                                                <div class="col-xl-10 input-group">
+                                                    <div class="col-xl-12 col-lg">
+                                                        <p class="mg-b-10">Merma (kg)</p>
+                                                        <input id="merma" name="merma" class="text-center form-control" type="text" value='0' onkeyup="cal_merma(this)" onkeypress="return validaNumericos(event)">
+                                                    </div>
                                                 </div>
                                             </div>
                                         </div>
