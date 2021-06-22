@@ -1,9 +1,9 @@
 @section('myjs')
- <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+<script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 <script type="text/javascript">
 /*----------------------------------VARIABLE GENERAL------------------------*/
 	var cant_t	=	0;
-
+	
 /*----------------------------------MENSAJES SWAL---------------------------*/
 
 /*---------------------CONFIRMACION----------------------------*/
@@ -39,7 +39,6 @@
             }).then((result)=>{
                 if(result.value){
                     this.submit();
-                    // swal.fire("Deleted!", "Your imaginary file has been deleted.", "success")
                 }
             })
 	});

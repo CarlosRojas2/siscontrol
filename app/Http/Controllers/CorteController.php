@@ -81,7 +81,7 @@ class CorteController extends Controller
     public function destroy(Corte $corte)
     {
         
-        Materia::where('id' , $corte->materia_id)->update(['resto' => $corte->cantidad_d]);
+        Materia::where('id' , $corte->materia_id)->increment('resto',$corte->cantidad);
         Corte::find($corte->id)->delete();
         echo '<script type="text/javascript">localStorage.mensaje_codetime="Corte anulado con éxito."; window.location ="'.url('cortes').'";</script>';
     }
