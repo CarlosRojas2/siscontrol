@@ -51,6 +51,9 @@
                                         <tbody>
                                             @if (!empty($materias))
                                                 @foreach ($materias as $item)
+                                                <?php if ($item->resto == 0){
+                                                    $n = 'ok';
+                                                }?>
                                                     <tr>
                                                         <td>{{$item->codigo}}</td>
                                                         <td><a href="{{route('materias.show', $item->id)}}">{{$item->producto->nombre}}</a></td>
@@ -64,11 +67,11 @@
                                                             <form action="{{route('materias.destroy', $item)}}" class="eliminar-materia" method="POST">
                                                                 @csrf
                                                                 @method('delete')
-
                                                                 <a href="{{route('corte.show', $item->id)}}" class="btn btn-sm btn-primary" title="Cortes">
                                                                     <i class="fe fe-scissors"></i>
                                                                 </a>
-                                                                <a href="{{route('materias.edit', $item->id)}}" class="btn btn-sm btn-success">
+                                                                
+                                                                <a href="{{route('materias.edit', $item->id)}}" class="btn btn-sm btn-success" title="Editar">
                                                                     <i class="fe fe-edit-2"></i>
                                                                 </a>
 

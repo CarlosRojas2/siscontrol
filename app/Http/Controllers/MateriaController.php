@@ -22,10 +22,8 @@ class MateriaController extends Controller
     public function store(Request $request)
     {
         $materia = Materia::create($request->all());
-        $materia->update(['codigo'=>$materia->id]);
-        $materia->update(['resto'=>$materia->cantidad]);
-
-            $materia->update_stock($request->producto_id, $request->cantidad);
+        $materia->update(['codigo'=>$materia->id, 'resto'=>$materia->cantidad]);
+        $materia->update_stock($request->producto_id, $request->cantidad);
         return redirect()->route('materias.index');
     }
     public function show(Materia $materia)
@@ -42,6 +40,8 @@ class MateriaController extends Controller
     {
         $materia->producto_stock($request->producto_id, $request->refe_pro, $request->cantidad);
         $materia->update($request->all());
+        $materia->update(['resto'=>$materia->cantidad]);
+
         return redirect()->route('materias.index');
     }
     public function destroy(Materia $materia)
