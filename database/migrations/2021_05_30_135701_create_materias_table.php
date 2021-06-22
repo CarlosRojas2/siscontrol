@@ -26,6 +26,7 @@ class CreateMateriasTable extends Migration
             $table->integer('cantidad');
             $table->decimal('precio_compra', 12, 2);
             $table->decimal('importe', 12, 2);
+            $table->decimal('resto', 12, 2)->nullable();
             $table->softDeletes();
             $table->timestamps();
         });

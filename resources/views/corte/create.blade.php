@@ -66,7 +66,7 @@
                                         </div>
                                         <div class="col-xl-4 col-lg">
                                             <p class="mg-b-10">Cantidad  a usar (Kg)</p>
-                                            <input id="cantidad" name="cantidad" class="form-control" type="text" onkeyup="select_cant(this)" onkeypress="return validaNumericos(event)">
+                                            <input id="cantidad" name="cantidad" class="form-control" type="text" onkeyup="select_cant(this)" onkeypress="return filterFloat(event,this);">
                                         </div>
                                     </div><br>
                                     <div class="d-flex">
@@ -82,59 +82,49 @@
                                                         </thead>
                                                         <tbody>
                                                             <tr>
-                                                                <th class="text-center">1</th>
-                                                                <td>Pulpa de Carne</td>
-                                                                <td><input type="text" class="cant_clas form-control" name="pulpa_carne" id="pulpa_carne" onkeypress="return validaNumericos(event)" readonly></td>
-                                                            </tr>
-                                                            <tr>
-                                                                <th class="text-center">2</th>
-                                                                <td>Pulpa de file</td>
-                                                                <td><input type="text" class="cant_clas form-control" name="pulpa_file" id="pulpa_file" onkeypress="return validaNumericos(event)" readonly></td>
-                                                            </tr>
-                                                            <tr>
                                                                 <th class="text-center">3</th>
                                                                 <td>Costilla</td>
-                                                                <td><input type="text" class="cant_clas form-control" name="costilla" id="costilla" onkeypress="return validaNumericos(event)" readonly></td>
+                                                                <td><input type="text" class="cant_clas form-control" name="costilla" id="costilla" onkeypress="return filterFloat(event,this);" readonly></td>
                                                             </tr>
                                                             <tr>
                                                                 <th class="text-center">4</th>
                                                                 <td>Carne Picada</td>
-                                                                <td><input type="text" class="cant_clas form-control" name="carne_picada" id="carne_picada" onkeypress="return validaNumericos(event)" readonly></td>
+                                                                <td><input type="text" class="cant_clas form-control" name="carne_picada" id="carne_picada" onkeypress="return filterFloat(event,this);" readonly></td>
                                                             </tr>
                                                             <tr>
                                                                 <th class="text-center">5</th>
                                                                 <td>Hueso Raspado</td>
-                                                                <td><input type="text" class="cant_clas form-control" name="hueso_raspado" id="hueso_raspado" onkeypress="return validaNumericos(event)" readonly></td>
+                                                                <td><input type="text" class="cant_clas form-control" name="hueso_raspado" id="hueso_raspado" onkeypress="return filterFloat(event,this);" readonly></td>
                                                             </tr>
                                                             <tr>
                                                                 <th class="text-center">6</th>
                                                                 <td>Tocino Choriso</td>
-                                                                <td><input type="text" class="cant_clas form-control" name="tocino_choriso" id="tocino_choriso" onkeypress="return validaNumericos(event)" readonly></td>
+                                                                <td><input type="text" class="cant_clas form-control" name="tocino_choriso" id="tocino_choriso" onkeypress="return filterFloat(event,this);" readonly></td>
                                                             </tr>
                                                             <tr>
                                                                 <th class="text-center">7</th>
                                                                 <td>Hueso columna</td>
-                                                                <td><input type="text" class="cant_clas form-control" name="hueso_colum" id="hueso_colum" onkeypress="return validaNumericos(event)" readonly></td>
+                                                                <td><input type="text" class="cant_clas form-control" name="hueso_colum" id="hueso_colum" onkeypress="return filterFloat(event,this);" readonly></td>
                                                             </tr>
                                                             <tr>
                                                                 <th class="text-center">8</th>
                                                                 <td>Cuero</td>
-                                                                <td><input type="text" class="cant_clas form-control" name="cuero" id="cuero" onkeypress="return validaNumericos(event)" readonly></td>
+                                                                <td><input type="text" class="cant_clas form-control" name="cuero" id="cuero" onkeypress="return filterFloat(event,this);" readonly></td>
                                                             </tr>
                                                             <tr>
                                                                 <th class="text-center">9</th>
                                                                 <td>Papada</td>
-                                                                <td><input type="text" class="cant_clas form-control" name="papada" id="papada" onkeypress="return validaNumericos(event)" readonly></td>
+                                                                <td><input type="text" class="cant_clas form-control" name="papada" id="papada" onkeypress="return filterFloat(event,this);" readonly></td>
                                                             </tr>
                                                             <tr>
                                                                 <th class="text-center">10</th>
                                                                 <td>Carne pe/ Cecina</td>
-                                                                <td><input type="text" class="cant_clas form-control" name="carne_cecina" id="carne_cecina" onkeypress="return validaNumericos(event)" readonly></td>
+                                                                <td><input type="text" class="cant_clas form-control" name="carne_cecina" id="carne_cecina" onkeypress="return filterFloat(event,this);" readonly></td>
                                                             </tr>
                                                             <tr>
                                                                 <th class="text-center">11</th>
                                                                 <td>Carne pe/ File</td>
-                                                                <td><input type="text" class="cant_clas form-control" name="carne_file" id="carne_file" onkeypress="return validaNumericos(event)" readonly></td>
+                                                                <td><input type="text" class="cant_clas form-control" name="carne_file" id="carne_file" onkeypress="return filterFloat(event,this);" readonly></td>
                                                             </tr>
                                                         </tbody>
                                                     </table>
@@ -155,27 +145,27 @@
                                                             <tr>
                                                                 <th class="text-center">12</th>
                                                                 <td>Brazuelo</td>
-                                                                <td><input type="text" class="cant_clas form-control" name="brazuelo" id="brazuelo" onkeypress="return validaNumericos(event)" readonly></td>
+                                                                <td><input type="text" class="cant_clas form-control" name="brazuelo" id="brazuelo" onkeypress="return filterFloat(event,this);" readonly></td>
                                                             </tr>
                                                             <tr>
                                                                 <th class="text-center">13</th>
                                                                 <td>Piernas</td>
-                                                                <td><input type="text" class="cant_clas form-control" name="piernas" id="piernas" onkeypress="return validaNumericos(event)" readonly></td>
+                                                                <td><input type="text" class="cant_clas form-control" name="piernas" id="piernas" onkeypress="return filterFloat(event,this);" readonly></td>
                                                             </tr>
                                                             <tr>
                                                                 <th class="text-center">14</th>
                                                                 <td>Chaleco</td>
-                                                                <td><input type="text" class="cant_clas form-control" name="chaleco" id="chaleco" onkeypress="return validaNumericos(event)" readonly></td>
+                                                                <td><input type="text" class="cant_clas form-control" name="chaleco" id="chaleco" onkeypress="return filterFloat(event,this);" readonly></td>
                                                             </tr>
                                                             <tr>
                                                                 <th class="text-center">15</th>
                                                                 <td>Cabeza</td>
-                                                                <td><input type="text" class="cant_clas form-control" name="cabeza" id="cabeza" onkeypress="return validaNumericos(event)" readonly></td>
+                                                                <td><input type="text" class="cant_clas form-control" name="cabeza" id="cabeza" onkeypress="return filterFloat(event,this);" readonly></td>
                                                             </tr>
                                                             <tr>
                                                                 <th class="text-center">16</th>
                                                                 <td>Patas</td>
-                                                                <td><input type="text" class="cant_clas form-control" name="patas" id="patas" onkeypress="return validaNumericos(event)" readonly></td>
+                                                                <td><input type="text" class="cant_clas form-control" name="patas" id="patas" onkeypress="return filterFloat(event,this);" readonly></td>
                                                             </tr>
                                                         </tbody>
                                                     </table>
@@ -195,17 +185,11 @@
                                                         </div>
                                                         <input  type="text" class="text-center form-control" name="total" id="total" value=0 readonly> 
                                                 </div>
-                                                <div class="col-xl-8 input-group mb-5">
+                                                <div class="col-xl-8 input-group mb-1">
                                                         <div class="input-group-prepend">
-                                                            <span class="btn ripple btn-primary">&nbsp;&nbsp;&nbsp;&nbsp;RESTO&nbsp;&nbsp;&nbsp;</span>
+                                                            <span class="btn ripple btn-primary">&nbsp;&nbsp;&nbsp;MERMA&nbsp;&nbsp;</span>
                                                         </div>
-                                                        <input  type="text" class="text-center form-control" name="resto" id="resto" readonly> 
-                                                </div>
-                                                <div class="col-xl-10 input-group">
-                                                    <div class="col-xl-12 col-lg">
-                                                        <p class="mg-b-10">Merma (kg)</p>
-                                                        <input id="merma" name="merma" class="text-center form-control" type="text" value='0' onkeyup="cal_merma(this)" onkeypress="return validaNumericos(event)">
-                                                    </div>
+                                                        <input  type="text" class="text-center form-control" name="merma" id="merma" readonly> 
                                                 </div>
                                             </div>
                                         </div>

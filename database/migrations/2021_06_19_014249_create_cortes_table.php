@@ -19,6 +19,7 @@ class CreateCortesTable extends Migration
             $table->string('producto');
             $table->foreign('materia_id')->references('id')->on('materias');
             $table->string('descripcion');
+            $table->integer('cantidad_d');
             $table->integer('cantidad');
             $table->date('fecha_reg');
             $table->double('brazuelo',8, 2)->nullable();
@@ -26,8 +27,6 @@ class CreateCortesTable extends Migration
             $table->double('chaleco',8, 2)->nullable();
             $table->double('cabeza',8, 2)->nullable();
             $table->double('patas',8, 2)->nullable();
-            $table->double('pulpa_carne',8, 2)->nullable();
-            $table->double('pulpa_file',8, 2)->nullable();
             $table->double('costilla',8, 2)->nullable();
             $table->double('carne_picada',8, 2)->nullable();
             $table->double('hueso_raspado',8, 2)->nullable();
@@ -39,7 +38,6 @@ class CreateCortesTable extends Migration
             $table->double('carne_file',8, 2)->nullable();
             $table->double('total',8, 2)->nullable();
             $table->double('merma',8, 2)->nullable();
-            $table->double('resto',8, 2)->nullable();
             $table->timestamps();
         });
     }
