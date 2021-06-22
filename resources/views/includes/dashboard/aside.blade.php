@@ -12,28 +12,31 @@
             <li class="nav-header"><span class="nav-label">Módulos</span></li>
         
             <li class="nav-item">
-                <a class="nav-link with-sub" href="#"><span class="shape1"></span><span class="shape2"></span><i class="ti-shopping-cart-full sidemenu-icon"></i><span class="sidemenu-label">MATERIA PRIMA</span><i class="angle fe fe-chevron-right"></i></a>
+                <a class="nav-link with-sub" href="#"><span class="shape1"></span><span class="shape2"></span><i class="ti-panel sidemenu-icon"></i><span class="sidemenu-label">PROCESOS</span><i class="angle fe fe-chevron-right"></i></a>
                 <ul class="nav-sub">
                     <li class="nav-sub-item">
                         <a class="nav-sub-link" href="{{route('materias.index')}}">MATERIA PRIMA</a>
                     </li>
-                    <li class="nav-sub-item">
-                        <a class="nav-sub-link" href="{{route('proveedors.index')}}">PROVEEDORES</a>
-                    </li>
-                    <li class="nav-sub-item">
-                        <a class="nav-sub-link" href="{{route('categorias.index')}}">CATEGORÍAS</a>
+                     <li class="nav-sub-item">
+                        <a class="nav-sub-link" href="{{route('cortes.index')}}">CORTES</a>
                     </li>
                 </ul>
             </li>
 
             <li class="nav-item">
-                <a class="nav-link with-sub" href="#"><span class="shape1"></span><span class="shape2"></span><i class="ti-package sidemenu-icon"></i><span class="sidemenu-label">ALMACÉN</span><i class="angle fe fe-chevron-right"></i></a>
+                <a class="nav-link with-sub" href="#"><span class="shape1"></span><span class="shape2"></span><i class="ti-package sidemenu-icon"></i><span class="sidemenu-label">PRODUCTOS</span><i class="angle fe fe-chevron-right"></i></a>
                 <ul class="nav-sub">
+                    <li class="nav-sub-item">
+                        <a class="nav-sub-link" href="{{route('materias_det')}}">PRODUCTOS PROVEEDOR</a>
+                    </li>
                     <li class="nav-sub-item">
                         <a class="nav-sub-link" href="{{route('productos.index')}}">PRODUCTOS</a>
                     </li>
                     <li class="nav-sub-item">
-                        <a class="nav-sub-link" href="{{route('materias_det')}}">PRODUCTOS PROVEEDOR</a>
+                        <a class="nav-sub-link" href="{{route('categorias.index')}}">CATEGORÍAS</a>
+                    </li>
+                    <li class="nav-sub-item">
+                        <a class="nav-sub-link" href="{{route('proveedors.index')}}">PROVEEDORES</a>
                     </li>
                 </ul>
             </li>

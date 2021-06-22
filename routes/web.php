@@ -33,4 +33,4 @@ Route::resource('productos', ProductoController ::class)->middleware(['auth']);
 Route::resource('proveedors', ProveedorController ::class)->middleware(['auth']);
 Route::resource('materias', MateriaController ::class)->middleware(['auth']);
 Route::get('materia/detalle', [MateriaController::class, 'detalle'])->name('materias_det')->middleware(['auth']);
-Route::resource('corte', CorteController ::class)->middleware(['auth']);
+Route::resource('cortes', CorteController ::class)->middleware(['auth']);

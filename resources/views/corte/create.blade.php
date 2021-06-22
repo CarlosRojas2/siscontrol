@@ -51,7 +51,7 @@
                                         </div>
                                         <div class="col-lg">
                                             <p class="mg-b-10">Cantidad Disponible (Kg)</p>
-                                            <input id="cantidad_d" name="cantidad_d" class="form-control" type="text" value="{{$materia->cantidad}}" readonly>
+                                            <input id="cantidad_d" name="cantidad_d" class="form-control" type="text" value="{{$materia->resto}}" readonly>
                                         </div>
                                     </div><br>
                                     <div class="row row-sm">

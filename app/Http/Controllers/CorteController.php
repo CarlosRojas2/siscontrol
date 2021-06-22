@@ -15,7 +15,9 @@ class CorteController extends Controller
      */
     public function index() 
     {
-        //
+        $n=0;
+        $corte=Corte::withTrashed()->orderby('id','desc')->get();
+        return view('corte.index', compact('corte','n'));
     }
 
     public function create()
@@ -32,11 +34,14 @@ class CorteController extends Controller
     public function store(Request $request)
     {
         $formulario    = json_decode($request->post('formulario'));
-
+        if($formulario->descripcion==0){
+            return 0;
+        }
         $corte = new Corte;
         $corte->materia_id      = $formulario->materia_id;
         $corte->producto        = $formulario->producto;
         $corte->descripcion     = $formulario->descripcion;
+        $corte->cantidad_d      = $formulario->cantidad_d;
         $corte->cantidad        = $formulario->cantidad;
         $corte->fecha_reg       = $formulario->fecha_reg;
         $corte->brazuelo        = $formulario->brazuelo;
@@ -44,8 +49,6 @@ class CorteController extends Controller
         $corte->chaleco         = $formulario->chaleco;
         $corte->cabeza          = $formulario->cabeza;
         $corte->patas           = $formulario->patas;
-        $corte->pulpa_carne     = $formulario->pulpa_carne;
-        $corte->pulpa_file      = $formulario->pulpa_file;
         $corte->costilla        = $formulario->costilla;
         $corte->carne_picada    = $formulario->carne_picada;
         $corte->hueso_raspado   = $formulario->hueso_raspado;
@@ -58,6 +61,10 @@ class CorteController extends Controller
         $corte->total           = $formulario->total;
         $corte->merma           = $formulario->merma;
         $corte->save();
+
+        $resto=$formulario->cantidad_d - $formulario->cantidad;
+        Materia::withTrashed()->where('id' , $formulario->materia_id)->update(['resto' => $resto]);
+
         echo json_encode($corte->id);
     }
 
@@ -73,6 +80,9 @@ class CorteController extends Controller
 
     public function destroy(Corte $corte)
     {
-        //
+        
+        Materia::where('id' , $corte->materia_id)->update(['resto' => $corte->cantidad_d]);
+        Corte::find($corte->id)->delete();
+        echo '<script type="text/javascript">localStorage.mensaje_codetime="Corte anulado con éxito."; window.location ="'.url('cortes').'";</script>';
     }
 }

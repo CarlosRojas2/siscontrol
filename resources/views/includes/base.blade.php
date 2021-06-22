@@ -52,8 +52,8 @@
 		<link href="{{asset('assets/switcher/css/switcher.css')}}" rel="stylesheet">
 		<link href="{{asset('assets/switcher/demo.css')}}" rel="stylesheet">
 
-		<!-- Internal Sweet-Alert css-->
-		{{-- <link href="{{asset('assets/plugins/sweet-alert/sweetalert.css')}}" rel="stylesheet"> --}}
+		<!-- Internal Sweet-Alert css-
+		<link href="{{asset('assets/plugins/sweet-alert/sweetalert.css')}}" rel="stylesheet">-->
 
 	</head>
 
@@ -158,9 +158,9 @@
 		<!-- Custom js -->
 		<script src="{{asset('assets/js/custom.js')}}"></script>
 
-		<!-- Internal Sweet-Alert js-->
-		{{-- <script src="{{asset('assets/plugins/sweet-alert/sweetalert.min.js')}}"></script>
-		<script src="{{asset('assets/plugins/sweet-alert/jquery.sweet-alert.js')}}"></script> --}}
+		<!-- Internal Sweet-Alert js
+		<script src="{{asset('assets/plugins/sweet-alert/sweetalert.min.js')}}"></script>
+		<script src="{{asset('assets/plugins/sweet-alert/jquery.sweet-alert.js')}}"></script>-->
 
 		<!-- Switcher js -->
 		<script src="{{asset('assets/switcher/js/switcher.js')}}"></script>

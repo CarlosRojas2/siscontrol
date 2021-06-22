@@ -24,7 +24,6 @@ class CreateMateriasTable extends Migration
             $table->foreign('proveedor_id')->references('id')->on('proveedors');
 
             $table->integer('cantidad');
-            $table->integer('resto')->nullable();
             $table->decimal('precio_compra', 12, 2);
             $table->decimal('importe', 12, 2);
             $table->decimal('resto', 12, 2)->nullable();
