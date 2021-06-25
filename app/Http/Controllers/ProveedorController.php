@@ -50,7 +50,7 @@ class ProveedorController extends Controller
     }
     public function destroy(proveedor $proveedor)
     {
-        $fk =  $proveedor->fk_proveedorProducto($proveedor->id);
+        $fk =  $proveedor->fk_proveedorMateria($proveedor->id);
         if($fk == 1)
         {
             return redirect()->route('proveedors.index')->with('eliminar','error');

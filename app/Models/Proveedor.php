@@ -27,10 +27,10 @@ class Proveedor extends Model
         'direccion',
         'telefono'
     ];
-    public function fk_proveedorProducto($id)
+    public function fk_proveedorMateria($id)
     {
-        $productos = DB::table('productos')->where('proveedor_id', $id)->first();
-        if (!empty($productos)) {
+        $materias = DB::table('materias')->where('proveedor_id', $id)->first();
+        if (!empty($materias)) {
             return 1;
         }
     }

@@ -84,7 +84,7 @@
         icon: 'error',
         title: 'UPS...',
         text: '!Algo salio mal!',
-        footer: 'Acción denegada, el proveedor tiene referencias en productos'
+        footer: 'Acción denegada, el proveedor tiene referencias en materias'
         })
     </script>
     
