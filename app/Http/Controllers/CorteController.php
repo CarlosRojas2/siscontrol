@@ -34,7 +34,7 @@ class CorteController extends Controller
     public function store(Request $request)
     {
         $formulario    = json_decode($request->post('formulario'));
-        if($formulario->descripcion==0){
+        if($formulario->descripcion=='0'){
             return 0;
         }
         $corte = new Corte;
@@ -61,21 +61,51 @@ class CorteController extends Controller
         $corte->total           = $formulario->total;
         $corte->merma           = $formulario->merma;
         $corte->save();
-
-        $resto=$formulario->cantidad_d - $formulario->cantidad;
-        Materia::withTrashed()->where('id' , $formulario->materia_id)->update(['resto' => $resto]);
-
+        
+        Materia::where('id' ,$formulario->materia_id)->decrement('resto',$formulario->cantidad);
         echo json_encode($corte->id);
     }
 
-    public function edit(Corte $corte)
+    public function edit($id)
     {
-        //
+        $corte=Corte::where('id',$id)->first();
+        $materia=Materia::where('id',$corte->materia_id)->first();
+        return view('corte.edit', compact('corte','materia'));
     }
 
-    public function update(Request $request, Corte $corte)
+    public function update($opcion,Request $request)
     {
-        //
+        $formulario    = json_decode($request->post('formulario'));
+        if($formulario->descripcion=='0'){
+            return 0;
+        }
+        $data =[
+
+                'cantidad'              => $formulario->cantidad,
+                'fecha_reg'             => $formulario->fecha_reg,
+                'brazuelo'              => $formulario->brazuelo,
+                'piernas'               => $formulario->piernas,
+                'chaleco'               => $formulario->chaleco,
+                'cabeza'                => $formulario->cabeza,
+                'patas'                 => $formulario->patas,
+                'costilla'              => $formulario->costilla,
+                'carne_picada'          => $formulario->carne_picada,
+                'hueso_raspado'         => $formulario->hueso_raspado,
+                'tocino_choriso'        => $formulario->tocino_choriso,
+                'hueso_colum'           => $formulario->hueso_colum,
+                'cuero'                 => $formulario->cuero,
+                'papada'                => $formulario->papada,
+                'carne_cecina'          => $formulario->carne_cecina,
+                'carne_file'            => $formulario->carne_file,
+                'total'                 => $formulario->total,
+                'merma'                 => $formulario->merma
+        ];
+        Corte::where('id' , $formulario->corte_id)->update($data);
+
+        Materia::where('id' ,$formulario->materia_id)->increment('resto',$formulario->cantidad_ant);
+        Materia::where('id' ,$formulario->materia_id)->decrement('resto',$formulario->cantidad);
+        echo json_encode($opcion);
+
     }
 
     public function destroy(Corte $corte)

@@ -71,7 +71,7 @@
                                                                 @csrf
                                                                 @method('delete')
 
-                                                                <a href="{{route('materias.edit', $item->id)}}" class="btn btn-sm btn-success">
+                                                                <a href="{{route('cortes.edit', $item->id)}}" class="btn btn-sm btn-success">
                                                                     <i class="fe fe-edit-2"></i>
                                                                 </a>
 

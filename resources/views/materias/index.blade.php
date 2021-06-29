@@ -67,7 +67,7 @@
                                                             <form action="{{route('materias.destroy', $item)}}" class="eliminar-materia" method="POST">
                                                                 @csrf
                                                                 @method('delete')
-                                                                <a href="{{route('cortes.show', $item->id)}}" class="btn btn-sm btn-primary" title="Cortes">
+                                                                <a href="{{route('cortes.show', $item->id)}}" class="btn btn-sm btn-primary" title="Corte">
                                                                     <i class="fe fe-scissors"></i>
                                                                 </a>
                                                                 
