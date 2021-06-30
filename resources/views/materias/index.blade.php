@@ -41,7 +41,7 @@
                                                 <th>#</th>
                                                 <th>Nombre</th>
                                                 <th>Proveedor</th>
-                                                <th>Cantidad</th>
+                                                <th>Cantidad Inicial</th>
                                                 <th>Sin procesar</th>
                                                 <th>Precio compra</th>
                                                 <th>Importe total</th>
@@ -67,7 +67,7 @@
                                                             <form action="{{route('materias.destroy', $item)}}" class="eliminar-materia" method="POST">
                                                                 @csrf
                                                                 @method('delete')
-                                                                <a href="{{route('cortes.show', $item->id)}}" class="btn btn-sm btn-primary" title="Corte">
+                                                                <a href="{{route('crear_corte', $item->id)}}" class="btn btn-sm btn-primary" title="Corte">
                                                                     <i class="fe fe-scissors"></i>
                                                                 </a>
                                                                 

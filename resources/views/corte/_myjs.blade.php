@@ -77,10 +77,10 @@
 			        	var metodo	="PATCH";
 			        }
 			        $.ajax({
-			        	headers: { 'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content') },
+			        	headers	: { 'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content') },
 			            url     : ruta,
 			            type    : 'POST',
-			            data    :  {'formulario':JSON.stringify(formulario)},
+			            data    : {'formulario':JSON.stringify(formulario)},
 			            dataType: "html",
 			            method	: metodo,
 			            success : function(data){

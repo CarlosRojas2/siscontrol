@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Corte;
 use App\Models\Materia;
+use App\Models\Insumos;
 use Illuminate\Http\Request;
 
 class CorteController extends Controller
@@ -19,16 +20,23 @@ class CorteController extends Controller
         $corte=Corte::withTrashed()->orderby('id','desc')->get();
         return view('corte.index', compact('corte','n'));
     }
+ 
+    public function create(){}
 
-    public function create()
-    {
-       
-    }
-
-    public function show($id)
+    public function crear($id)
     {
         $materia=Materia::where('id',$id)->first();
         return view('corte.create', compact('materia'));
+    }
+    public function show($id)
+    {
+        $corte=Corte::withTrashed()->select('cortes.*','proveedors.nombre as proveedor','productos.nombre as producto','categorias.nombre as categoria')
+        ->join('materias','materias.id','=','cortes.materia_id')
+        ->join('proveedors','proveedors.id','=','materias.proveedor_id')
+        ->join('productos','productos.id','=','materias.producto_id')
+        ->join('categorias','categorias.id','=','productos.categoria_id')
+        ->where('cortes.id',$id)->first();
+        return view('corte.show', compact('corte'));
     }
 
     public function store(Request $request)
@@ -63,6 +71,11 @@ class CorteController extends Controller
         $corte->save();
         
         Materia::where('id' ,$formulario->materia_id)->decrement('resto',$formulario->cantidad);
+
+        Insumos::where('descripcion' ,'carne_picada')->increment('total',$formulario->carne_picada);
+        Insumos::where('descripcion' ,'tocino_choriso')->increment('total',$formulario->tocino_choriso);
+        Insumos::where('descripcion' ,'papada')->increment('total',$formulario->papada);
+
         echo json_encode($corte->id);
     }
 
@@ -75,10 +88,11 @@ class CorteController extends Controller
 
     public function update($opcion,Request $request)
     {
-        $formulario    = json_decode($request->post('formulario'));
+        $formulario = json_decode($request->post('formulario'));
         if($formulario->descripcion=='0'){
             return 0;
         }
+        $corte = Corte::where('id',$formulario->corte_id)->first();
         $data =[
 
                 'cantidad'              => $formulario->cantidad,
@@ -100,10 +114,18 @@ class CorteController extends Controller
                 'total'                 => $formulario->total,
                 'merma'                 => $formulario->merma
         ];
-        Corte::where('id' , $formulario->corte_id)->update($data);
+        Corte::where('id' ,$corte->id)->update($data);
 
-        Materia::where('id' ,$formulario->materia_id)->increment('resto',$formulario->cantidad_ant);
-        Materia::where('id' ,$formulario->materia_id)->decrement('resto',$formulario->cantidad);
+        Materia::where('id' ,$corte->materia_id)->increment('resto',$corte->cantidad);
+        Materia::where('id' ,$corte->materia_id)->decrement('resto',$formulario->cantidad);
+
+        Insumos::where('descripcion' ,'carne_picada')->decrement('total',$corte->carne_picada);
+        Insumos::where('descripcion' ,'carne_picada')->increment('total',$formulario->carne_picada);
+        Insumos::where('descripcion' ,'tocino_choriso')->decrement('total',$corte->tocino_choriso);
+        Insumos::where('descripcion' ,'tocino_choriso')->increment('total',$formulario->tocino_choriso);
+        Insumos::where('descripcion' ,'papada')->decrement('total',$corte->papada);
+        Insumos::where('descripcion' ,'papada')->increment('total',$formulario->papada);
+
         echo json_encode($opcion);
 
     }
@@ -112,6 +134,11 @@ class CorteController extends Controller
     {
         
         Materia::where('id' , $corte->materia_id)->increment('resto',$corte->cantidad);
+
+        Insumos::where('descripcion' ,'carne_picada')->decrement('total',$corte->carne_picada);
+        Insumos::where('descripcion' ,'tocino_choriso')->decrement('total',$corte->tocino_choriso);
+        Insumos::where('descripcion' ,'papada')->decrement('total',$corte->papada);
+
         Corte::find($corte->id)->delete();
         echo '<script type="text/javascript">localStorage.mensaje_codetime="Corte anulado con éxito."; window.location ="'.url('cortes').'";</script>';
     }

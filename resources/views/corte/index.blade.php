@@ -41,7 +41,7 @@
                                                 <th>#</th>
                                                 <th>Descripción</th>
                                                 <th>Materia</th>
-                                                <th>Cantidad</th>
+                                                <th>Fecha</th>
                                                 <th>Corte</th>
                                                 <th>Merma</th>
                                                 <th class="text-center">Estado</th>
@@ -55,7 +55,7 @@
                                                         <td class="text-center">{{$n=$n+1}}</td>
                                                         <td><a href="{{route('cortes.show', $item->id)}}">{{$item->descripcion}}</a></td>
                                                         <td>{{$item->producto}}</td>
-                                                        <td>{{$item->cantidad_d}} Kg</td>
+                                                        <td>{{$item->fecha_reg}}</td>
                                                         <td>{{$item->cantidad}} kg</td>
                                                         <td>{{$item->merma}} kg</td>
                                                         <td class="text-center">
@@ -66,22 +66,18 @@
                                                             @endif
                                                         </td>
                                                         <td class="text-center">
-
-                                                            <form class="delet_cortes" action="{{route('cortes.destroy', $item)}}"  method="POST">
-                                                                @csrf
-                                                                @method('delete')
-
-                                                                <a href="{{route('cortes.edit', $item->id)}}" class="btn btn-sm btn-success">
-                                                                    <i class="fe fe-edit-2"></i>
-                                                                </a>
-
-                                                                <button tipe="submit" class="btn btn-sm btn-danger" {{($item->deleted_at == null)? ' ' : 'disabled'}}>
-                                                                    <i class="fe fe-trash"></i>
-                                                                </button>
-
-                                                            </form>
-
-                                                            
+                                                            @if($item->deleted_at == null)
+                                                                <form class="delet_cortes" action="{{route('cortes.destroy', $item)}}"  method="POST">
+                                                                    @csrf
+                                                                    @method('delete')
+                                                                    <a href="{{route('cortes.edit', $item->id)}}" class="btn btn-sm btn-success">
+                                                                        <i class="fe fe-edit-2"></i>
+                                                                    </a>
+                                                                    <button tipe="submit" class="btn btn-sm btn-danger">
+                                                                        <i class="fe fe-trash"></i>
+                                                                    </button>
+                                                                </form>
+                                                           @endif
                                                         </td>
                                                     </tr>
                                                 @endforeach

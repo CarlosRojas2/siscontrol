@@ -44,7 +44,6 @@
                                             <input id="producto" name="producto" class="form-control" type="text" value="{{$materia->producto->nombre}} - {{$materia->proveedor->nombre}}" readonly>
                                             <input id="materia_id" name="materia_id" class="form-control" type="hidden" value="{{$materia->id}}" readonly>
                                             <input id="corte_id" name="corte_id" class="form-control" type="hidden" value="{{$corte->id}}" readonly>
-                                            <input id="cantidad_ant" name="cantidad_ant" class="form-control" type="hidden" value="{{$corte->cantidad}}" readonly>
                                         </div>
 
                                         <div class="col-lg">
@@ -199,7 +198,7 @@
                                     <div class="form-group row justify-content-end mb-0 mg-t-30" align="center">
                                         <div class="col-md-12 pl-md-6 text-white">
                                             <button id="reg_bt" type="submit" class="btn ripple btn-primary pd-x-30 mg-r-10" value="registrar">Registrar</button>
-                                            <a type="button" href="{{route('materias.index')}}" class="btn ripple btn-secondary pd-x-30">Cancelar</a>
+                                            <a type="button" href="{{route('cortes.index')}}" class="btn ripple btn-secondary pd-x-30">Cancelar</a>
                                         </div>
                                     </div>
                                 </form>
