@@ -72,9 +72,9 @@ class CorteController extends Controller
         
         Materia::where('id' ,$formulario->materia_id)->decrement('resto',$formulario->cantidad);
 
-        Insumos::where('descripcion' ,'carne_picada')->increment('total',$formulario->carne_picada);
-        Insumos::where('descripcion' ,'tocino_choriso')->increment('total',$formulario->tocino_choriso);
-        Insumos::where('descripcion' ,'papada')->increment('total',$formulario->papada);
+        Insumos::where('nombre' ,'carne_picada')->increment('total',$formulario->carne_picada);
+        Insumos::where('nombre' ,'tocino_choriso')->increment('total',$formulario->tocino_choriso);
+        Insumos::where('nombre' ,'papada')->increment('total',$formulario->papada);
 
         echo json_encode($corte->id);
     }
@@ -119,12 +119,12 @@ class CorteController extends Controller
         Materia::where('id' ,$corte->materia_id)->increment('resto',$corte->cantidad);
         Materia::where('id' ,$corte->materia_id)->decrement('resto',$formulario->cantidad);
 
-        Insumos::where('descripcion' ,'carne_picada')->decrement('total',$corte->carne_picada);
-        Insumos::where('descripcion' ,'carne_picada')->increment('total',$formulario->carne_picada);
-        Insumos::where('descripcion' ,'tocino_choriso')->decrement('total',$corte->tocino_choriso);
-        Insumos::where('descripcion' ,'tocino_choriso')->increment('total',$formulario->tocino_choriso);
-        Insumos::where('descripcion' ,'papada')->decrement('total',$corte->papada);
-        Insumos::where('descripcion' ,'papada')->increment('total',$formulario->papada);
+        Insumos::where('nombre' ,'carne_picada')->decrement('total',$corte->carne_picada);
+        Insumos::where('nombre' ,'carne_picada')->increment('total',$formulario->carne_picada);
+        Insumos::where('nombre' ,'tocino_choriso')->decrement('total',$corte->tocino_choriso);
+        Insumos::where('nombre' ,'tocino_choriso')->increment('total',$formulario->tocino_choriso);
+        Insumos::where('nombre' ,'papada')->decrement('total',$corte->papada);
+        Insumos::where('nombre' ,'papada')->increment('total',$formulario->papada);
 
         echo json_encode($opcion);
 
@@ -135,9 +135,9 @@ class CorteController extends Controller
         
         Materia::where('id' , $corte->materia_id)->increment('resto',$corte->cantidad);
 
-        Insumos::where('descripcion' ,'carne_picada')->decrement('total',$corte->carne_picada);
-        Insumos::where('descripcion' ,'tocino_choriso')->decrement('total',$corte->tocino_choriso);
-        Insumos::where('descripcion' ,'papada')->decrement('total',$corte->papada);
+        Insumos::where('nombre' ,'carne_picada')->decrement('total',$corte->carne_picada);
+        Insumos::where('nombre' ,'tocino_choriso')->decrement('total',$corte->tocino_choriso);
+        Insumos::where('nombre' ,'papada')->decrement('total',$corte->papada);
 
         Corte::find($corte->id)->delete();
         echo '<script type="text/javascript">localStorage.mensaje_codetime="Corte anulado con éxito."; window.location ="'.url('cortes').'";</script>';

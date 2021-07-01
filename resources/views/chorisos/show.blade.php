@@ -98,7 +98,7 @@
 			                                    </div>
 											</div>
 											<div class="main-contact-info-body">
-												<h5 class="mb-3">Desglose (kg)</h5>
+												<h5 class="mb-3">Productos (kg)</h5>
 												<div class="col-xl-12">
 														<div class="table-responsive">
 															<table class="table mb-0 border-top table-bordered text-nowrap">

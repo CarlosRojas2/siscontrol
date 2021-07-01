@@ -4,10 +4,12 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\SoftDeletes;
 
-class Insumos extends Model
+class Prod_chorisos extends Model
 {
     use HasFactory;
-    protected $table        = 'insumos';
+    use SoftDeletes;
+    protected $table        = 'prod_chorisos';
     protected $primaryKey   = 'id';
 }

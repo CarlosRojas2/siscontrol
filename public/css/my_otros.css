@@ -22,3 +22,9 @@
 .o_o_error_form{
 	border-color: red !important;
 }
+.o_o_enlace_no{
+    pointer-events: none; 
+    cursor: default;
+    background-color: #04b386;
+    border-color: #04b386;
+}

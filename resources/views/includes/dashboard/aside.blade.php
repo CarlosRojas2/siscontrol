@@ -41,13 +41,30 @@
                 </ul>
             </li>
             <li class="nav-item">
-                <a class="nav-link with-sub" href="#"><span class="shape1"></span><span class="shape2"></span><i class="ti-bar-chart sidemenu-icon"></i><span class="sidemenu-label">Reportes</span><i class="angle fe fe-chevron-right"></i></a>
+                <a class="nav-link with-sub" href="#"><span class="shape1"></span><span class="shape2"></span><i class="ti-receipt sidemenu-icon"></i><span class="sidemenu-label">PRODUCCIÓN</span><i class="angle fe fe-chevron-right"></i></a>
                 <ul class="nav-sub">
                     <li class="nav-sub-item">
-                        <a class="nav-sub-link" href="tablebasic.html">Basic Tables</a>
+                        <a class="nav-sub-link" href="{{route('prod_chorisos.index')}}">CHORISOS</a>
                     </li>
                     <li class="nav-sub-item">
-                        <a class="nav-sub-link" href="tabledata.html">Data Tables</a>
+                        <a class="nav-sub-link" href="{{route('productos.index')}}">AHUMADOS</a>
+                    </li>
+                </ul>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link with-sub" href="#"><span class="shape1"></span><span class="shape2"></span><i class="ti-bar-chart sidemenu-icon"></i><span class="sidemenu-label">REPORTES</span><i class="angle fe fe-chevron-right"></i></a>
+                <ul class="nav-sub">
+                    <li class="nav-sub-item">
+                        <a class="nav-sub-link" href="tablebasic.html">MATERIA PRIMA</a>
+                    </li>
+                    <li class="nav-sub-item">
+                        <a class="nav-sub-link" href="tabledata.html">CORTES</a>
+                    </li>
+                    <li class="nav-sub-item">
+                        <a class="nav-sub-link" href="tabledata.html">SALIDA CHORISO</a>
+                    </li>
+                    <li class="nav-sub-item">
+                        <a class="nav-sub-link" href="tabledata.html">SALIDA AHUMADOS</a>
                     </li>
                 </ul>
             </li>
