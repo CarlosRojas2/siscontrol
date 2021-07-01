@@ -47,7 +47,7 @@
                         <a class="nav-sub-link" href="{{route('prod_chorisos.index')}}">CHORISOS</a>
                     </li>
                     <li class="nav-sub-item">
-                        <a class="nav-sub-link" href="{{route('productos.index')}}">AHUMADOS</a>
+                        <a class="nav-sub-link" href="">AHUMADOS</a>
                     </li>
                 </ul>
             </li>

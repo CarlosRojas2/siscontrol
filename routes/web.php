@@ -26,7 +26,7 @@ Route::get('/', [HomeController::class, 'index'])->name('inicio');
 
 Route::get('/dashboard', function () {
     return view('dashboard');
-})->middleware(['auth'])->name('dashboard');
+})->name('dashboard')->middleware(['auth']);
 
 require __DIR__.'/auth.php';
 Route::resource('categorias', CategoriaController ::class)->middleware(['auth']);

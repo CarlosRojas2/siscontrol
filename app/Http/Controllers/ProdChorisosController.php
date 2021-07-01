@@ -20,7 +20,7 @@ class ProdChorisosController extends Controller
         $n=0;
         $chorisos=Prod_chorisos::withTrashed()->select('prod_chorisos.*','prod_productos.descripcion as producto')
         ->join('prod_productos','prod_productos.id','=','prod_chorisos.prod_productos_id')
-        ->orderby('prod_chorisos.id','desc')->get();
+        ->orderby('prod_chorisos.id','asc')->get();
         return view('chorisos.index', compact('chorisos','n'));
     }
 
@@ -75,9 +75,14 @@ class ProdChorisosController extends Controller
      * @param  \App\Models\Prod_chorisos  $prod_chorisos
      * @return \Illuminate\Http\Response
      */
-    public function edit(Prod_chorisos $prod_chorisos)
+    public function edit($id)
     {
-        //
+        $n=0;
+        $madeja          =  Producto::where('nombre','Madeja')->orwhere('nombre','MADEJA')->orderby('id','asc')->first();
+        $prod_productos  =  Prod_productos::orderby('id','asc')->get();
+        $insumos         =  Insumos::where('insumos_tipos_id',1)->orderby('id','asc')->get();
+        $chorisos        =  Prod_chorisos::where('id',$id)->first();
+        return view('chorisos.edit', compact('madeja','prod_productos','insumos','chorisos','n'));
     }
 
     /**
