@@ -48,6 +48,19 @@
                                                 </select>
                                             </div>
                                         </div>
+
+                                        <div class="col-lg">
+                                            <p class="mg-b-10">Unidad medida*</p>
+                                            <div class="form-group">
+                                                <select name="unidadmedida_id" id="unidadmedida_id" class="form-control select-lg select2">
+                                                    <option value="">Large Select</option>
+                                                    @foreach ($unidadmedida as $item)
+                                                    <option value="{{$item->id}}">{{$item->nombre}}</option>
+                                                    @endforeach
+                                                </select>
+                                            </div>
+                                        </div>
+
                                         <div class="col-lg">
                                             <p class="mg-b-10">Proveedor*</p>
                                             <div class="form-group">
@@ -59,7 +72,7 @@
                                                 </select>
                                             </div>
                                         </div>
-                                        
+                            
                                     </div>
                                     <div class="row row-sm">
                                         

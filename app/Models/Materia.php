@@ -16,7 +16,8 @@ class Materia extends Model
         'resto',
         'precio_compra',
         'importe',
-        'proveedor_id'
+        'proveedor_id',
+        'unidadmedida_id'
     ];
 
     public function producto(){
@@ -25,6 +26,10 @@ class Materia extends Model
 
     public function proveedor(){
         return $this->belongsTo(Proveedor::class);
+    }
+
+    public function unidadmedida(){
+        return $this->belongsTo(Unidadmedida::class);
     }
 
     public function update_stock($id, $cantidad){

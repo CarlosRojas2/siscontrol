@@ -3,6 +3,7 @@ namespace App\Http\Controllers;
 use App\Models\Materia;
 use App\Models\Producto;
 use App\Models\Proveedor;
+use App\Models\Unidadmedida;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 
@@ -17,7 +18,9 @@ class MateriaController extends Controller
     {
         $proveedors = Proveedor::get();
         $productos = Producto::get();
-        return view('materias.create', compact('productos', 'proveedors'));
+        $unidadmedida = Unidadmedida::get();
+
+        return view('materias.create', compact('productos', 'proveedors', 'unidadmedida'));
     }
     public function store(Request $request)
     {

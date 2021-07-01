@@ -22,6 +22,9 @@ class CreateMateriasTable extends Migration
 
             $table->unsignedBigInteger('proveedor_id');
             $table->foreign('proveedor_id')->references('id')->on('proveedors');
+            
+            $table->unsignedBigInteger('unidadmedida_id');
+            $table->foreign('unidadmedida_id')->references('id')->on('unidadmedidas');
 
             $table->integer('cantidad');
             $table->decimal('precio_compra', 12, 2);
