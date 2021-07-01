@@ -62,7 +62,7 @@
                                                                 @csrf
                                                                 @method('delete')
                                                                 <?php if($item->unidadmedida_id != '1' && $item->resto != 0){?>
-                                                                    <a href="{{route('cortes.show', $item->id)}}" class="btn btn-sm btn-primary" title="Cortes">
+                                                                    <a href="{{route('crear_corte', $item->id)}}" class="btn btn-sm btn-primary" title="Cortes">
                                                                         <i class="fe fe-scissors"></i>
                                                                     </a>
                                                                 <?php } ?>

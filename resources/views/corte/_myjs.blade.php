@@ -46,38 +46,65 @@
 /*----------------------NUEVO CORTE ENVIO CONTROLLER-------------------------*/
 
 	const create_corte=(e)=>{
-
 		event.preventDefault();
-        var data_form= $('#cortes').serializeArray();
-        var formulario = {}; 
-        $.each(data_form,function(i,item){
-        	if(item.value==''){
-        		item.value=0;
-        	}
-            formulario[item.name] = item.value;
-        });
-        $.ajax({
-        	headers: { 'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content') },
-            url     : "{{route('cortes.store')}}",
-            type    : 'POST',
-            data    :  {'formulario':JSON.stringify(formulario)},
-            dataType: "html",
-            success : function(data){
-                    data=eval(data);
-                    console.log(data);
-                    if(data==0){
-                    	$('#descripcion').addClass('o_o_error_form');
-                    	$('#descripcion').focus();
-                    	return false;
-                    }
-                    localStorage.mensaje_codetime="Corte insertado con éxito."; 
-                    window.location ="{{route('cortes.index')}}";
-                   
-            },
-            error: function () {
-                    alert("error");
-            }
-        });
+
+		swal.fire({
+              title: "¿Está seguro?",
+              text: "Confirmar si deseas proceder a cortar",
+              icon: "warning",
+              showCancelButton: true,
+              confirmButtonClass: "btn btn-danger",
+              confirmButtonText: "¡Sí, Cortar!",
+              cancelButtonText: "Cancelar",
+              closeOnConfirm: false
+            }).then((result)=>{
+                if(result.value){
+                  
+			        var data_form= $('#cortes').serializeArray();
+			        var corte_id= $('#corte_id').val();
+			        var formulario = {}; 
+			        $.each(data_form,function(i,item){
+			        	if(item.value==''){
+			        		item.value=0;
+			        	}
+			            formulario[item.name] = item.value;
+			        });
+			        if(corte_id == 'insert'){ 
+			        	var ruta	="{{route('cortes.store')}}";
+			        	var metodo	="POST";
+			        }else{ 
+			        	var ruta="{{route('cortes.update','update')}}";
+			        	var metodo	="PATCH";
+			        }
+			        $.ajax({
+			        	headers	: { 'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content') },
+			            url     : ruta,
+			            type    : 'POST',
+			            data    : {'formulario':JSON.stringify(formulario)},
+			            dataType: "html",
+			            method	: metodo,
+			            success : function(data){
+			                    data=eval(data);
+			                    console.log(data);
+			                    if(data==0){
+			                    	$('#descripcion').addClass('o_o_error_form');
+			                    	$('#descripcion').focus();
+			                    	return false;
+			                    }
+			                    if(data=='update') {
+			                    	localStorage.mensaje_codetime="Corte Editado con éxito."; 
+			                    }else{
+			                    	localStorage.mensaje_codetime="Corte Insertado con éxito."; 
+			                    }
+			                    window.location ="{{route('cortes.index')}}";
+			                   
+			            },
+			            error: function () {
+			                    alert("error");
+			            }
+			        });
+			    }
+            })
 
 	}
 
