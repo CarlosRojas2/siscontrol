@@ -1,11 +1,8 @@
 @extends('includes/base')
 @section('content')
-
     <div class="main-content side-content pt-0">
         <div class="container-fluid">
             <div class="inner-body"> 
-
-
                 <!-- Page Header -->
                 <div class="page-header">
                     <div>
@@ -24,7 +21,6 @@
                     </div>
                 </div>
                 <!-- End Page Header -->
-
                 <!--Row-->
                 <div class="row row-sm">
                     <div class="col-lg-12">
@@ -41,47 +37,42 @@
                                                 <th>#</th>
                                                 <th>Nombre</th>
                                                 <th>Proveedor</th>
-                                                <th>Cantidad Inicial</th>
+                                                <th>Unid medida</th>
+                                                <th>Cantidad</th>
                                                 <th>Sin procesar</th>
                                                 <th>Precio compra</th>
                                                 <th>Importe total</th>
-                                                <th>Opciones</th>
+                                                <th class="wd-lg-20p text-center">Opciones</th>
                                             </tr>
                                         </thead>
                                         <tbody>
                                             @if (!empty($materias))
                                                 @foreach ($materias as $item)
-                                                <?php if ($item->resto == 0){
-                                                    $n = 'ok';
-                                                }?>
                                                     <tr>
                                                         <td>{{$item->codigo}}</td>
                                                         <td><a href="{{route('materias.show', $item->id)}}">{{$item->producto->nombre}}</a></td>
                                                         <td>{{$item->proveedor->nombre}}</td>
+                                                        <td>{{$item->unidadmedida->nombre}}</td>
                                                         <td>{{$item->cantidad}} Kg</td>
                                                         <td>{{$item->resto}} Kg</td>
                                                         <td>{{$item->precio_compra}} S/</td>
                                                         <td>{{$item->importe}} S/</td>
-                                                        <td>
-
+                                                        <td class="text-center">
                                                             <form action="{{route('materias.destroy', $item)}}" class="eliminar-materia" method="POST">
                                                                 @csrf
                                                                 @method('delete')
-                                                                <a href="{{route('crear_corte', $item->id)}}" class="btn btn-sm btn-primary" title="Corte">
-                                                                    <i class="fe fe-scissors"></i>
-                                                                </a>
-                                                                
+                                                                <?php if($item->unidadmedida_id != '1' && $item->resto != 0){?>
+                                                                    <a href="{{route('crear_corte', $item->id)}}" class="btn btn-sm btn-primary" title="Cortes">
+                                                                        <i class="fe fe-scissors"></i>
+                                                                    </a>
+                                                                <?php } ?>
                                                                 <a href="{{route('materias.edit', $item->id)}}" class="btn btn-sm btn-success" title="Editar">
                                                                     <i class="fe fe-edit-2"></i>
                                                                 </a>
-
                                                                 <button tipe="submit" class="btn btn-sm btn-danger">
                                                                     <i class="fe fe-trash"></i>
                                                                 </button>
-
                                                             </form>
-
-                                                            
                                                         </td>
                                                     </tr>
                                                 @endforeach

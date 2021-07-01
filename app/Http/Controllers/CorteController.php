@@ -14,11 +14,11 @@ class CorteController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index() 
+    public function index()
     {
-        $n=0;
-        $corte=Corte::withTrashed()->orderby('id','desc')->get();
-        return view('corte.index', compact('corte','n'));
+        $n     = 0;
+        $corte = Corte::withTrashed()->orderby('id', 'desc')->get();
+        return view('corte.index', compact('corte', 'n'));
     }
  
     public function create(){}
@@ -45,29 +45,29 @@ class CorteController extends Controller
         if($formulario->descripcion=='0'){
             return 0;
         }
-        $corte = new Corte;
-        $corte->materia_id      = $formulario->materia_id;
-        $corte->producto        = $formulario->producto;
-        $corte->descripcion     = $formulario->descripcion;
-        $corte->cantidad_d      = $formulario->cantidad_d;
-        $corte->cantidad        = $formulario->cantidad;
-        $corte->fecha_reg       = $formulario->fecha_reg;
-        $corte->brazuelo        = $formulario->brazuelo;
-        $corte->piernas         = $formulario->piernas;
-        $corte->chaleco         = $formulario->chaleco;
-        $corte->cabeza          = $formulario->cabeza;
-        $corte->patas           = $formulario->patas;
-        $corte->costilla        = $formulario->costilla;
-        $corte->carne_picada    = $formulario->carne_picada;
-        $corte->hueso_raspado   = $formulario->hueso_raspado;
-        $corte->tocino_choriso  = $formulario->tocino_choriso;
-        $corte->hueso_colum     = $formulario->hueso_colum;
-        $corte->cuero           = $formulario->cuero;
-        $corte->papada          = $formulario->papada;
-        $corte->carne_cecina    = $formulario->carne_cecina;
-        $corte->carne_file      = $formulario->carne_file;
-        $corte->total           = $formulario->total;
-        $corte->merma           = $formulario->merma;
+        $corte                 = new Corte;
+        $corte->materia_id     = $formulario->materia_id;
+        $corte->producto       = $formulario->producto;
+        $corte->descripcion    = $formulario->descripcion;
+        $corte->cantidad_d     = $formulario->cantidad_d;
+        $corte->cantidad       = $formulario->cantidad;
+        $corte->fecha_reg      = $formulario->fecha_reg;
+        $corte->brazuelo       = $formulario->brazuelo;
+        $corte->piernas        = $formulario->piernas;
+        $corte->chaleco        = $formulario->chaleco;
+        $corte->cabeza         = $formulario->cabeza;
+        $corte->patas          = $formulario->patas;
+        $corte->costilla       = $formulario->costilla;
+        $corte->carne_picada   = $formulario->carne_picada;
+        $corte->hueso_raspado  = $formulario->hueso_raspado;
+        $corte->tocino_choriso = $formulario->tocino_choriso;
+        $corte->hueso_colum    = $formulario->hueso_colum;
+        $corte->cuero          = $formulario->cuero;
+        $corte->papada         = $formulario->papada;
+        $corte->carne_cecina   = $formulario->carne_cecina;
+        $corte->carne_file     = $formulario->carne_file;
+        $corte->total          = $formulario->total;
+        $corte->merma          = $formulario->merma;
         $corte->save();
         
         Materia::where('id' ,$formulario->materia_id)->decrement('resto',$formulario->cantidad);
@@ -140,6 +140,6 @@ class CorteController extends Controller
         Insumos::where('nombre' ,'papada')->decrement('total',$corte->papada);
 
         Corte::find($corte->id)->delete();
-        echo '<script type="text/javascript">localStorage.mensaje_codetime="Corte anulado con éxito."; window.location ="'.url('cortes').'";</script>';
+        echo '<script type="text/javascript">localStorage.mensaje_codetime="Corte anulado con éxito."; window.location ="' . url('cortes') . '";</script>';
     }
 }

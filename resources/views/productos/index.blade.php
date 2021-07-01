@@ -41,10 +41,7 @@
                                                 <th>Cod</th>
                                                 <th>Nombre</th>
                                                 <th>Categoría</th>
-                                                <th>Can inicial</th>
-                                                <th>Can cortada</th>
-                                                <th>Can restante</th>
-                                                <th>Can merma</th>
+                        
                                                 <th>Cargas</th>
                                                 <th>Estado</th>
                                                 <th>Opciones</th>
@@ -57,11 +54,6 @@
                                                         <td>{{$item->id}}</td>
                                                         <td><a href="{{route('productos.show', $item->id)}}">{{$item->nombre}}</a></td>
                                                         <td>{{$item->categoria->nombre}}</td>
-                                                        <td>{{$item->cantidad_inicial}} Kg</td>
-                                                        <td>{{$item->cantidad_cortada}} Kg</td>
-                                                        <td>{{$item->cantidad_restante}} Kg</td>
-                                                        <td>{{$item->cantidad_merma}} Kg</td>
-
                                                         <td>{{$item->stock}}</td>
                                                         <td>{{$item->estado}}</td>
                                                         <td>
