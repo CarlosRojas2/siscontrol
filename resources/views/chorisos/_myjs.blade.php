@@ -23,7 +23,7 @@
             localStorage.removeItem("mensaje_codetime");
     }
 /*---------------------ELIMINACION----------------------------*/
-    $('.delet_cortes').submit(function(e){
+    $('.form_delete').submit(function(e){
             e.preventDefault();
             swal.fire({
               title: "¿Está seguro?",

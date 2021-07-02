@@ -9,16 +9,16 @@
                 <!-- Page Header -->
                 <div class="page-header">
                     <div>
-                        <h2 class="main-content-title tx-24 mg-b-5">Sección Salida de Chorisos</h2>
+                        <h2 class="main-content-title tx-24 mg-b-5">Sección Producción de Chorisos</h2>
                         <ol class="breadcrumb">
                             <li class="breadcrumb-item"><a href="{{route('dashboard')}}">Inicio</a></li>
-                            <li class="breadcrumb-item active" aria-current="page">Salidas Chorisos</li>
+                            <li class="breadcrumb-item active" aria-current="page">Producción de Chorisos</li>
                         </ol>
                     </div>
                     <div class="d-flex">
                         <div class="justify-content-center text-white">
                             <a type="button" href="{{route('prod_chorisos.create')}}" class="o_o_pd_top_7 btn btn-primary my-2 btn-icon-text">
-                            <i class="fe fe-plus mr-2 o_o_ico_btn"></i> Registrar Nueva salida
+                            <i class="fe fe-plus mr-2 o_o_ico_btn"></i> Registrar Nueva Producción
                             </a>
                         </div>
                     </div>
@@ -41,7 +41,7 @@
                                                 <th>#</th>
                                                 <th>Tipo Choriso</th>
                                                 <th>Cant. Producida</th>
-                                                <th>Fecha</th>
+                                                <th>Fecha Registro</th>
                                                 <th class="text-center">Estado</th>
                                                 <th class="text-center">Opciones</th>
                                             </tr>
@@ -51,7 +51,7 @@
                                                 @foreach ($chorisos as $item)
                                                     <tr>
                                                         <td class="text-center">{{$n=$n+1}}</td>
-                                                        <td><a href="{{route('cortes.show', $item->id)}}">{{$item->producto}}</a></td>
+                                                        <td><a href="{{route('prod_chorisos.show', $item->id)}}">{{$item->producto}}</a></td>
                                                         <td>{{$item->cantidad_producida}}</td>
                                                         <td>{{$item->fecha_reg}}</td>
                                                         <td class="text-center">
@@ -62,12 +62,12 @@
                                                             @endif
                                                         </td>
                                                         <td class="text-center">
-                                                                <form class="delet_cortes" action="{{route('prod_chorisos.destroy', $item)}}"  method="POST">
+                                                                <form class="form_delete" action="{{route('prod_chorisos.destroy', $item)}}"  method="POST">
                                                                     @csrf
                                                                     @method('delete')
-                                                                    <a href="{{route('prod_chorisos.edit', $item->id)}}" class=" {{ ($item->deleted_at == null)? ' ': 'o_o_enlace_no'}}  btn btn-sm btn-success">
+                                                                    {{--<a href="{{route('prod_chorisos.edit', $item->id)}}" class=" {{ ($item->deleted_at == null)? ' ': 'o_o_enlace_no'}}  btn btn-sm btn-success">
                                                                         <i class="fe fe-edit-2"></i>
-                                                                    </a>
+                                                                    </a>--}}
                                                                     <button tipe="submit" class="btn btn-sm btn-danger" {{ ($item->deleted_at == null)? ' ': 'disabled'}}>
                                                                         <i class="fe fe-trash"></i>
                                                                     </button>

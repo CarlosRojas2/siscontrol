@@ -19,7 +19,7 @@ class CreateInsumosTable extends Migration
             $table->foreign('insumos_tipos_id')->references('id')->on('insumos_tipos');
             $table->string('nombre');
             $table->string('descripcion');
-            $table->double('total',8, 2)->nullable();
+            $table->decimal('total',12, 2)->nullable();
             $table->softDeletes();
             $table->timestamps();
         });

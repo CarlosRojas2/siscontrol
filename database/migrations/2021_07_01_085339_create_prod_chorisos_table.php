@@ -17,11 +17,12 @@ class CreateProdChorisosTable extends Migration
             $table->id();
             $table->unsignedBigInteger('prod_productos_id');
             $table->foreign('prod_productos_id')->references('id')->on('prod_productos');
-            $table->double('tocino_choriso',8, 2)->nullable();
-            $table->double('papada',8, 2)->nullable();
-            $table->double('carne_picada',8, 2)->nullable();
-            $table->double('madeja',8, 2)->nullable();
-            $table->double('cantidad_producida',8, 2)->nullable();
+            $table->decimal('tocino_choriso',12, 2)->nullable();
+            $table->decimal('papada',12, 2)->nullable();
+            $table->decimal('carne_picada',12, 2)->nullable();
+            $table->decimal('madeja',12, 2)->nullable();
+            $table->unsignedBigInteger('madeja_id');
+            $table->decimal('cantidad_producida',12, 2)->nullable();
             $table->date('fecha_reg');
             $table->softDeletes();
             $table->timestamps();

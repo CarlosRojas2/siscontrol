@@ -61,11 +61,11 @@
                                                             <form action="{{route('materias.destroy', $item)}}" class="eliminar-materia" method="POST">
                                                                 @csrf
                                                                 @method('delete')
-                                                                <?php if($item->unidadmedida_id != '1' && $item->resto != 0){?>
+                                                                
                                                                     <a href="{{route('crear_corte', $item->id)}}" class="btn btn-sm btn-primary" title="Cortes">
                                                                         <i class="fe fe-scissors"></i>
                                                                     </a>
-                                                                <?php } ?>
+                                                                
                                                                 <a href="{{route('materias.edit', $item->id)}}" class="btn btn-sm btn-success" title="Editar">
                                                                     <i class="fe fe-edit-2"></i>
                                                                 </a>
