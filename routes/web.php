@@ -7,6 +7,7 @@ use App\Http\Controllers\DesgloseController;
 use App\Http\Controllers\MateriaController;
 use App\Http\Controllers\CorteController;
 use App\Http\Controllers\ProdChorisosController;
+use App\Http\Controllers\ProdAhumadosController;
 use App\Http\Controllers\ProductoController;
 use App\Http\Controllers\ProveedorController;
 use Illuminate\Support\Facades\Route;
@@ -37,4 +38,5 @@ Route::get('materia/detalle', [MateriaController::class, 'detalle'])->name('mate
 Route::resource('cortes', CorteController ::class)->middleware(['auth']);
 Route::get('corte/{id}/crear', [CorteController::class, 'crear'])->name('crear_corte')->middleware(['auth']);
 Route::resource('prod_chorisos', ProdChorisosController ::class)->middleware(['auth']);
+Route::resource('prod_ahumados', ProdAhumadosController ::class)->middleware(['auth']);
 
