@@ -83,47 +83,47 @@
                                                         </thead>
                                                         <tbody>
                                                             <tr>
-                                                                <th class="text-center">3</th>
+                                                                <th class="text-center">1</th>
                                                                 <td>Costilla</td>
                                                                 <td><input type="text" class="cant_clas form-control" name="costilla" id="costilla" onkeypress="return filterFloat(event,this);" readonly></td>
                                                             </tr>
                                                             <tr>
-                                                                <th class="text-center">4</th>
+                                                                <th class="text-center">2</th>
                                                                 <td>Carne Picada</td>
                                                                 <td><input type="text" class="cant_clas form-control" name="carne_picada" id="carne_picada" onkeypress="return filterFloat(event,this);" readonly></td>
                                                             </tr>
                                                             <tr>
-                                                                <th class="text-center">5</th>
+                                                                <th class="text-center">3</th>
                                                                 <td>Hueso Raspado</td>
                                                                 <td><input type="text" class="cant_clas form-control" name="hueso_raspado" id="hueso_raspado" onkeypress="return filterFloat(event,this);" readonly></td>
                                                             </tr>
                                                             <tr>
-                                                                <th class="text-center">6</th>
+                                                                <th class="text-center">4</th>
                                                                 <td>Tocino Choriso</td>
                                                                 <td><input type="text" class="cant_clas form-control" name="tocino_choriso" id="tocino_choriso" onkeypress="return filterFloat(event,this);" readonly></td>
                                                             </tr>
                                                             <tr>
-                                                                <th class="text-center">7</th>
+                                                                <th class="text-center">5</th>
                                                                 <td>Hueso columna</td>
                                                                 <td><input type="text" class="cant_clas form-control" name="hueso_colum" id="hueso_colum" onkeypress="return filterFloat(event,this);" readonly></td>
                                                             </tr>
                                                             <tr>
-                                                                <th class="text-center">8</th>
+                                                                <th class="text-center">6</th>
                                                                 <td>Cuero</td>
                                                                 <td><input type="text" class="cant_clas form-control" name="cuero" id="cuero" onkeypress="return filterFloat(event,this);" readonly></td>
                                                             </tr>
                                                             <tr>
-                                                                <th class="text-center">9</th>
+                                                                <th class="text-center">7</th>
                                                                 <td>Papada</td>
                                                                 <td><input type="text" class="cant_clas form-control" name="papada" id="papada" onkeypress="return filterFloat(event,this);" readonly></td>
                                                             </tr>
                                                             <tr>
-                                                                <th class="text-center">10</th>
+                                                                <th class="text-center">8</th>
                                                                 <td>Carne pe/ Cecina</td>
                                                                 <td><input type="text" class="cant_clas form-control" name="carne_cecina" id="carne_cecina" onkeypress="return filterFloat(event,this);" readonly></td>
                                                             </tr>
                                                             <tr>
-                                                                <th class="text-center">11</th>
+                                                                <th class="text-center">9</th>
                                                                 <td>Carne pe/ File</td>
                                                                 <td><input type="text" class="cant_clas form-control" name="carne_file" id="carne_file" onkeypress="return filterFloat(event,this);" readonly></td>
                                                             </tr>
@@ -144,27 +144,27 @@
                                                         </thead>
                                                         <tbody>
                                                             <tr>
-                                                                <th class="text-center">12</th>
+                                                                <th class="text-center">10</th>
                                                                 <td>Brazuelo</td>
                                                                 <td><input type="text" class="cant_clas form-control" name="brazuelo" id="brazuelo" onkeypress="return filterFloat(event,this);" readonly></td>
                                                             </tr>
                                                             <tr>
-                                                                <th class="text-center">13</th>
+                                                                <th class="text-center">11</th>
                                                                 <td>Piernas</td>
                                                                 <td><input type="text" class="cant_clas form-control" name="piernas" id="piernas" onkeypress="return filterFloat(event,this);" readonly></td>
                                                             </tr>
                                                             <tr>
-                                                                <th class="text-center">14</th>
+                                                                <th class="text-center">12</th>
                                                                 <td>Chaleco</td>
                                                                 <td><input type="text" class="cant_clas form-control" name="chaleco" id="chaleco" onkeypress="return filterFloat(event,this);" readonly></td>
                                                             </tr>
                                                             <tr>
-                                                                <th class="text-center">15</th>
+                                                                <th class="text-center">13</th>
                                                                 <td>Cabeza</td>
                                                                 <td><input type="text" class="cant_clas form-control" name="cabeza" id="cabeza" onkeypress="return filterFloat(event,this);" readonly></td>
                                                             </tr>
                                                             <tr>
-                                                                <th class="text-center">16</th>
+                                                                <th class="text-center">14</th>
                                                                 <td>Patas</td>
                                                                 <td><input type="text" class="cant_clas form-control" name="patas" id="patas" onkeypress="return filterFloat(event,this);" readonly></td>
                                                             </tr>

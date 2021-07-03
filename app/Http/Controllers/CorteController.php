@@ -68,7 +68,7 @@ class CorteController extends Controller
         $corte->carne_file     = $formulario->carne_file;
         $corte->total          = $formulario->total;
         $corte->merma          = $formulario->merma;
-        $corte->save();
+        $corte->save(); 
         
         Materia::where('id' ,$formulario->materia_id)->decrement('resto',$formulario->cantidad);
 

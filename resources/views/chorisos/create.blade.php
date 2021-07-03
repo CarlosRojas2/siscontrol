@@ -5,7 +5,7 @@
         <div class="container-fluid">
             <div class="inner-body">
 
-
+ 
                 <!-- Page Header -->
                 <div class="page-header">
                     <div>
@@ -84,14 +84,14 @@
                                                                     <th class="text-center">{{$n=$n+1}}</th>
                                                                     <td>{{$item->descripcion}}</td>
                                                                     <td class="text-center" id="total_{{$item->nombre}}">{{$item->total}}</td>
-                                                                    <td><input type="text" class="text-center cant_clas form-control" name="{{$item->nombre}}" id="{{$item->nombre}}" onkeypress="return filterFloat(event,this);"></td>
+                                                                    <td><input type="hidden" name="{{$item->nombre}}_resto" id="{{$item->nombre}}_resto" value="{{$item->total}}"><input type="text" class="text-center cant_clas form-control" name="{{$item->nombre}}" id="{{$item->nombre}}" onkeypress="return filterFloat(event,this);"></td>
                                                                 </tr>
                                                             @endforeach
                                                                 <tr>
                                                                     <th class="text-center">{{$n=$n+1}}</th>
                                                                     <td>Madeja</td>
                                                                     <td class="text-center" id="total_madeja">{{$madeja->resto}}</td>
-                                                                    <td><input type="hidden" name="id_materia" id="id_materia" value="{{$madeja->id}}"><input type="text" class="text-center cant_clas form-control" name="madeja" id="madeja" onkeypress="return filterFloat(event,this);"></td>
+                                                                    <td><input type="hidden" name="id_materia" id="id_materia" value="{{$madeja->id}}"><input type="hidden" name="madeja_resto" id="madeja_resto" value="{{$madeja->resto}}"><input type="text" class="text-center cant_clas form-control" name="madeja" id="madeja" onkeypress="return filterFloat(event,this);"></td>
                                                                 </tr>
                                                         </tbody>
                                                     </table>

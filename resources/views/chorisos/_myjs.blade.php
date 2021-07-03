@@ -46,9 +46,9 @@
     const procesar=(e)=>{
         event.preventDefault();
 
-        if( document.getElementById('table_1').querySelector('.o_o_error')){
+        /*if( document.getElementById('table_1').querySelector('.o_o_error')){
             return false;
-        }
+        }*/ 
         swal.fire({
               title: "¿Está seguro?",
               text: "Confirmar si deseas proceder",
@@ -87,23 +87,23 @@
                         success : function(data){
                                 data=eval(data);
                                 switch (data) {
+                                    case 4:
+                                        return false;
                                     case 0:
                                         $('#cant_procesada').addClass('o_o_error_form');
                                         $('#cant_procesada').focus();
                                         return false;
                                     case 1:
                                         $('#carne_picada').addClass('o_o_error');
+                                        $('#tocino_choriso').addClass('o_o_error');
+                                        $('#papada').addClass('o_o_error');
                                         $('#carne_picada').focus();
                                         return false;
                                     case 2:
-                                        $('#tocino_choriso').addClass('o_o_error');
-                                        $('#tocino_choriso').focus();
-                                        return false;
-                                    case 3:
-                                        $('#papada').addClass('o_o_error');
-                                        $('#papada').focus();
-                                        return false;
-                                    case 4:
+                                        $('#cant_procesada').removeClass('o_o_error_form');
+                                        $('#carne_picada').removeClass('o_o_error');
+                                        $('#tocino_choriso').removeClass('o_o_error');
+                                        $('#papada').removeClass('o_o_error');
                                         $('#madeja').addClass('o_o_error');
                                         $('#madeja').focus();
                                         return false;

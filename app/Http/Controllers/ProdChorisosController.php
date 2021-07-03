@@ -16,7 +16,7 @@ class ProdChorisosController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index() 
     {
         $n=0;
         $chorisos=Prod_chorisos::withTrashed()->select('prod_chorisos.*','prod_productos.descripcion as producto')
@@ -40,15 +40,24 @@ class ProdChorisosController extends Controller
 
     public function store(Request $request)
     {
-        $formulario     = json_decode($request->post('formulario'));
-        $cant_procesada = (int) $formulario->cant_procesada;
-        $carne_picada   = (int) $formulario->carne_picada;
-        $tocino_choriso = (int) $formulario->tocino_choriso;
-        $papada         = (int) $formulario->papada;
-        $madeja         = (int) $formulario->madeja;
-        if($cant_procesada<=0){return 0;}if($carne_picada<=0){return 1;}
-        if($tocino_choriso<=0){return 2;}if($papada<=0){return 3;}
-        if($madeja<=0){return 4;}
+        $formulario             = json_decode($request->post('formulario'));
+        $cant_procesada         = (int) $formulario->cant_procesada;
+        $carne_picada_resto     = (int) $formulario->carne_picada_resto;
+        $carne_picada           = (int) $formulario->carne_picada;
+        $tocino_choriso_resto   = (int) $formulario->tocino_choriso_resto;
+        $tocino_choriso         = (int) $formulario->tocino_choriso;
+        $papada_resto           = (int) $formulario->papada_resto;
+        $papada                 = (int) $formulario->papada;
+        $madeja_resto           = (int) $formulario->madeja_resto;
+        $madeja                 = (int) $formulario->madeja;
+        if($cant_procesada<=0)
+            {return 0;}
+        if($carne_picada > $carne_picada_resto or $tocino_choriso > $tocino_choriso_resto or $papada>$papada_resto)
+            {return 4;}
+        if($carne_picada<=0 and $tocino_choriso<=0 and $papada<=0)
+            {return 1;}
+        if($madeja<=0 or $madeja >$madeja_resto)
+            {return 2;}
 
         $corte = new Prod_chorisos;
         $corte->prod_productos_id   = $formulario->salida_producto_id;
@@ -59,7 +68,7 @@ class ProdChorisosController extends Controller
         $corte->madeja_id           = $formulario->id_materia;
         $corte->cantidad_producida  = $formulario->cant_procesada;
         $corte->fecha_reg           = $formulario->fecha_reg;
-        $corte->save();
+        $corte->save(); 
 
         Prod_productos::where('id' ,$formulario->salida_producto_id)->increment('stock',$formulario->cant_procesada);
 
@@ -67,7 +76,7 @@ class ProdChorisosController extends Controller
         Insumos::where('nombre' ,'tocino_choriso')->decrement('total',$formulario->tocino_choriso);
         Insumos::where('nombre' ,'papada')->decrement('total',$formulario->papada);
         Materia::where('id' ,$formulario->id_materia)->decrement('resto',$formulario->madeja);
-        echo json_encode(5);
+        echo json_encode(3);
     }
     public function show($id)
     {
