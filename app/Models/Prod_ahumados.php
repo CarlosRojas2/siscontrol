@@ -24,12 +24,10 @@ class Prod_Ahumados extends Model
         'lomo',
         'costilla',
         'hueso',
-        'cuero',
         'hueso_raspado',
         'cabeza',
         'patas',
-        'tocino',
-        'panceta'
+        'tocino'
     ];
 
     

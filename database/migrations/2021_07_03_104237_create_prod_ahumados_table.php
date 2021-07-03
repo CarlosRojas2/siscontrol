@@ -15,16 +15,15 @@ class CreateProdAhumadosTable extends Migration
     {
         Schema::create('prod_ahumados', function (Blueprint $table) {
             $table->id();
-            $table->decimal('cecina',12, 2)->nullable();
-            $table->decimal('lomo',12, 2)->nullable();
+            $table->string('descripcion');
+            $table->decimal('carne_cecina',12, 2)->nullable();
+            $table->decimal('carne_file',12, 2)->nullable();
             $table->decimal('costilla',12, 2)->nullable();
-            $table->decimal('hueso',12, 2)->nullable();
-            $table->decimal('cuero',12, 2)->nullable();
+            $table->decimal('hueso_colum',12, 2)->nullable();
             $table->decimal('hueso_raspado',12, 2)->nullable();
             $table->decimal('cabeza',12, 2)->nullable();
             $table->decimal('patas',12, 2)->nullable();
-            $table->decimal('tocino',12, 2)->nullable();
-            $table->decimal('panceta',12, 2)->nullable();
+            $table->decimal('tocino_choriso',12, 2)->nullable();
             $table->decimal('cantidad_producida',12, 2)->nullable();
             $table->date('fecha_reg');
             $table->softDeletes();

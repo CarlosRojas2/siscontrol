@@ -2,20 +2,19 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Prod_Ahumados;
-use App\Models\Prod_productos; 
+use App\Models\Prod_ahumados;
 use App\Models\Producto;
 use App\Models\Insumos;
 use Illuminate\Http\Request;
 
-class ProdAhumadosController extends Controller
+class ProdahumadosController extends Controller
 {
     /**
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index() 
     {
         $n=0;
         $ahumados=Prod_ahumados::withTrashed()->select('prod_ahumados.*')
@@ -23,114 +22,98 @@ class ProdAhumadosController extends Controller
         return view('ahumados.index', compact('ahumados','n'));
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
+    public function create() 
     {
         $n=0;
-        $prod_productos  =  Prod_productos::orderby('id','asc')->get();
         $insumos         =  Insumos::where('insumos_tipos_id',2)->orderby('id','asc')->get();
-        return view('ahumados.create', compact('prod_productos','insumos','n'));
+        return view('ahumados.create', compact('insumos','n'));
+        
     }
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
     public function store(Request $request)
     {
-        $formulario     = json_decode($request->post('formulario'));
-        $cant_procesada = (int) $formulario->cant_procesada;
-        $cecina         = (int) $formulario->cecina;
-        $lomo           = (int) $formulario->lomo;
-        $costilla       = (int) $formulario->costilla;
-        $hueso          = (int) $formulario->hueso;
-        $cuero          = (int) $formulario->cuero;
-        $hueso_raspado  = (int) $formulario->hueso_raspado;
-        $cabeza         = (int) $formulario->cabeza;
-        $patas          = (int) $formulario->patas;
-        $tocino         = (int) $formulario->tocino;
-        $panceta        = (int) $formulario->panceta;
-        if($cant_procesada<=0){return 0;}if($cecina<=0){return 1;}
-        if($lomo<=0){return 2;}if($costilla<=0){return 3;}if($hueso<=0){return 4;}
-        if($cuero<=0){return 5;}if($hueso_raspado<=0){return 6;}if($cabeza<=0){return 7;}
-        if($patas<=0){return 8;}if($tocino<=0){return 9;}if($panceta<=0){return 10;}
+        $formulario             = json_decode($request->post('formulario'));
+        $cant_procesada         = (int) $formulario->cant_procesada;
+        $carne_cecina_resto     = (int) $formulario->carne_cecina_resto;
+        $carne_cecina           = (int) $formulario->carne_cecina;
+        $carne_file_resto       = (int) $formulario->carne_file_resto;
+        $carne_file             = (int) $formulario->carne_file;
+        $costilla_resto         = (int) $formulario->costilla_resto;
+        $costilla               = (int) $formulario->costilla;
+        $hueso_colum_resto      = (int) $formulario->hueso_colum_resto;
+        $hueso_colum            = (int) $formulario->hueso_colum;
+        $hueso_raspado_resto    = (int) $formulario->hueso_raspado_resto;
+        $hueso_raspado          = (int) $formulario->hueso_raspado;
+        $cabeza_resto           = (int) $formulario->cabeza_resto;
+        $cabeza                 = (int) $formulario->cabeza;
+        $patas_resto            = (int) $formulario->patas_resto;
+        $patas                  = (int) $formulario->patas;
+        $tocino_choriso_resto   = (int) $formulario->tocino_choriso_resto;
+        $tocino_choriso         = (int) $formulario->tocino_choriso;
+        if($cant_procesada<=0)
+            {return 0;}
+        if($carne_cecina > $carne_cecina_resto or $carne_file > $carne_file_resto or $costilla>$costilla_resto or $hueso_colum>$hueso_colum_resto or $hueso_raspado>$hueso_raspado_resto or $cabeza>$cabeza_resto or $patas>$patas_resto or $tocino_choriso>$tocino_choriso_resto)
+            {return 1;}
+        if($carne_cecina<=0 and $carne_file<=0 and $costilla<=0 and $hueso_colum<=0 and $hueso_raspado<=0 and $cabeza<=0 and $patas<=0 and $tocino_choriso<=0)
+            {return 2;}
 
-        $corte = new Prod_ahumado;
-        $corte->cecina              = $formulario->cecina;
-        $corte->lomo                = $formulario->lomo;
+        $corte = new Prod_ahumados;
+        $corte->carne_cecina        = $formulario->carne_cecina;
+        $corte->carne_file          = $formulario->carne_file;
         $corte->costilla            = $formulario->costilla;
-        $corte->hueso               = $formulario->hueso;
-        $corte->cuero               = $formulario->cuero;
+        $corte->hueso_colum         = $formulario->hueso_colum;
         $corte->hueso_raspado       = $formulario->hueso_raspado;
         $corte->cabeza              = $formulario->cabeza;
         $corte->patas               = $formulario->patas;
-        $corte->tocino              = $formulario->tocino;
-        $corte->panceta             = $formulario->panceta;
+        $corte->tocino_choriso      = $formulario->tocino_choriso;
         $corte->cantidad_producida  = $formulario->cant_procesada;
         $corte->fecha_reg           = $formulario->fecha_reg;
-        $corte->save();
+        $corte->descripcion         = $formulario->descripcion;
+        $corte->save(); 
 
-        Insumos::where('nombre' ,'cecina')->decrement('total',$formulario->cecina);
-        Insumos::where('nombre' ,'lomo')->decrement('total',$formulario->lomo);
+        Insumos::where('nombre' ,'carne_cecina')->decrement('total',$formulario->carne_cecina);
+        Insumos::where('nombre' ,'carne_file')->decrement('total',$formulario->carne_file);
         Insumos::where('nombre' ,'costilla')->decrement('total',$formulario->costilla);
-        Insumos::where('nombre' ,'hueso')->decrement('total',$formulario->hueso);
-        Insumos::where('nombre' ,'cuero')->decrement('total',$formulario->cuero);
+        Insumos::where('nombre' ,'hueso_colum')->decrement('total',$formulario->hueso_colum);
         Insumos::where('nombre' ,'hueso_raspado')->decrement('total',$formulario->hueso_raspado);
         Insumos::where('nombre' ,'cabeza')->decrement('total',$formulario->cabeza);
         Insumos::where('nombre' ,'patas')->decrement('total',$formulario->patas);
-        Insumos::where('nombre' ,'tocino')->decrement('total',$formulario->tocino);
-        Insumos::where('nombre' ,'panceta')->decrement('total',$formulario->panceta);
-        echo json_encode(5);
+        Insumos::where('nombre' ,'tocino_choriso')->where('insumos_tipos_id','2')->decrement('total',$formulario->tocino_choriso);
+        echo json_encode(3);
+    }
+    public function show($id)
+    {
+        $consulta=Prod_ahumados::withTrashed()->select('prod_ahumados.*','prod_productos.descripcion as producto')
+        ->join('prod_productos','prod_productos.id','=','prod_ahumados.prod_productos_id')
+        ->where('prod_ahumados.id',$id)->first();
+        return view('ahumados.show', compact('consulta'));
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  \App\Models\Prod_Ahumados  $prod_Ahumados
-     * @return \Illuminate\Http\Response
-     */
-    public function show(Prod_Ahumados $prod_Ahumados)
+    public function edit($id)
+    {
+        $n=0;
+        $hueso_colum          =  Producto::where('nombre','hueso_colum')->orwhere('nombre','hueso_colum')->first();
+        $prod_productos  =  Prod_productos::orderby('id','asc')->get();
+        $insumos         =  Insumos::where('insumos_tipos_id',1)->orderby('id','asc')->get();
+        $ahumados        =  Prod_ahumados::where('id',$id)->first();
+        return view('ahumados.edit', compact('hueso_colum','prod_productos','insumos','ahumados','n'));
+    }
+
+    public function update(Request $request, Prod_ahumados $prod_ahumados)
     {
         //
     }
-
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  \App\Models\Prod_Ahumados  $prod_Ahumados
-     * @return \Illuminate\Http\Response
-     */
-    public function edit(Prod_Ahumados $prod_Ahumados)
+    public function destroy($id)
     {
-        //
-    }
+        $producion= Prod_ahumados::where('id',$id)->first();
+        Prod_productos::where('id' ,$producion->prod_productos_id)->decrement('stock',$producion->cantidad_producida);
 
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\Prod_Ahumados  $prod_Ahumados
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, Prod_Ahumados $prod_Ahumados)
-    {
-        //
-    }
+        Insumos::where('nombre' ,'carne_cecina')->increment('total',$producion->carne_cecina);
+        Insumos::where('nombre' ,'carne_file')->increment('total',$producion->carne_file);
+        Insumos::where('nombre' ,'costilla')->increment('total',$producion->costilla);
+        Materia::where('id' ,$producion->hueso_colum_id)->increment('resto',$producion->hueso_colum);
 
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  \App\Models\Prod_Ahumados  $prod_Ahumados
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy(Prod_Ahumados $prod_Ahumados)
-    {
-        //
+        Prod_ahumados::find($producion->id)->delete();
+        echo '<script type="text/javascript">localStorage.mensaje_codetime="Corte anulado con éxito."; window.location ="' . url('cortes') . '";</script>';
     }
 }

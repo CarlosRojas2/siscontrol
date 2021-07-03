@@ -5,7 +5,7 @@
         <div class="container-fluid">
             <div class="inner-body">
 
-
+ 
                 <!-- Page Header -->
                 <div class="page-header">
                     <div>
@@ -36,16 +36,21 @@
                                 </div>
                                 <form id="ahumados" onsubmit="procesar(event)">
 
-                                   <meta name="csrf-token" content="{{ csrf_token() }}"> 
-                                   <div class="row row-sm">
+                                   <meta name="csrf-token" content="{{ csrf_token() }}">
+                                    <div class="row row-sm">
+                                        
                                         <input id="ahumado_id" name="ahumado_id" class="form-control" type="hidden" value="insert" readonly>
-                                        <div class="col-xl-7 col-lg">
-                                            <p class="mg-b-10">Fecha</p>
+                                        <div class="col-xl-4 col-lg">
+                                            <p class="mg-b-4">Descripcion</p>
+                                            <input id="descripcion" name="descripcion" class="form-control" type="text">
+                                        </div>
+                                        <div class="col-xl-4 col-lg">
+                                            <p class="mg-b-4">Fecha</p>
                                             <input id="fecha_reg" name="fecha_reg" class="form-control" type="date" value="{{ date('Y-m-d') }}">
                                         </div>
-                                        <div class="col-xl-5 col-lg">
-                                            <p class="mg-b-10">Cantidad Producida</p>
-                                            <input  type="text" class="text-center form-control" name="total" id="total" value=0 readonly> 
+                                        <div class="col-xl-4 col-lg">
+                                            <p class="mg-b-4">Cantidad Producida</p>
+                                            <input id="cant_procesada" name="cant_procesada" class="text-center form-control" type="text" onkeypress="return filterFloat(event,this);">
                                         </div>
                                     </div><br>
                                     <div class="d-flex">
@@ -66,7 +71,7 @@
                                                                     <th class="text-center">{{$n=$n+1}}</th>
                                                                     <td>{{$item->descripcion}}</td>
                                                                     <td class="text-center" id="total_{{$item->nombre}}">{{$item->total}}</td>
-                                                                    <td><input type="text" class="cant_clas form-control" name="{{$item->nombre}}" id="{{$item->nombre}}" onkeypress="return filterFloat(event,this);"></td>
+                                                                    <td><input type="hidden" name="{{$item->nombre}}_resto" id="{{$item->nombre}}_resto" value="{{$item->total}}"><input type="text" class="text-center cant_clas form-control" name="{{$item->nombre}}" id="{{$item->nombre}}" onkeypress="return filterFloat(event,this);"></td>
                                                                 </tr>
                                                             @endforeach
                                                         </tbody>

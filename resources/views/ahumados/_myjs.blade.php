@@ -46,9 +46,9 @@
     const procesar=(e)=>{
         event.preventDefault();
 
-        if( document.getElementById('table_1').querySelector('.o_o_error')){
+        /*if( document.getElementById('table_1').querySelector('.o_o_error')){
             return false;
-        }
+        }*/ 
         swal.fire({
               title: "¿Está seguro?",
               text: "Confirmar si deseas proceder",
@@ -87,45 +87,29 @@
                         success : function(data){
                                 data=eval(data);
                                 switch (data) {
+                                    case 0:
+                                        $('#cant_procesada').addClass('o_o_error_form');
+                                        $('#cant_procesada').focus();
+                                        return false;
                                     case 1:
-                                        $('#cecina').addClass('o_o_error');
-                                        $('#cecina').focus();
-                                        return false;
-                                    case 2:
-                                        $('#lomo').addClass('o_o_error');
-                                        $('#lomo').focus();
-                                        return false;
-                                    case 3:
+                                        $('#carne_cecina').addClass('o_o_error');
+                                        $('#carne_cecina').focus();
+                                        $('#carne_file').addClass('o_o_error');
+                                        $('#carne_file').focus();
                                         $('#costilla').addClass('o_o_error');
                                         $('#costilla').focus();
-                                        return false;
-                                    case 4:
-                                        $('#hueso').addClass('o_o_error');
-                                        $('#hueso').focus();
-                                        return false;
-                                    case 5:
-                                        $('#cuero').addClass('o_o_error');
-                                        $('#cuero').focus();
-                                        return false;
-                                    case 6:
+                                        $('#hueso_colum').addClass('o_o_error');
+                                        $('#hueso_colum').focus();
                                         $('#hueso_raspado').addClass('o_o_error');
                                         $('#hueso_raspado').focus();
-                                        return false;
-                                    case 7:
                                         $('#cabeza').addClass('o_o_error');
                                         $('#cabeza').focus();
-                                        return false;
-                                    case 8:
                                         $('#patas').addClass('o_o_error');
                                         $('#patas').focus();
+                                        $('#tocino_choriso').addClass('o_o_error');
+                                        $('#tocino_choriso').focus();
                                         return false;
-                                    case 9:
-                                        $('#tocino').addClass('o_o_error');
-                                        $('#tocino').focus();
-                                        return false;
-                                    case 10:
-                                        $('#panceta').addClass('o_o_error');
-                                        $('#panceta').focus();
+                                    case 2:
                                         return false;
                                 }   
                                 if(data=='update') {
@@ -144,20 +128,12 @@
             })
 
     }
-/*-------------------------CALCULOS DE CANTIDAD PROCESADA--- -------------------------*/
-const calcular_total=(cant_usar)=>{
-        cant_procesada=0;
-		$('.cant_clas').each(function(item, e){
-	      	var num = parseFloat($(e).val());
-	      	if (isNaN(num) | num == undefined){ //Validamos si está vacío o no es un número para acumular
-	        	num=0;
-	       	}
-	       	cant_procesada += num;
-	    });
-		cant_procesada		=	cant_procesada.toFixed(2);
+ /*-------------------------SELECCIONAR SALIDA PRODUCTO----------------------*/
 
-		$('#total').val(cant_procesada);
-	}
+    const select_salida_produto=(e)=>{
+        var stok = $('option:selected', e).attr('data-stok');
+        $('#stock').val(stok);
+    }
 
 /*----------------------INGRESO DE DATOS EN TABLA -------------------------*/
 

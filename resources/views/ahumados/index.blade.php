@@ -39,7 +39,7 @@
                                         <thead>
                                             <tr>
                                                 <th>#</th>
-                                                <th>Tipo ahumado</th>
+                                                <th>Descripción</th>
                                                 <th>Cant. Producida</th>
                                                 <th>Fecha Registro</th>
                                                 <th class="text-center">Estado</th>
@@ -51,7 +51,7 @@
                                                 @foreach ($ahumados as $item)
                                                     <tr>
                                                         <td class="text-center">{{$n=$n+1}}</td>
-                                                        <td><a href="{{route('prod_ahumados.show', $item->id)}}">{{$item->producto}}</a></td>
+                                                        <td>{{$item->descripcion}}</td>
                                                         <td>{{$item->cantidad_producida}}</td>
                                                         <td>{{$item->fecha_reg}}</td>
                                                         <td class="text-center">
