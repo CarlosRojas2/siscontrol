@@ -128,24 +128,11 @@
     }
 /*----------------------INGRESO DE DATOS EN TABLA -------------------------*/
     $('#table_1').on('keyup', 'input', function (e) {
-        var elemt       = $(this);
-        var total       = parseFloat(elemt.val());
-        var total_usar  = $('#cant_procesada_'+elemt.attr('name')).text();
-        total_usar      = parseFloat(total_usar);
-        if(total <= 0 | total>total_usar){
-             $('#'+elemt.attr('name')).addClass('o_o_error');
-             return false;
-        }
-        $('#'+elemt.attr('name')).removeClass('o_o_error');
-        /*if( document.getElementById('table_1').querySelector('.o_o_error')){
-            return console.log('existe errores');
-        }*/
-    });
-/*-------------------------CALCULOS DEL TOTAL--- -------------------------*/
+        var elemt=$(this);
+		if(elemt.attr('readonly')){return false;}
 
-const calcular_total=(cant_usar)=>{
 		cant_t=0;
-		$('.cant_clas').each(function(item, e){
+        $('.cant_clas').each(function(item, e){
 	      	var num = parseFloat($(e).val());
 	      	if (isNaN(num) | num == undefined){ //Validamos si está vacío o no es un número para acumular
 	        	num=0;
@@ -157,6 +144,8 @@ const calcular_total=(cant_usar)=>{
 		$('#cant_procesada').val(cant_t);
 
 		return true;
-	}
+	});
+
+
 </script>
 @endsection

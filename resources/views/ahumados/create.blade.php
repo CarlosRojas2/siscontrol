@@ -50,7 +50,7 @@
                                         </div>
                                         <div class="col-xl-4 col-lg">
                                             <p class="mg-b-4">Cantidad Producida</p>
-                                            <input id="cant_procesada" name="cant_procesada" class="text-center form-control" type="text" value=0>
+                                            <input id="cant_procesada" name="cant_procesada" class="text-center form-control" type="text" value=0 readonly>
                                         </div>
                                     </div><br>
                                     <div class="d-flex">
