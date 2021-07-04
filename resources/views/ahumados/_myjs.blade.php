@@ -130,6 +130,14 @@
     $('#table_1').on('keyup', 'input', function (e) {
         var elemt=$(this);
 		if(elemt.attr('readonly')){return false;}
+        var total       = parseFloat(elemt.val());
+        var total_usar  = $('#total_'+elemt.attr('name')).text();
+        total_usar      = parseFloat(total_usar);
+        if(total <= 0 | total>total_usar){
+             $('#'+elemt.attr('name')).addClass('o_o_error');
+             return false;
+        }
+        $('#'+elemt.attr('name')).removeClass('o_o_error');
 
 		cant_t=0;
         $('.cant_clas').each(function(item, e){
