@@ -26,7 +26,7 @@ class CreateProveedorsTable extends Migration
 
         DB::table("proveedors")
             ->insert([
-                ["nombre" => 'MADEJA',"email" => 'madeja@gmail.com',"numero_ruc" => '102030405','telefono' => '987654321']
+                ["nombre" => 'MADEJA',"email" => 'madeja@gmail.com',"numero_ruc" => '10203040506','telefono' => '987654321']
         ]);
     }
 

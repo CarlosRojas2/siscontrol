@@ -36,7 +36,6 @@
                                             <tr>
                                                 <th>#</th>
                                                 <th>Nombre</th>
-                                                <th>Descripción</th>
                                                 <th>Opciones</th>
                                             </tr>
                                         </thead>
@@ -45,7 +44,6 @@
                                                 <tr>
                                                     <td>{{$n++}}</td>
                                                     <td>{{$cat->nombre}}</a></td>
-                                                    <td>{{$cat->descripcion}}</td>
                                                     <td>
                                                         <form action="{{route('categorias.destroy', $cat)}}" class="eliminar-categoria" method="POST">
                                                             @csrf

@@ -57,13 +57,13 @@
                                 <div class="col-md-6">
                                     <div class="position-relative form-group">
                                         <label for="ruc" class="">Numero ruc</label>
-                                        <input name="numero_ruc"  placeholder="Numero ruc ..." type="number" class="form-control" value="{{$proveedor->numero_ruc}}" required>
+                                        <input name="numero_ruc"  placeholder="Numero ruc ..." type="number" class="form-control" value="{{$proveedor->numero_ruc}}" min="10000000000" max="20999999999" required>
                                     </div>
                                 </div>
                                 <div class="col-md-6">
                                     <div class="position-relative form-group">
                                         <label for="telefono" class="">Teléfono</label>
-                                        <input name="telefono" id="telefono" placeholder="Telefono ..." type="number" class="form-control" value="{{$proveedor->telefono}}" required>
+                                        <input name="telefono" id="telefono" placeholder="Telefono ..." type="number" class="form-control" value="{{$proveedor->telefono}}" min="900000000" max="999999999" required>
                                     </div>
                                 </div>
                                 <div class="col-lg-12 col-md-12 col-sm-12">

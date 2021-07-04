@@ -48,14 +48,6 @@
                                         </div>
                                     </div>
                                 </div>
-                                <div class="col-lg-12 col-md-12 col-sm-12">
-                                    <div class="form-group">
-                                        <label for="descripcion">Descripción</label>
-                                        <div>
-                                            <input type="text"  class="form-control" name="descripcion" value="{{$categoria->descripcion}}" maxlength="120">
-                                        </div>
-                                    </div>
-                                </div>
                             </div>
                             
                             <div class="form-group" align="center">

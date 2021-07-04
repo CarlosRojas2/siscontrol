@@ -14,7 +14,7 @@ class CategoriaController extends Controller
         $n=1;
         
         $categorias=Categoria::
-        orderBy('id', 'asc')
+        orderBy('id', 'desc')
         ->get();
         return view('categorias.index', ['categorias'=>$categorias])->with('n',$n);
     }
@@ -26,7 +26,6 @@ class CategoriaController extends Controller
     {
         $categoria = new Categoria;
         $categoria->nombre = $request->nombre;
-        $categoria->descripcion = $request->descripcion;
         $categoria->save();
         return redirect()->route('categorias.index')->with('registrar','ok');
     }
@@ -42,7 +41,6 @@ class CategoriaController extends Controller
     {
         $categoria = Categoria::findOrFail($id);
         $categoria->nombre = $request->nombre;
-        $categoria->descripcion = $request->descripcion;
         $categoria->update();
         return redirect()->route('categorias.index')->with('editar','ok');
     }

@@ -10,7 +10,7 @@ class ProveedorController extends Controller
     public function index()
     {
         $n=1;
-        $proveedors = Proveedor::orderBy('id', 'asc')->get();
+        $proveedors = Proveedor::orderBy('id', 'desc')->get();
         return view('proveedors.index', ['proveedors'=>$proveedors])->with('n',$n);
     }
     public function create()
