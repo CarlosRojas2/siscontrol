@@ -34,7 +34,7 @@ class CreateInsumosTable extends Migration
                 ["insumos_tipos_id"=> 2,"nombre" => 'carne_file',"descripcion" => 'Lomo',"total" => 0],
                 ["insumos_tipos_id"=> 2,"nombre" => 'costilla',"descripcion" => 'Costilla',"total" => 0],
                 ["insumos_tipos_id"=> 2,"nombre" => 'hueso_colum',"descripcion" => 'Hueso',"total" => 0],
-                ["insumos_tipos_id"=> 2,"nombre" => 'hueso_raspado',"descripcion" => 'Hueso Raspado',"total" => 100],
+                ["insumos_tipos_id"=> 2,"nombre" => 'hueso_raspado',"descripcion" => 'Hueso Raspado',"total" => 0],
                 ["insumos_tipos_id"=> 2,"nombre" => 'cabeza',"descripcion" => 'Cabeza',"total" => 0],
                 ["insumos_tipos_id"=> 2,"nombre" => 'patas',"descripcion" => 'Patas',"total" => 0],
                 ["insumos_tipos_id"=> 2,"nombre" => 'tocino_choriso',"descripcion" => 'Tocino',"total" => 0]
