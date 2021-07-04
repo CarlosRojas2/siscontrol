@@ -106,14 +106,16 @@ class ProdahumadosController extends Controller
     public function destroy($id)
     {
         $producion= Prod_ahumados::where('id',$id)->first();
-        Prod_productos::where('id' ,$producion->prod_productos_id)->decrement('stock',$producion->cantidad_producida);
-
         Insumos::where('nombre' ,'carne_cecina')->increment('total',$producion->carne_cecina);
         Insumos::where('nombre' ,'carne_file')->increment('total',$producion->carne_file);
         Insumos::where('nombre' ,'costilla')->increment('total',$producion->costilla);
-        Materia::where('id' ,$producion->hueso_colum_id)->increment('resto',$producion->hueso_colum);
+        Insumos::where('nombre' ,'hueso_colum')->increment('total',$producion->hueso_colum);
+        Insumos::where('nombre' ,'hueso_raspado')->increment('total',$producion->hueso_raspado);
+        Insumos::where('nombre' ,'cabeza')->increment('total',$producion->cabeza);
+        Insumos::where('nombre' ,'patas')->increment('total',$producion->patas);
+        Insumos::where('nombre' ,'tocino_choriso')->where('insumos_tipos_id','2')->increment('total',$producion->tocino_choriso);
 
         Prod_ahumados::find($producion->id)->delete();
-        echo '<script type="text/javascript">localStorage.mensaje_codetime="Corte anulado con éxito."; window.location ="' . url('cortes') . '";</script>';
+        echo '<script type="text/javascript">localStorage.mensaje_codetime="Produción Ahumada anulado con éxito."; window.location ="' . url('prod_ahumados') . '";</script>';
     }
 }
