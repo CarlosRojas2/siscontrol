@@ -113,7 +113,7 @@
             swal.fire({
               title: "¿Estas seguro?",
               text: "Confirmar si deceas Elimnar",
-              type: "warning",
+              icon: "warning",
               showCancelButton: true,
               confirmButtonClass: "btn btn-danger",
               confirmButtonText: "Confirmar",

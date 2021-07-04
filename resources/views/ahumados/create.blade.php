@@ -42,7 +42,7 @@
                                         <input id="ahumado_id" name="ahumado_id" class="form-control" type="hidden" value="insert" readonly>
                                         <div class="col-xl-4 col-lg">
                                             <p class="mg-b-4">Descripcion</p>
-                                            <input id="descripcion" name="descripcion" class="form-control" type="text">
+                                            <input id="descripcion" name="descripcion" class="form-control" type="text" required>
                                         </div>
                                         <div class="col-xl-4 col-lg">
                                             <p class="mg-b-4">Fecha</p>

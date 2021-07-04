@@ -121,11 +121,7 @@
             })
     }
 
- /*-------------------------SELECCIONAR SALIDA PRODUCTO----------------------*/
-    const select_salida_produto=(e)=>{
-        var stok = $('option:selected', e).attr('data-stok');
-        $('#stock').val(stok);
-    }
+
 /*----------------------INGRESO DE DATOS EN TABLA -------------------------*/
     $('#table_1').on('keyup', 'input', function (e) {
         var elemt=$(this);
