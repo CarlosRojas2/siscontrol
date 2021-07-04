@@ -78,7 +78,7 @@ class ProdahumadosController extends Controller
         Insumos::where('nombre' ,'hueso_raspado')->decrement('total',$formulario->hueso_raspado);
         Insumos::where('nombre' ,'cabeza')->decrement('total',$formulario->cabeza);
         Insumos::where('nombre' ,'patas')->decrement('total',$formulario->patas);
-        Insumos::where('nombre' ,'tocino_choriso')->where('insumos_tipos_id','2')->decrement('total',$formulario->tocino_choriso);
+        Insumos::where('nombre' ,'tocino_choriso')->decrement('total',$formulario->tocino_choriso);
         echo json_encode(3);
     }
     public function show($id)
@@ -113,7 +113,7 @@ class ProdahumadosController extends Controller
         Insumos::where('nombre' ,'hueso_raspado')->increment('total',$producion->hueso_raspado);
         Insumos::where('nombre' ,'cabeza')->increment('total',$producion->cabeza);
         Insumos::where('nombre' ,'patas')->increment('total',$producion->patas);
-        Insumos::where('nombre' ,'tocino_choriso')->where('insumos_tipos_id','2')->increment('total',$producion->tocino_choriso);
+        Insumos::where('nombre' ,'tocino_choriso')->increment('total',$producion->tocino_choriso);
 
         Prod_ahumados::find($producion->id)->delete();
         echo '<script type="text/javascript">localStorage.mensaje_codetime="Produción Ahumada anulado con éxito."; window.location ="' . url('prod_ahumados') . '";</script>';

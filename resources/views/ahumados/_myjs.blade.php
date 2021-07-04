@@ -1,13 +1,9 @@
 @section('myjs')
 <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 <script type="text/javascript">
-
 /*----------------------------------MENSAJES SWAL---------------------------*/
-
 /*---------------------CONFIRMACION----------------------------*/
-
 	$(document).ready(function(){
-
         if (localStorage.getItem("mensaje_codetime")) {
                swal.fire({
 				  title: "Producción",
@@ -40,12 +36,9 @@
                 }
             })
 	});
-
 /*-----------------------------------PROCESAR ahumado------------------------------*/
-
     const procesar=(e)=>{
         event.preventDefault();
-
         /*if( document.getElementById('table_1').querySelector('.o_o_error')){
             return false;
         }*/ 
@@ -126,17 +119,13 @@
                     });
                 }
             })
-
     }
  /*-------------------------SELECCIONAR SALIDA PRODUCTO----------------------*/
-
     const select_salida_produto=(e)=>{
         var stok = $('option:selected', e).attr('data-stok');
         $('#stock').val(stok);
     }
-
 /*----------------------INGRESO DE DATOS EN TABLA -------------------------*/
-
     $('#table_1').on('keyup', 'input', function (e) {
         var elemt       = $(this);
         var total       = parseFloat(elemt.val());
@@ -151,6 +140,5 @@
             return console.log('existe errores');
         }*/
     });
-
 </script>
 @endsection
