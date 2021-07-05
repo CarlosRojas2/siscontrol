@@ -6,6 +6,7 @@ use App\Http\Requests\Categoria\StoreRequest;
 use App\Http\Requests\Categoria\UpdateRequest;
 use App\Models\Categoria;
 use Illuminate\Http\Request;
+use DB;
 
 class CategoriaController extends Controller
 {
@@ -22,11 +23,21 @@ class CategoriaController extends Controller
     {
         return view('categorias.create');
     }
-    public function store(StoreRequest $request)
+    public function store(Request $request)
     {
+        if (categoria::onlyTrashed()->where('nombre', '=', $request->nombre)->restore()) {
+            return redirect()->route('categorias.index')->with('restore','ok');
+        }
+        
+        $request->validate([
+            'nombre'=>'required|string|max:10|unique:categorias',
+        ]);
+
         $categoria = new Categoria;
         $categoria->nombre = $request->nombre;
         $categoria->save();
+
+        
         return redirect()->route('categorias.index')->with('registrar','ok');
     }
     public function show(Categoria $categoria)

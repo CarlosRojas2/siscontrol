@@ -78,33 +78,40 @@
 <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     
     @if (session('eliminar')=='error')
-
-    <script>
-        Swal.fire({
-        icon: 'error',
-        title: 'UPS...',
-        text: '!Algo salio mal!',
-        footer: 'Acción denegada, el proveedor tiene referencias en materias'
-        })
-    </script>
-    
+        <script>
+            Swal.fire({
+            icon: 'error',
+            title: 'UPS...',
+            text: '!Algo salio mal!',
+            footer: 'Acción denegada, el proveedor tiene referencias en materias'
+            })
+        </script>
     @endif
 
     @if (session('eliminar')=='ok')
-    <script>
-        swal.fire("¡Eliminado!", "El Proveedor fue eliminado con éxito.", "success")
-    </script>
+        <script>
+            swal.fire("¡Eliminado!", "El Proveedor fue eliminado con éxito.", "success")
+        </script>
     @endif
 
     @if (session('registrar')=='ok')
-    <script>
-        swal.fire("¡Registrado!", "El proveedor fue registrado con éxito.", "success")
-    </script>
+        <script>
+            swal.fire("¡Registrado!", "El proveedor fue registrado con éxito.", "success")
+        </script>
     @endif
     @if (session('editar')=='ok')
-    <script>
-        swal.fire("¡Editado!", "El proveedor fue editado con éxito.", "success")
-    </script>
+        <script>
+            swal.fire("¡Editado!", "El proveedor fue editado con éxito.", "success")
+        </script>
+    @endif
+    @if (session('restore')=='ok')
+        <script>
+            Swal.fire({
+            icon: 'success',
+            title: '¡Restaurado!',
+            footer: 'El proveedor ya existe y fue restaurado, ¡Verifique sus datos!'
+            })
+        </script>
     @endif
     <script>
 

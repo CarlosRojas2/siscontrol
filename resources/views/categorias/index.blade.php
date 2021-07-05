@@ -106,6 +106,15 @@
         swal.fire("¡Editado!", "La categoria fue editada con éxito.", "success")
     </script>
     @endif
+    @if (session('restore')=='ok')
+        <script>
+            Swal.fire({
+            icon: 'success',
+            title: '¡Restaurada!',
+            footer: 'La categoria ya existe y fue restaurada, ¡Verifique sus datos!'
+            })
+        </script>
+    @endif
 
     
     <script>

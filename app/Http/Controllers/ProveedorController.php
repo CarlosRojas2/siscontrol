@@ -17,8 +17,26 @@ class ProveedorController extends Controller
     {
         return view('proveedors.create');
     }
-    public function store(StoreRequest $request)
+    public function store(Request $request)
     {
+        if (proveedor::onlyTrashed()->where('email', '=', $request->email)->restore()) {
+            return redirect()->route('proveedors.index')->with('restore','ok');
+        }
+        if (proveedor::onlyTrashed()->where('numero_ruc', '=', $request->numero_ruc)->restore()) {
+            return redirect()->route('proveedors.index')->with('restore','ok');
+        }
+        if (proveedor::onlyTrashed()->where('telefono', '=', $request->telefono)->restore()) {
+            return redirect()->route('proveedors.index')->with('restore','ok');
+        }
+        
+        $request->validate([
+            'nombre'=>'required|string|max:60',
+            'email'=>'required|email|string|max:60|unique:proveedors',
+            'numero_ruc'=>'required|string|max:11|min:11|unique:proveedors',
+            'direccion'=>'nullable|string|max:60',
+            'telefono'=>'required|string|max:9|min:9|unique:proveedors',
+        ]);
+
         $proveedor = new Proveedor;
         $proveedor->nombre = $request->nombre;
         $proveedor->email = $request->email;

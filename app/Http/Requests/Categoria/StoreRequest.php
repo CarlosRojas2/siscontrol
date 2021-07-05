@@ -25,7 +25,6 @@ class StoreRequest extends FormRequest
     {
         return [
             'nombre'=>'required|string|max:120|unique:categorias',
-            'descripcion'=>'nullable|string|max:120'
         ];
     }
     public function messages()
@@ -35,9 +34,6 @@ class StoreRequest extends FormRequest
             'nombre.unique'=>'Ya existe una categoria con este nombre.',
             'nombre.string'=>'el valor no es correcto.',
             'nombre.max'=>'Solo se permite 120 caracteres.',
-
-            'descripcion.string'=>'el valor no es correcto.',
-            'descripcion.max'=>'Solo se permite 120 caracteres.'
 
         ];
     }

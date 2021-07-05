@@ -24,7 +24,7 @@ class StoreRequest extends FormRequest
     public function rules()
     {
         return [
-            'nombre'=>'required|string|max:60|unique:proveedors',
+            'nombre'=>'required|string|max:60',
             'email'=>'required|email|string|max:60|unique:proveedors',
             'numero_ruc'=>'required|string|max:11|min:11|unique:proveedors',
             'direccion'=>'nullable|string|max:60',

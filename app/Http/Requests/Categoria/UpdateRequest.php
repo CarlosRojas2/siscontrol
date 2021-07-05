@@ -34,8 +34,6 @@ class UpdateRequest extends FormRequest
             'nombre.required'=>'Este campo es requerido.',
             'nombre.string'=>'el valor no es correcto.',
             'nombre.max'=>'Solo se permite 120 caracteres.',
-            'descripcion.string'=>'el valor no es correcto.',
-            'descripcion.max'=>'Solo se permite 120 caracteres.'
 
         ];
     }
