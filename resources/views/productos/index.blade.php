@@ -41,26 +41,22 @@
                                                 <th>Cod</th>
                                                 <th>Nombre</th>
                                                 <th>Categoría</th>
-                        
                                                 <th>Cargas</th>
-                                                <th>Estado</th>
-                                                <th>Opciones</th>
+                                                <th class="wd-lg-20p text-center">Opciones</th>
                                             </tr>
                                         </thead>
                                         <tbody>
                                             @if (!empty($productos))
                                                 @foreach ($productos as $item)
                                                     <tr>
-                                                        <td>{{$item->id}}</td>
+                                                        <td>{{$n = $n+1}}</td>
                                                         <td><a href="{{route('productos.show', $item->id)}}">{{$item->nombre}}</a></td>
                                                         <td>{{$item->categoria->nombre}}</td>
                                                         <td>{{$item->stock}}</td>
-                                                        <td>{{$item->estado}}</td>
-                                                        <td>
+                                                        <td class="text-center">
                                                             <form action="{{route('productos.destroy', $item)}}" class="eliminar-producto" method="POST">
                                                                 @csrf
                                                                 @method('delete')
-
                                                                 <a href="#" class="btn btn-sm btn-primary">
                                                                     <i class="fe fe-eye"></i>
                                                                 </a>

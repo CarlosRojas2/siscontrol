@@ -37,11 +37,12 @@
                                                 <th>#</th>
                                                 <th>Nombre</th>
                                                 <th>Proveedor</th>
-                                                <th>Unid medida</th>
-                                                <th>Cantidad</th>
+                                                <th>UM</th>
+                                                <th>Can</th>
                                                 <th>Sin procesar</th>
-                                                <th>Precio compra</th>
-                                                <th>Importe total</th>
+                                                <th>P. compra</th>
+                                                <th>I. total</th>
+                                                <th>Fecha</th>
                                                 <th class="wd-lg-20p text-center">Opciones</th>
                                             </tr>
                                         </thead>
@@ -49,14 +50,15 @@
                                             @if (!empty($materias))
                                                 @foreach ($materias as $item)
                                                     <tr>
-                                                        <td>{{$item->codigo}}</td>
-                                                        <td><a href="{{route('materias.show', $item->id)}}">{{$item->producto->nombre}}</a></td>
+                                                        <td>{{$n=$n+1}}</td>
+                                                        <td>{{$item->producto->nombre}}</td>
                                                         <td>{{$item->proveedor->nombre}}</td>
                                                         <td>{{$item->unidadmedida->nombre}}</td>
-                                                        <td>{{$item->cantidad}} Kg</td>
+                                                        <td>{{$item->cantidad}}</td>
                                                         <td>{{$item->resto}} Kg</td>
                                                         <td>{{$item->precio_compra}} S/</td>
                                                         <td>{{$item->importe}} S/</td>
+                                                        <td>{{$item->created_at}}</td>
                                                         <td class="text-center">
                                                             <form action="{{route('materias.destroy', $item)}}" class="eliminar-materia" method="POST">
                                                                 @csrf
@@ -66,8 +68,8 @@
                                                                         <i class="fe fe-scissors"></i>
                                                                     </a>
                                                                 <?php } ?>
-                                                                <a href="{{route('materias.edit', $item->id)}}" class="btn btn-sm btn-success" title="Editar">
-                                                                    <i class="fe fe-edit-2"></i>
+                                                                <a href="{{route('materias.edit', $item->id)}}" class="btn btn-sm btn-success" title="Editar" {{($item->cantidad != $item->resto)? 'hidden': ' '}}>
+                                                                    <i class="fe fe-edit-2" ></i>
                                                                 </a>
                                                                 <button tipe="submit" class="btn btn-sm btn-danger">
                                                                     <i class="fe fe-trash"></i>

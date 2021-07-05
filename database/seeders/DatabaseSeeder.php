@@ -2,6 +2,8 @@
 
 namespace Database\Seeders;
 
+use App\Models\Categoria;
+use App\Models\Producto;
 use App\Models\Unidadmedida;
 use Illuminate\Database\Seeder;
 
@@ -22,5 +24,17 @@ class DatabaseSeeder extends Seeder
         $unidadmedida2 = new Unidadmedida();
         $unidadmedida2->nombre = "KG";
         $unidadmedida2->save();
+
+        // categorias
+        $categoria = new Categoria();
+        $categoria->nombre = "MADEJAS";
+        $categoria->descripcion = "PARA AHUMADOS";
+        $categoria->save();
+
+        // productos
+        $producto = new Producto();
+        $producto->nombre = "MADEJA";
+        $producto->categoria_id = "1";
+        $producto->save();
     }
 }

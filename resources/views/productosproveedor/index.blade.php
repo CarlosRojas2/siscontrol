@@ -45,7 +45,6 @@
                                                 <th>Can inicial</th>
                                                 <th>Can cortada</th>
                                                 <th>Can restante</th>
-                                                <th>Can merma</th>
                                             </tr>
                                         </thead>
                                         <tbody>
@@ -58,9 +57,8 @@
                                                         <td>{{$item->producto}}</td>
                                                         <td>{{$item->cargas}}</td>
                                                         <td>{{$item->cantidad}} Kg</td>
+                                                        <td>{{$item->cantidad-$item->cantidad_cortada}} Kg</td>
                                                         <td>{{$item->cantidad_cortada}} Kg</td>
-                                                        <td>{{$item->cantidad_restante}} Kg</td>
-                                                        <td>{{$item->cantidad_merma}} Kg</td>
                                                     </tr>
                                                 @endforeach
                                             @endif

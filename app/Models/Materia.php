@@ -11,6 +11,7 @@ class Materia extends Model
     protected $dates = ['deleted_at'];
     protected $fillable=[
         'codigo',
+        'usuario_id',
         'producto_id',
         'cantidad',
         'resto',

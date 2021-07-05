@@ -11,8 +11,9 @@ use App\Models\Proveedor;
 class ProductoController extends Controller
 {public function index()
     {
-        $productos=Producto ::get();
-        return view('productos.index', compact('productos'));
+        $n     = 0;
+        $productos=Producto::withTrashed()->orderby('id', 'desc')->get();
+        return view('productos.index', compact('productos', 'n'));
     }
     public function create()
     {
@@ -21,9 +22,14 @@ class ProductoController extends Controller
     }
     public function store(StoreRequest $request)
     {
+        $request->validate(
+            [
+                'nombre'=>'required',
+                'categoria_id'=>'required',
+            ]
+        );
 
-        $producto = Producto::create($request->all());
-        $producto->update(['codigo'=>$producto->id]);
+        Producto::create($request->all());
         return redirect()->route('productos.index');
     }
     public function show(Producto $producto)

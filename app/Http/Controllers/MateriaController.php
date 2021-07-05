@@ -5,14 +5,15 @@ use App\Models\Producto;
 use App\Models\Proveedor;
 use App\Models\Unidadmedida;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
-
 class MateriaController extends Controller
 {
     public function index() 
     {
-        $materias=Materia::get();
-        return view('materias.index', compact('materias'));
+        $n     = 0;
+        $materias=Materia::withTrashed()->orderby('id', 'desc')->get();
+        return view('materias.index', compact('materias', 'n'));
     }
     public function create()
     {
@@ -25,7 +26,7 @@ class MateriaController extends Controller
     public function store(Request $request)
     {
         $materia = Materia::create($request->all());
-        $materia->update(['codigo'=>$materia->id, 'resto'=>$materia->cantidad]);
+        $materia->update(['codigo'=>$materia->id, 'resto'=>$materia->cantidad, 'usuario_id'=>Auth::user()->id]);
         $materia->update_stock($request->producto_id, $request->cantidad);
         return redirect()->route('materias.index');
     }
@@ -53,15 +54,17 @@ class MateriaController extends Controller
     }
     public function detalle()
     {
+        $n = 0;
         $consulta=Materia::select('productos.nombre as producto','proveedors.nombre as proveedor',
                 DB::raw('COUNT(materias.producto_id) as cargas'),
-                DB::raw('SUM(materias.cantidad) as cantidad'))
+                DB::raw('SUM(materias.cantidad) as cantidad'),
+                DB::raw('SUM(materias.resto) as cantidad_cortada'))
                 ->join('productos','productos.id','=','materias.producto_id')
                 ->join('proveedors','proveedors.id','=','materias.proveedor_id')
                 ->groupBy('producto', 'proveedor')
-                ->orderby('materias.proveedor_id')->get();
+                ->orderby('materias.proveedor_id')->orderby('proveedors.id', 'desc')->get();
         
-        return view('productosproveedor.index',compact('consulta'));
+        return view('productosproveedor.index',compact('consulta', 'n'));
     }
     
 }

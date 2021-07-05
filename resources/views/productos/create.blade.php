@@ -24,6 +24,17 @@
                     </div>
                 </div>
                 <!-- End Page Header -->
+                <!-- Page Mensaje de errores -->
+                @if ($errors->any())
+                    <div class="alert alert-danger">
+                        <ul>
+                            @foreach ($errors->all() as $error)
+                                <li>{{ $error }}</li>
+                            @endforeach
+                        </ul>
+                    </div>
+                @endif
+                <!-- End Mensaje de errores --> 
 
                 <!--Row-->
                 <div class="row row-sm">
@@ -38,20 +49,32 @@
                                     @csrf
                                     <div class="row row-sm">
                                         <div class="col-lg">
-                                            <p class="mg-b-10">Descripción*</p>
-                                            <input id="nombre" name="nombre" class="form-control" placeholder="...." type="text">
+                                            <p class="mg-b-10">Producto*</p>
+                                            <input id="nombre" name="nombre" class="form-control" placeholder="...." type="text" value="{{ old('nombre') }}">
+                                            @error('nombre')
+                                            <br>
+                                            <small class="text-danger">*{{$message}}</small>
+                                            <br>
+                                            @enderror
+                                            <br>
                                         </div>
-
+                                        
                                         <div class="col-lg">
                                             <p class="mg-b-10">Categoría*</p>
                                             <div class="form-group">
-                                                <select name="categoria_id" id="categoria_id" class="form-control select-lg select2">
+                                                <select name="categoria_id" id="categoria_id" class="form-control select-lg select2" value="{{ old('categoria_id') }}">
                                                     <option value="">Large Select</option>
                                                     @foreach ($categorias as $item)
                                                     <option value="{{$item->id}}">{{$item->nombre}}</option>
                                                     @endforeach
                                                 </select>
+                                                @error('categoria_id')
+                                            <br>
+                                            <small class="text-danger">*{{$message}}</small>
+                                            <br>
+                                            @enderror
                                             </div>
+                                            
                                         </div>
                                     </div>
                                     <div class="form-group row justify-content-end mb-0" align="center">
