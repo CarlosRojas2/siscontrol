@@ -24,8 +24,7 @@ class UpdateRequest extends FormRequest
     public function rules()
     {
         return [
-            'nombre'=>'required|string|max:120',
-            'descripcion'=>'nullable|string|max:120'
+            'nombre'=>'required|string|max:120'
         ];
     }
     public function messages()

@@ -24,12 +24,6 @@ class CreateProductosTable extends Migration
             $table->softDeletes();
             $table->timestamps();
         });
-
-        
-        DB::table("productos")
-            ->insert([
-                ["nombre" => 'MADEJA',"categoria_id" => '1']
-        ]);
         
     }
 

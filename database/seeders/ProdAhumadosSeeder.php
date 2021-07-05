@@ -2,10 +2,9 @@
 
 namespace Database\Seeders;
 
-use App\Models\Unidadmedida;
 use Illuminate\Database\Seeder;
 
-class UnidadmedidaSeeder extends Seeder
+class ProdAhumadosSeeder extends Seeder
 {
     /**
      * Run the database seeds.
@@ -14,6 +13,6 @@ class UnidadmedidaSeeder extends Seeder
      */
     public function run()
     {
-    
+        //
     }
 }
