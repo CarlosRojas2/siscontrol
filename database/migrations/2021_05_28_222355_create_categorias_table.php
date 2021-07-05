@@ -19,12 +19,6 @@ class CreateCategoriasTable extends Migration
             $table->softDeletes();
             $table->timestamps();
         });
-
-        
-        DB::table("categorias")
-            ->insert([
-                ["nombre" => 'MADEJA']
-        ]);
     }
 
     /**

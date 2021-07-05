@@ -28,7 +28,6 @@ class DatabaseSeeder extends Seeder
         // categorias
         $categoria = new Categoria();
         $categoria->nombre = "MADEJAS";
-        $categoria->descripcion = "PARA AHUMADOS";
         $categoria->save();
 
         // productos
