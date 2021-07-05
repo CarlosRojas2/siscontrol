@@ -17,7 +17,7 @@ class CreateProdProductosTable extends Migration
         Schema::create('prod_productos', function (Blueprint $table) {
             $table->id();
             $table->string('descripcion');
-            $table->double('stock',8, 2)->nullable();
+            $table->decimal('stock',12, 2)->nullable();
             $table->softDeletes();
             $table->timestamps();
         });

@@ -16,10 +16,15 @@ class CreateCategoriasTable extends Migration
         Schema::create('categorias', function (Blueprint $table) {
             $table->id();
             $table->string('nombre')->unique();
-            $table->string('descripcion')->nullable();
             $table->softDeletes();
             $table->timestamps();
         });
+
+        
+        DB::table("categorias")
+            ->insert([
+                ["nombre" => 'MADEJA']
+        ]);
     }
 
     /**

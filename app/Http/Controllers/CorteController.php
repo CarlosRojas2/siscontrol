@@ -68,13 +68,20 @@ class CorteController extends Controller
         $corte->carne_file     = $formulario->carne_file;
         $corte->total          = $formulario->total;
         $corte->merma          = $formulario->merma;
-        $corte->save();
+        $corte->save(); 
         
         Materia::where('id' ,$formulario->materia_id)->decrement('resto',$formulario->cantidad);
 
         Insumos::where('nombre' ,'carne_picada')->increment('total',$formulario->carne_picada);
         Insumos::where('nombre' ,'tocino_choriso')->increment('total',$formulario->tocino_choriso);
         Insumos::where('nombre' ,'papada')->increment('total',$formulario->papada);
+        Insumos::where('nombre' ,'carne_cecina')->increment('total',$formulario->carne_cecina);
+        Insumos::where('nombre' ,'carne_file')->increment('total',$formulario->carne_file);
+        Insumos::where('nombre' ,'costilla')->increment('total',$formulario->costilla);
+        Insumos::where('nombre' ,'hueso_colum')->increment('total',$formulario->hueso_colum);
+        Insumos::where('nombre' ,'hueso_raspado')->increment('total',$formulario->hueso_raspado);
+        Insumos::where('nombre' ,'cabeza')->increment('total',$formulario->cabeza);
+        Insumos::where('nombre' ,'patas')->increment('total',$formulario->patas);
 
         echo json_encode($corte->id);
     }
@@ -125,6 +132,21 @@ class CorteController extends Controller
         Insumos::where('nombre' ,'tocino_choriso')->increment('total',$formulario->tocino_choriso);
         Insumos::where('nombre' ,'papada')->decrement('total',$corte->papada);
         Insumos::where('nombre' ,'papada')->increment('total',$formulario->papada);
+        Insumos::where('nombre' ,'carne_cecina')->decrement('total',$corte->carne_cecina);
+        Insumos::where('nombre' ,'carne_cecina')->increment('total',$formulario->carne_cecina);
+        Insumos::where('nombre' ,'carne_file')->decrement('total',$corte->carne_file);
+        Insumos::where('nombre' ,'carne_file')->increment('total',$formulario->carne_file);
+        Insumos::where('nombre' ,'costilla')->decrement('total',$corte->costilla);
+        Insumos::where('nombre' ,'costilla')->increment('total',$formulario->costilla);
+        Insumos::where('nombre' ,'hueso_colum')->decrement('total',$corte->hueso_colum);
+        Insumos::where('nombre' ,'hueso_colum')->increment('total',$formulario->hueso_colum);
+        Insumos::where('nombre' ,'hueso_raspado')->decrement('total',$corte->hueso_raspado);
+        Insumos::where('nombre' ,'hueso_raspado')->increment('total',$formulario->hueso_raspado);
+        Insumos::where('nombre' ,'cabeza')->decrement('total',$corte->cabeza);
+        Insumos::where('nombre' ,'cabeza')->increment('total',$formulario->cabeza);
+        Insumos::where('nombre' ,'patas')->decrement('total',$corte->patas);
+        Insumos::where('nombre' ,'patas')->increment('total',$formulario->patas);
+
 
         echo json_encode($opcion);
 

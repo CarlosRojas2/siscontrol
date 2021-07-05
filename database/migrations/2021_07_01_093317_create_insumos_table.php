@@ -19,7 +19,7 @@ class CreateInsumosTable extends Migration
             $table->foreign('insumos_tipos_id')->references('id')->on('insumos_tipos');
             $table->string('nombre');
             $table->string('descripcion');
-            $table->double('total',8, 2)->nullable();
+            $table->decimal('total',12, 2)->nullable();
             $table->softDeletes();
             $table->timestamps();
         });
@@ -28,7 +28,16 @@ class CreateInsumosTable extends Migration
             ->insert([
                 ["insumos_tipos_id"=> 1,"nombre" => 'carne_picada',"descripcion" => 'Carne Picada',"total" => 0],
                 ["insumos_tipos_id"=> 1,"nombre" => 'tocino_choriso',"descripcion" => 'Tocino Choriso',"total" => 0],
-                ["insumos_tipos_id"=> 1,"nombre" => 'papada',"descripcion" => 'Papada',"total" => 0]
+                ["insumos_tipos_id"=> 1,"nombre" => 'papada',"descripcion" => 'Papada',"total" => 0],
+
+                ["insumos_tipos_id"=> 2,"nombre" => 'carne_cecina',"descripcion" => 'Cecina',"total" => 0],
+                ["insumos_tipos_id"=> 2,"nombre" => 'carne_file',"descripcion" => 'Lomo',"total" => 0],
+                ["insumos_tipos_id"=> 2,"nombre" => 'costilla',"descripcion" => 'Costilla',"total" => 0],
+                ["insumos_tipos_id"=> 2,"nombre" => 'hueso_colum',"descripcion" => 'Hueso',"total" => 0],
+                ["insumos_tipos_id"=> 2,"nombre" => 'hueso_raspado',"descripcion" => 'Hueso Raspado',"total" => 0],
+                ["insumos_tipos_id"=> 2,"nombre" => 'cabeza',"descripcion" => 'Cabeza',"total" => 0],
+                ["insumos_tipos_id"=> 2,"nombre" => 'patas',"descripcion" => 'Patas',"total" => 0],
+                ["insumos_tipos_id"=> 2,"nombre" => 'tocino_choriso',"descripcion" => 'Tocino',"total" => 0]
         ]);
     }
 

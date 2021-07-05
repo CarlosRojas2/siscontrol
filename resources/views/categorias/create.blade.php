@@ -54,14 +54,6 @@
                                                 </div>
                                             </div>
                                         </div>
-                                        <div class="col-lg-12 col-md-12 col-sm-12">
-                                            <div class="form-group">
-                                                <label for="descripcion">Descripción</label>
-                                                <div>
-                                                    <input type="text" class="form-control" name="descripcion" placeholder="Descripcion ... " value="{{ old('descripcion') }}" required maxlength="120">
-                                                </div>
-                                            </div>
-                                        </div>
                                     </div>
                                     <div class="form-group row justify-content-end mb-0" align="center">
                                                 <div class="col-md-12 pl-md-6 text-white">

@@ -19,6 +19,12 @@ class CreateUnidadmedidasTable extends Migration
             $table->softDeletes();
             $table->timestamps();
         });
+
+        DB::table("unidadmedidas")
+            ->insert([
+                ["nombre" => 'KG'],
+                ["nombre" => 'UND']
+        ]);
     }
     /**
      * Reverse the migrations.

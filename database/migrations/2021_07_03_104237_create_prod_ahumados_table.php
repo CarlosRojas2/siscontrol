@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateProdChorisosTable extends Migration
+class CreateProdAhumadosTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,15 +13,17 @@ class CreateProdChorisosTable extends Migration
      */
     public function up()
     {
-        Schema::create('prod_chorisos', function (Blueprint $table) {
+        Schema::create('prod_ahumados', function (Blueprint $table) {
             $table->id();
-            $table->unsignedBigInteger('prod_productos_id');
-            $table->foreign('prod_productos_id')->references('id')->on('prod_productos');
+            $table->string('descripcion');
+            $table->decimal('carne_cecina',12, 2)->nullable();
+            $table->decimal('carne_file',12, 2)->nullable();
+            $table->decimal('costilla',12, 2)->nullable();
+            $table->decimal('hueso_colum',12, 2)->nullable();
+            $table->decimal('hueso_raspado',12, 2)->nullable();
+            $table->decimal('cabeza',12, 2)->nullable();
+            $table->decimal('patas',12, 2)->nullable();
             $table->decimal('tocino_choriso',12, 2)->nullable();
-            $table->decimal('papada',12, 2)->nullable();
-            $table->decimal('carne_picada',12, 2)->nullable();
-            $table->decimal('madeja',12, 2)->nullable();
-            $table->unsignedBigInteger('madeja_id');
             $table->decimal('cantidad_producida',12, 2)->nullable();
             $table->date('fecha_reg');
             $table->softDeletes();
@@ -36,6 +38,6 @@ class CreateProdChorisosTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('prod_chorisos');
+        Schema::dropIfExists('prod_ahumados');
     }
 }

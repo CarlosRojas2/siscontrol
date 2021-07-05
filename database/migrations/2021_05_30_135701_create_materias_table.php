@@ -33,6 +33,11 @@ class CreateMateriasTable extends Migration
             $table->softDeletes();
             $table->timestamps();
         });
+
+        DB::table("materias")
+        ->insert([
+            ["producto_id" => 1,"producto_id" => 1,"proveedor_id" => 1,"unidadmedida_id" => 2,"cantidad" => 0,"precio_compra" => 0,"importe" => 0,'resto' => 0]
+    ]);
     }
 
     /**

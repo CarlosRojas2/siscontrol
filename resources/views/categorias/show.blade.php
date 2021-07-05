@@ -30,7 +30,6 @@
                             <h4>DATOS DE LA CATEGORIA: {{$categoria->id}}</h4><br> 
                         </div>
                             <h4>Nombre: {{$categoria['nombre']}}</h4>  
-                            <h4>Descripcion: {{$categoria['descripcion']}}</h4>    
                             <h4>Fecha de Registro: {{$categoria['created_at']}}</h4>
                     </div>
                     <div class="card-footer">

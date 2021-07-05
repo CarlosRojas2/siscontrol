@@ -9,15 +9,15 @@
                 <!-- Page Header -->
                 <div class="page-header">
                     <div>
-                        <h2 class="main-content-title tx-24 mg-b-5">Sección Producción de Chorisos</h2>
+                        <h2 class="main-content-title tx-24 mg-b-5">Sección Producción de ahumados</h2>
                         <ol class="breadcrumb">
                             <li class="breadcrumb-item"><a href="{{route('dashboard')}}">Inicio</a></li>
-                            <li class="breadcrumb-item active" aria-current="page">Producción de Chorisos</li>
+                            <li class="breadcrumb-item active" aria-current="page">Producción de ahumados</li>
                         </ol>
                     </div>
                     <div class="d-flex">
                         <div class="justify-content-center text-white">
-                            <a type="button" href="{{route('prod_chorisos.create')}}" class="o_o_pd_top_7 btn btn-primary my-2 btn-icon-text">
+                            <a type="button" href="{{route('prod_ahumados.create')}}" class="o_o_pd_top_7 btn btn-primary my-2 btn-icon-text">
                             <i class="fe fe-plus mr-2 o_o_ico_btn"></i> Registrar Nueva Producción
                             </a>
                         </div>
@@ -31,7 +31,7 @@
                         <div class="card custom-card overflow-hidden">
                             <div class="card-body">
                                 <div>
-                                    <h6 class="main-content-label mb-1">Listado de Chorisos</h6>
+                                    <h6 class="main-content-label mb-1">Listado de ahumados</h6>
                                     <p class="text-muted card-sub-title">Eres libre de exportar los datos</p>
                                 </div>
                                 <div class="table-responsive">
@@ -39,7 +39,7 @@
                                         <thead>
                                             <tr>
                                                 <th>#</th>
-                                                <th>Tipo Choriso</th>
+                                                <th>Descripción</th>
                                                 <th>Cant. Producida</th>
                                                 <th>Fecha Registro</th>
                                                 <th class="text-center">Estado</th>
@@ -47,11 +47,11 @@
                                             </tr>
                                         </thead>
                                         <tbody>
-                                            @if (!empty($chorisos))
-                                                @foreach ($chorisos as $item)
+                                            @if (!empty($ahumados))
+                                                @foreach ($ahumados as $item)
                                                     <tr>
                                                         <td class="text-center">{{$n=$n+1}}</td>
-                                                        <td><a href="{{route('prod_chorisos.show', $item->id)}}">{{$item->producto}}</a></td>
+                                                        <td><a href="{{route('prod_ahumados.show', $item->id)}}">{{$item->descripcion}}</td>
                                                         <td>{{$item->cantidad_producida}}</td>
                                                         <td>{{$item->fecha_reg}}</td>
                                                         <td class="text-center">
@@ -62,12 +62,12 @@
                                                             @endif
                                                         </td>
                                                         <td class="text-center">
-                                                                <form class="form_delete" action="{{route('prod_chorisos.destroy', $item)}}"  method="POST">
+                                                                <form class="form_delete" action="{{route('prod_ahumados.destroy', $item)}}"  method="POST">
                                                                     @csrf
                                                                     @method('delete')
-                                                                    {{--<a href="{{route('prod_chorisos.edit', $item->id)}}" class=" {{ ($item->deleted_at == null)? ' ': 'o_o_enlace_no'}}  btn btn-sm btn-success">
-                                                                        <i class="fe fe-edit-2"></i>
-                                                                    </a>--}}
+                                                                    <a href="{{route('prod_ahumados.show', $item->id)}}" class="btn btn-sm btn-warning">
+                                                                        <i class="fe fe-eye"></i>
+                                                                    </a>
                                                                     <button tipe="submit" class="btn btn-sm btn-danger" {{ ($item->deleted_at == null)? ' ': 'disabled'}}>
                                                                         <i class="fe fe-trash"></i>
                                                                     </button>
@@ -87,5 +87,5 @@
             </div>
         </div>
     </div>
-@include('chorisos._myjs')
+@include('ahumados._myjs')
 @endsection

@@ -1,13 +1,9 @@
 @section('myjs')
 <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 <script type="text/javascript">
-
 /*----------------------------------MENSAJES SWAL---------------------------*/
-
 /*---------------------CONFIRMACION----------------------------*/
-
 	$(document).ready(function(){
-
         if (localStorage.getItem("mensaje_codetime")) {
                swal.fire({
 				  title: "Producción",
@@ -40,12 +36,9 @@
                 }
             })
 	});
-
-/*-----------------------------------PROCESAR CHORISO------------------------------*/
-
+/*-----------------------------------PROCESAR ahumado------------------------------*/
     const procesar=(e)=>{
         event.preventDefault();
-
         /*if( document.getElementById('table_1').querySelector('.o_o_error')){
             return false;
         }*/ 
@@ -61,8 +54,8 @@
             }).then((result)=>{
                 if(result.value){
                     
-                    var data_form = $('#chorisos').serializeArray();
-                    var choriso_id= $('#choriso_id').val();
+                    var data_form = $('#ahumados').serializeArray();
+                    var ahumado_id= $('#ahumado_id').val();
                     var formulario = {}; 
                     $.each(data_form,function(i,item){
                         if(item.value==''){
@@ -70,11 +63,11 @@
                         }
                         formulario[item.name] = item.value;
                     });
-                    if(choriso_id == 'insert'){ 
-                        var ruta    ="{{route('prod_chorisos.store')}}";
+                    if(ahumado_id == 'insert'){ 
+                        var ruta    ="{{route('prod_ahumados.store')}}";
                         var metodo  ="POST";
                     }else{ 
-                        var ruta="{{route('prod_chorisos.update','update')}}";
+                        var ruta="{{route('prod_ahumados.update','update')}}";
                         var metodo  ="PATCH";
                     }
                     $.ajax({
@@ -87,25 +80,29 @@
                         success : function(data){
                                 data=eval(data);
                                 switch (data) {
-                                    case 4:
-                                        return false;
                                     case 0:
                                         $('#cant_procesada').addClass('o_o_error_form');
                                         $('#cant_procesada').focus();
                                         return false;
                                     case 1:
-                                        $('#carne_picada').addClass('o_o_error');
+                                        $('#carne_cecina').addClass('o_o_error');
+                                        $('#carne_cecina').focus();
+                                        $('#carne_file').addClass('o_o_error');
+                                        $('#carne_file').focus();
+                                        $('#costilla').addClass('o_o_error');
+                                        $('#costilla').focus();
+                                        $('#hueso_colum').addClass('o_o_error');
+                                        $('#hueso_colum').focus();
+                                        $('#hueso_raspado').addClass('o_o_error');
+                                        $('#hueso_raspado').focus();
+                                        $('#cabeza').addClass('o_o_error');
+                                        $('#cabeza').focus();
+                                        $('#patas').addClass('o_o_error');
+                                        $('#patas').focus();
                                         $('#tocino_choriso').addClass('o_o_error');
-                                        $('#papada').addClass('o_o_error');
-                                        $('#carne_picada').focus();
+                                        $('#tocino_choriso').focus();
                                         return false;
                                     case 2:
-                                        $('#cant_procesada').removeClass('o_o_error_form');
-                                        $('#carne_picada').removeClass('o_o_error');
-                                        $('#tocino_choriso').removeClass('o_o_error');
-                                        $('#papada').removeClass('o_o_error');
-                                        $('#madeja').addClass('o_o_error');
-                                        $('#madeja').focus();
                                         return false;
                                 }   
                                 if(data=='update') {
@@ -113,7 +110,7 @@
                                 }else{
                                     localStorage.mensaje_codetime="Produción Insertada con éxito."; 
                                 }
-                                window.location ="{{route('prod_chorisos.index')}}";
+                                window.location ="{{route('prod_ahumados.index')}}";
                                
                         },
                         error: function () {
@@ -122,19 +119,13 @@
                     });
                 }
             })
-
     }
- /*-------------------------SELECCIONAR SALIDA PRODUCTO----------------------*/
 
-    const select_salida_produto=(e)=>{
-        var stok = $('option:selected', e).attr('data-stok');
-        $('#stock').val(stok);
-    }
 
 /*----------------------INGRESO DE DATOS EN TABLA -------------------------*/
-
     $('#table_1').on('keyup', 'input', function (e) {
-        var elemt       = $(this);
+        var elemt=$(this);
+		if(elemt.attr('readonly')){return false;}
         var total       = parseFloat(elemt.val());
         var total_usar  = $('#total_'+elemt.attr('name')).text();
         total_usar      = parseFloat(total_usar);
@@ -143,10 +134,22 @@
              return false;
         }
         $('#'+elemt.attr('name')).removeClass('o_o_error');
-        /*if( document.getElementById('table_1').querySelector('.o_o_error')){
-            return console.log('existe errores');
-        }*/
-    });
+
+		cant_t=0;
+        $('.cant_clas').each(function(item, e){
+	      	var num = parseFloat($(e).val());
+	      	if (isNaN(num) | num == undefined){ //Validamos si está vacío o no es un número para acumular
+	        	num=0;
+	       	}
+	       	cant_t += num;
+	    });
+		cant_t		=	cant_t.toFixed(2);
+        
+		$('#cant_procesada').val(cant_t);
+
+		return true;
+	});
+
 
 </script>
 @endsection

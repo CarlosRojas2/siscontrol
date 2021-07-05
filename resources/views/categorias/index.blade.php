@@ -36,7 +36,6 @@
                                             <tr>
                                                 <th>#</th>
                                                 <th>Nombre</th>
-                                                <th>Descripción</th>
                                                 <th>Opciones</th>
                                             </tr>
                                         </thead>
@@ -45,7 +44,6 @@
                                                 <tr>
                                                     <td>{{$n++}}</td>
                                                     <td>{{$cat->nombre}}</a></td>
-                                                    <td>{{$cat->descripcion}}</td>
                                                     <td>
                                                         <form action="{{route('categorias.destroy', $cat)}}" class="eliminar-categoria" method="POST">
                                                             @csrf
@@ -108,6 +106,15 @@
         swal.fire("¡Editado!", "La categoria fue editada con éxito.", "success")
     </script>
     @endif
+    @if (session('restore')=='ok')
+        <script>
+            Swal.fire({
+            icon: 'success',
+            title: '¡Restaurada!',
+            footer: 'La categoria ya existe y fue restaurada, ¡Verifique sus datos!'
+            })
+        </script>
+    @endif
 
     
     <script>
@@ -116,7 +123,7 @@
             swal.fire({
               title: "¿Está seguro?",
               text: "Confirmar si deceas Eliminar",
-              type: "warning",
+              icon: "warning",
               showCancelButton: true,
               confirmButtonClass: "btn btn-danger",
               confirmButtonText: "¡Sí, Bórralo!",

@@ -21,8 +21,7 @@ class Categoria extends Model
     public $timestamps = true;
 
     protected $fillable=[
-        'nombre',
-        'descripcion'
+        'nombre'
     ];
 
     public function fk_categoriaProducto($id)
