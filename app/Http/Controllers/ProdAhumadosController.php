@@ -83,8 +83,7 @@ class ProdahumadosController extends Controller
     }
     public function show($id)
     {
-        $consulta=Prod_ahumados::withTrashed()->select('prod_ahumados.*','prod_productos.descripcion as producto')
-        ->join('prod_productos','prod_productos.id','=','prod_ahumados.prod_productos_id')
+        $consulta=Prod_ahumados::withTrashed()->select('prod_ahumados.*')
         ->where('prod_ahumados.id',$id)->first();
         return view('ahumados.show', compact('consulta'));
     }

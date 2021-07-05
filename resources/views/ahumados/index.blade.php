@@ -51,7 +51,7 @@
                                                 @foreach ($ahumados as $item)
                                                     <tr>
                                                         <td class="text-center">{{$n=$n+1}}</td>
-                                                        <td>{{$item->descripcion}}</td>
+                                                        <td><a href="{{route('prod_ahumados.show', $item->id)}}">{{$item->descripcion}}</td>
                                                         <td>{{$item->cantidad_producida}}</td>
                                                         <td>{{$item->fecha_reg}}</td>
                                                         <td class="text-center">
@@ -65,9 +65,9 @@
                                                                 <form class="form_delete" action="{{route('prod_ahumados.destroy', $item)}}"  method="POST">
                                                                     @csrf
                                                                     @method('delete')
-                                                                    {{--<a href="{{route('prod_ahumados.edit', $item->id)}}" class=" {{ ($item->deleted_at == null)? ' ': 'o_o_enlace_no'}}  btn btn-sm btn-success">
-                                                                        <i class="fe fe-edit-2"></i>
-                                                                    </a>--}}
+                                                                    <a href="{{route('prod_ahumados.show', $item->id)}}" class="btn btn-sm btn-warning">
+                                                                        <i class="fe fe-eye"></i>
+                                                                    </a>
                                                                     <button tipe="submit" class="btn btn-sm btn-danger" {{ ($item->deleted_at == null)? ' ': 'disabled'}}>
                                                                         <i class="fe fe-trash"></i>
                                                                     </button>
