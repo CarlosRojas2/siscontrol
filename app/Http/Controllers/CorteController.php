@@ -161,6 +161,14 @@ class CorteController extends Controller
         Insumos::where('nombre' ,'tocino_choriso')->decrement('total',$corte->tocino_choriso);
         Insumos::where('nombre' ,'papada')->decrement('total',$corte->papada);
 
+        Insumos::where('nombre' ,'carne_cecina')->decrement('total',$corte->carne_cecina);
+        Insumos::where('nombre' ,'carne_file')->decrement('total',$corte->carne_file);
+        Insumos::where('nombre' ,'costilla')->decrement('total',$corte->costilla);
+        Insumos::where('nombre' ,'hueso_colum')->decrement('total',$corte->hueso_colum);
+        Insumos::where('nombre' ,'hueso_raspado')->decrement('total',$corte->hueso_raspado);
+        Insumos::where('nombre' ,'cabeza')->decrement('total',$corte->cabeza);
+        Insumos::where('nombre' ,'patas')->decrement('total',$corte->patas);
+
         Corte::find($corte->id)->delete();
         echo '<script type="text/javascript">localStorage.mensaje_codetime="Corte anulado con éxito."; window.location ="' . url('cortes') . '";</script>';
     }

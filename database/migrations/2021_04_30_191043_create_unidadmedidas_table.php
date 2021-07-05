@@ -20,11 +20,6 @@ class CreateUnidadmedidasTable extends Migration
             $table->timestamps();
         });
 
-        DB::table("unidadmedidas")
-            ->insert([
-                ["nombre" => 'KG'],
-                ["nombre" => 'UND']
-        ]);
     }
     /**
      * Reverse the migrations.
