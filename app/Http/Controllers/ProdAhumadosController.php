@@ -42,6 +42,8 @@ class ProdahumadosController extends Controller
         $costilla               = (int) $formulario->costilla;
         $hueso_colum_resto      = (int) $formulario->hueso_colum_resto;
         $hueso_colum            = (int) $formulario->hueso_colum;
+        $cuero_resto            = (int) $formulario->cuero_resto;
+        $cuero                  = (int) $formulario->cuero;
         $hueso_raspado_resto    = (int) $formulario->hueso_raspado_resto;
         $hueso_raspado          = (int) $formulario->hueso_raspado;
         $cabeza_resto           = (int) $formulario->cabeza_resto;
@@ -52,9 +54,9 @@ class ProdahumadosController extends Controller
         $tocino_choriso         = (int) $formulario->tocino_choriso;
         if($cant_procesada<=0)
             {return 0;}
-        if($carne_cecina > $carne_cecina_resto or $carne_file > $carne_file_resto or $costilla>$costilla_resto or $hueso_colum>$hueso_colum_resto or $hueso_raspado>$hueso_raspado_resto or $cabeza>$cabeza_resto or $patas>$patas_resto or $tocino_choriso>$tocino_choriso_resto)
+        if($carne_cecina > $carne_cecina_resto or $carne_file > $carne_file_resto or $costilla>$costilla_resto or $hueso_colum>$hueso_colum_resto or $cuero>$cuero_resto or $hueso_raspado>$hueso_raspado_resto or $cabeza>$cabeza_resto or $patas>$patas_resto or $tocino_choriso>$tocino_choriso_resto)
             {return 1;}
-        if($carne_cecina<=0 and $carne_file<=0 and $costilla<=0 and $hueso_colum<=0 and $hueso_raspado<=0 and $cabeza<=0 and $patas<=0 and $tocino_choriso<=0)
+        if($carne_cecina<=0 and $carne_file<=0 and $costilla<=0 and $hueso_colum<=0 and $cuero<=0 and $hueso_raspado<=0 and $cabeza<=0 and $patas<=0 and $tocino_choriso<=0)
             {return 2;}
 
         $corte = new Prod_ahumados;
@@ -62,6 +64,7 @@ class ProdahumadosController extends Controller
         $corte->carne_file          = $formulario->carne_file;
         $corte->costilla            = $formulario->costilla;
         $corte->hueso_colum         = $formulario->hueso_colum;
+        $corte->cuero               = $formulario->cuero;
         $corte->hueso_raspado       = $formulario->hueso_raspado;
         $corte->cabeza              = $formulario->cabeza;
         $corte->patas               = $formulario->patas;
