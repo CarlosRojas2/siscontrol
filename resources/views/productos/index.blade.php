@@ -50,16 +50,13 @@
                                                 @foreach ($productos as $item)
                                                     <tr>
                                                         <td>{{$n = $n+1}}</td>
-                                                        <td><a href="{{route('productos.show', $item->id)}}">{{$item->nombre}}</a></td>
+                                                        <td>{{$item->nombre}}</td>
                                                         <td>{{$item->categoria->nombre}}</td>
                                                         <td>{{$item->stock}}</td>
                                                         <td class="text-center">
                                                             <form action="{{route('productos.destroy', $item)}}" class="eliminar-producto" method="POST">
                                                                 @csrf
                                                                 @method('delete')
-                                                                <a href="#" class="btn btn-sm btn-primary">
-                                                                    <i class="fe fe-eye"></i>
-                                                                </a>
                                                                 <a href="{{route('productos.edit', $item->id)}}" class="btn btn-sm btn-success">
                                                                     <i class="fe fe-edit-2"></i>
                                                                 </a>
@@ -108,14 +105,32 @@
         swal.fire("¡Eliminado!", "El producto se eliminó con éxito.", "success")
     </script>
 @endif
-
+@if (session('registrar')=='ok')
+    <script>
+        swal.fire("¡Registrado!", "El producto fue registrado con éxito.", "success")
+    </script>
+@endif
+@if (session('editar')=='ok')
+    <script>
+        swal.fire("¡Editado!", "El producto fue editado con éxito.", "success")
+    </script>
+@endif
+@if (session('restore')=='ok')
+        <script>
+            Swal.fire({
+            icon: 'success',
+            title: '¡Restaurada!',
+            footer: 'El producto ya existe y fue restaurado, ¡Verifique sus datos!'
+            })
+        </script>
+@endif
 <script>
     $('.eliminar-producto').submit(function(e){
         e.preventDefault();
         swal.fire({
 		  title: "¿Está seguro?",
 		  text: "No podrá recuperar éste archivo!",
-		  type: "warning",
+		  icon: "warning",
 		  showCancelButton: true,
 		  confirmButtonClass: "btn btn-danger",
 		  confirmButtonText: "¡Sí, Bórralo!",

@@ -4,12 +4,12 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests\Producto\StoreRequest;
 use App\Http\Requests\Producto\UpdateRequest;
+use Illuminate\Http\Request;
 use App\Models\Categoria;
 use App\Models\Materia;
 use App\Models\Producto;
 use App\Models\Proveedor;
 use Carbon\Carbon;
-use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 
 class ProductoController extends Controller
@@ -17,7 +17,7 @@ class ProductoController extends Controller
     public function index()
     {
         $n     = 0;
-        $productos=Producto::withTrashed()->orderby('id', 'desc')->get();
+        $productos=Producto::orderby('id', 'desc')->get();
         return view('productos.index', compact('productos', 'n'));
     }
     public function create()
@@ -25,17 +25,20 @@ class ProductoController extends Controller
         $categorias = Categoria::get();        
         return view('productos.create', compact('categorias'));
     }
-    public function store(StoreRequest $request)
+    public function store(Request $request)
     {
+        if (Producto::onlyTrashed()->where('nombre', '=', $request->nombre)->restore()) {
+            return redirect()->route('productos.index')->with('restore','ok');
+        }
         $request->validate(
             [
-                'nombre'=>'required',
+                'nombre'=>'required|unique:productos',
                 'categoria_id'=>'required',
             ]
-        );
+        ); 
 
         Producto::create($request->all());
-        return redirect()->route('productos.index');
+        return redirect()->route('productos.index')->with('registrar','ok');
     }
     public function show(Producto $producto)
     {
@@ -50,7 +53,7 @@ class ProductoController extends Controller
     public function update(UpdateRequest $request, Producto $producto)
     {
         $producto->update($request->all());
-        return redirect()->route('productos.index');
+        return redirect()->route('productos.index')->with('registrar','ok');
     }
     public function destroy(Producto $producto)
     {

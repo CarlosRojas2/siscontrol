@@ -7,7 +7,7 @@
 
  
                 <!-- Page Header -->
-                <div class="page-header">
+                <div class="page-header"> 
                     <div>
                         <h2 class="main-content-title tx-24 mg-b-5">Sección Producción de Chorisos</h2>
                         <ol class="breadcrumb">
@@ -63,7 +63,7 @@
                                         </div>
                                         <div class="col-xl-5 col-lg">
                                             <p class="mg-b-10">Cantidad Producida</p>
-                                            <input id="cant_procesada" name="cant_procesada" class="text-center form-control" type="text" onkeypress="return filterFloat(event,this);">
+                                            <input id="cant_procesada" name="cant_procesada" class="text-center form-control" type="text" onkeypress="return filterFloat(event,this);" required>
                                         </div>
                                     </div><br>
                                     <div class="d-flex">
@@ -90,8 +90,8 @@
                                                                 <tr>
                                                                     <th class="text-center">{{$n=$n+1}}</th>
                                                                     <td>Madeja</td>
-                                                                    <td class="text-center" id="total_madeja">{{$madeja->resto}}</td>
-                                                                    <td><input type="hidden" name="id_materia" id="id_materia" value="{{$madeja->id}}"><input type="hidden" name="madeja_resto" id="madeja_resto" value="{{$madeja->resto}}"><input type="text" class="text-center cant_clas form-control" name="madeja" id="madeja" onkeypress="return filterFloat(event,this);"></td>
+                                                                    <td class="text-center" id="total_madeja">{{$madeja->cantidad_inicial}}</td>
+                                                                    <td><input type="hidden" name="madeja_resto" id="madeja_resto" value="{{$madeja->cantidad_inicial}}"><input type="text" class="text-center cant_clas form-control" name="madeja" id="madeja" onkeypress="return filterFloat(event,this);"></td>
                                                                 </tr>
                                                         </tbody>
                                                     </table>

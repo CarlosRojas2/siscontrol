@@ -75,6 +75,7 @@ class ProdahumadosController extends Controller
         Insumos::where('nombre' ,'carne_file')->decrement('total',$formulario->carne_file);
         Insumos::where('nombre' ,'costilla')->decrement('total',$formulario->costilla);
         Insumos::where('nombre' ,'hueso_colum')->decrement('total',$formulario->hueso_colum);
+        Insumos::where('nombre' ,'cuero')->decrement('total',$formulario->cuero);
         Insumos::where('nombre' ,'hueso_raspado')->decrement('total',$formulario->hueso_raspado);
         Insumos::where('nombre' ,'cabeza')->decrement('total',$formulario->cabeza);
         Insumos::where('nombre' ,'patas')->decrement('total',$formulario->patas);
@@ -109,6 +110,7 @@ class ProdahumadosController extends Controller
         Insumos::where('nombre' ,'carne_file')->increment('total',$producion->carne_file);
         Insumos::where('nombre' ,'costilla')->increment('total',$producion->costilla);
         Insumos::where('nombre' ,'hueso_colum')->increment('total',$producion->hueso_colum);
+        Insumos::where('nombre' ,'cuero')->increment('total',$producion->cuero);
         Insumos::where('nombre' ,'hueso_raspado')->increment('total',$producion->hueso_raspado);
         Insumos::where('nombre' ,'cabeza')->increment('total',$producion->cabeza);
         Insumos::where('nombre' ,'patas')->increment('total',$producion->patas);

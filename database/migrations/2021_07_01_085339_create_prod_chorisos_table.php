@@ -21,7 +21,6 @@ class CreateProdChorisosTable extends Migration
             $table->decimal('papada',12, 2)->nullable();
             $table->decimal('carne_picada',12, 2)->nullable();
             $table->decimal('madeja',12, 2)->nullable();
-            $table->unsignedBigInteger('madeja_id');
             $table->decimal('cantidad_producida',12, 2)->nullable();
             $table->date('fecha_reg');
             $table->softDeletes();

@@ -7,18 +7,18 @@
 
  
                 <!-- Page Header -->
-                <div class="page-header">
+                <div class="page-header"> 
                     <div>
-                        <h2 class="main-content-title tx-24 mg-b-5">Sección Producción de ahumados</h2>
+                        <h2 class="main-content-title tx-24 mg-b-5">Sección Producción de Productos/Ahumar</h2>
                         <ol class="breadcrumb">
                             <li class="breadcrumb-item"><a href="{{route('dashboard')}}">Inicio</a></li>
-                            <li class="breadcrumb-item active" aria-current="page">Producción de ahumados</li>
+                            <li class="breadcrumb-item active" aria-current="page">Producción de Productos/Ahumar</li>
                         </ol>
                     </div>
                     <div class="d-flex"> 
                         <div class="justify-content-center text-white">
                             <a type="button" href="{{route('prod_ahumados.index')}}" class="o_o_pd_top_7 btn btn-primary my-2 btn-icon-text">
-                            <i class="si si-layers mr-2 o_o_ico_btn"></i> Ver Producción de ahumados
+                            <i class="si si-layers mr-2 o_o_ico_btn"></i> Ver Producción de Productos/Ahumar
                             </a>
                         </div>
                     </div>
@@ -32,7 +32,7 @@
                             <div class="card-body">
                                 <div>
                                     <h6 class="main-content-label mb-1">Registro de una nueva Producción</h6>
-                                    <p class="text-muted card-sub-title">Complete el formulario para registrar una nueva Producción de ahumados.</p>
+                                    <p class="text-muted card-sub-title">Complete el formulario para registrar una nueva Producción de Productos/Ahumar.</p>
                                 </div>
                                 <form id="ahumados" onsubmit="procesar(event)">
 

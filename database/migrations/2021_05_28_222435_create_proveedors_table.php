@@ -24,7 +24,6 @@ class CreateProveedorsTable extends Migration
             $table->timestamps();
         });
 
-        
     }
 
     /**

@@ -14,9 +14,6 @@ class ProductoSeeder extends Seeder
      */
     public function run()
     {
-        $producto = new Producto();
-        $producto->nombre = "MADEJA";
-        $producto->categoria_id = "1";
-        $producto->save();
+
     }
 }

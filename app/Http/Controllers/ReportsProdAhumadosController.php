@@ -11,14 +11,14 @@ class ReportsProdAhumadosController extends Controller
     public function ahumados()
     {
         $n=0;
-        $carne_cecina =  DB::table('Prod_ahumados')->sum('carne_cecina');
-        $carne_file =  DB::table('Prod_ahumados')->sum('carne_file');
-        $costilla =  DB::table('Prod_ahumados')->sum('costilla');
-        $hueso_colum =  DB::table('Prod_ahumados')->sum('hueso_colum');
-        $hueso_raspado =  DB::table('Prod_ahumados')->sum('hueso_raspado');      
-        $cabeza =  DB::table('Prod_ahumados')->sum('cabeza');
-        $patas =  DB::table('Prod_ahumados')->sum('patas');
-        $tocino_choriso =  DB::table('Prod_ahumados')->sum('tocino_choriso');
+        $carne_cecina =  DB::table('Prod_ahumados')->where('deleted_at',null)->sum('carne_cecina');
+        $carne_file =  DB::table('Prod_ahumados')->where('deleted_at',null)->sum('carne_file');
+        $costilla =  DB::table('Prod_ahumados')->where('deleted_at',null)->sum('costilla');
+        $hueso_colum =  DB::table('Prod_ahumados')->where('deleted_at',null)->sum('hueso_colum');
+        $hueso_raspado =  DB::table('Prod_ahumados')->where('deleted_at',null)->sum('hueso_raspado');      
+        $cabeza =  DB::table('Prod_ahumados')->where('deleted_at',null)->where('deleted_at',null)->sum('cabeza');
+        $patas =  DB::table('Prod_ahumados')->where('deleted_at',null)->sum('patas');
+        $tocino_choriso =  DB::table('Prod_ahumados')->where('deleted_at',null)->sum('tocino_choriso');
         // DD($carne_cecina);
         return view('reportes_ahumados.index')->with('n',$n)
                 ->with('carne_cecina',$carne_cecina)
@@ -37,14 +37,14 @@ class ReportsProdAhumadosController extends Controller
         $fecha_inicio = $request->fecha_inicio;
         $fecha_fin = $request->fecha_fin;
 
-        $carne_cecina =  DB::table('Prod_ahumados')->whereBetween('fecha_reg',[$request->fecha_inicio . ' 00:00:00',$request->fecha_fin . ' 23:59:59'])->sum('carne_cecina');
-        $carne_file =  DB::table('Prod_ahumados')->whereBetween('fecha_reg',[$request->fecha_inicio . ' 00:00:00',$request->fecha_fin . ' 23:59:59'])->sum('carne_file');
-        $costilla =  DB::table('Prod_ahumados')->whereBetween('fecha_reg',[$request->fecha_inicio . ' 00:00:00',$request->fecha_fin . ' 23:59:59'])->sum('costilla');
-        $hueso_colum =  DB::table('Prod_ahumados')->whereBetween('fecha_reg',[$request->fecha_inicio . ' 00:00:00',$request->fecha_fin . ' 23:59:59'])->sum('hueso_colum');
-        $hueso_raspado =  DB::table('Prod_ahumados')->whereBetween('fecha_reg',[$request->fecha_inicio . ' 00:00:00',$request->fecha_fin . ' 23:59:59'])->sum('hueso_raspado');      
-        $cabeza =  DB::table('Prod_ahumados')->whereBetween('fecha_reg',[$request->fecha_inicio . ' 00:00:00',$request->fecha_fin . ' 23:59:59'])->sum('cabeza');
-        $patas =  DB::table('Prod_ahumados')->whereBetween('fecha_reg',[$request->fecha_inicio . ' 00:00:00',$request->fecha_fin . ' 23:59:59'])->sum('patas');
-        $tocino_choriso =  DB::table('Prod_ahumados')->whereBetween('fecha_reg',[$request->fecha_inicio . ' 00:00:00',$request->fecha_fin . ' 23:59:59'])->sum('tocino_choriso');
+        $carne_cecina =  DB::table('Prod_ahumados')->where('deleted_at',null)->whereBetween('fecha_reg',[$request->fecha_inicio . ' 00:00:00',$request->fecha_fin . ' 23:59:59'])->sum('carne_cecina');
+        $carne_file =  DB::table('Prod_ahumados')->where('deleted_at',null)->whereBetween('fecha_reg',[$request->fecha_inicio . ' 00:00:00',$request->fecha_fin . ' 23:59:59'])->sum('carne_file');
+        $costilla =  DB::table('Prod_ahumados')->where('deleted_at',null)->whereBetween('fecha_reg',[$request->fecha_inicio . ' 00:00:00',$request->fecha_fin . ' 23:59:59'])->sum('costilla');
+        $hueso_colum =  DB::table('Prod_ahumados')->where('deleted_at',null)->whereBetween('fecha_reg',[$request->fecha_inicio . ' 00:00:00',$request->fecha_fin . ' 23:59:59'])->sum('hueso_colum');
+        $hueso_raspado =  DB::table('Prod_ahumados')->where('deleted_at',null)->whereBetween('fecha_reg',[$request->fecha_inicio . ' 00:00:00',$request->fecha_fin . ' 23:59:59'])->sum('hueso_raspado');      
+        $cabeza =  DB::table('Prod_ahumados')->where('deleted_at',null)->whereBetween('fecha_reg',[$request->fecha_inicio . ' 00:00:00',$request->fecha_fin . ' 23:59:59'])->sum('cabeza');
+        $patas =  DB::table('Prod_ahumados')->where('deleted_at',null)->whereBetween('fecha_reg',[$request->fecha_inicio . ' 00:00:00',$request->fecha_fin . ' 23:59:59'])->sum('patas');
+        $tocino_choriso =  DB::table('Prod_ahumados')->where('deleted_at',null)->whereBetween('fecha_reg',[$request->fecha_inicio . ' 00:00:00',$request->fecha_fin . ' 23:59:59'])->sum('tocino_choriso');
         
         
         if ($fecha_fin >=$fecha_inicio ) {

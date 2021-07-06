@@ -28,10 +28,7 @@ class ProdChorisosController extends Controller
     public function create() 
     {
         $n=0;
-        $madeja          =  Materia::select('materias.*','productos.nombre')
-                            ->join('productos','productos.id','=','materias.producto_id')
-                            ->where('productos.nombre','Madeja')->orwhere('productos.nombre','MADEJA')
-                            ->first();
+        $madeja          =  Producto::where('id',1)->first();
         $prod_productos  =  Prod_productos::orderby('id','asc')->get();
         $insumos         =  Insumos::where('insumos_tipos_id',1)->orderby('id','asc')->get();
         return view('chorisos.create', compact('prod_productos','insumos','madeja','n'));
@@ -65,7 +62,6 @@ class ProdChorisosController extends Controller
         $corte->papada              = $formulario->papada;
         $corte->carne_picada        = $formulario->carne_picada;
         $corte->madeja              = $formulario->madeja;
-        $corte->madeja_id           = $formulario->id_materia;
         $corte->cantidad_producida  = $formulario->cant_procesada;
         $corte->fecha_reg           = $formulario->fecha_reg;
         $corte->save(); 
@@ -75,7 +71,7 @@ class ProdChorisosController extends Controller
         Insumos::where('nombre' ,'carne_picada')->decrement('total',$formulario->carne_picada);
         Insumos::where('nombre' ,'tocino_choriso')->decrement('total',$formulario->tocino_choriso);
         Insumos::where('nombre' ,'papada')->decrement('total',$formulario->papada);
-        Materia::where('id' ,$formulario->id_materia)->decrement('resto',$formulario->madeja);
+        Producto::where('id' ,1)->decrement('cantidad_inicial',$formulario->madeja);
         echo json_encode(3);
     }
     public function show($id)
@@ -88,12 +84,7 @@ class ProdChorisosController extends Controller
 
     public function edit($id)
     {
-        $n=0;
-        $madeja          =  Producto::where('nombre','Madeja')->orwhere('nombre','MADEJA')->first();
-        $prod_productos  =  Prod_productos::orderby('id','asc')->get();
-        $insumos         =  Insumos::where('insumos_tipos_id',1)->orderby('id','asc')->get();
-        $chorisos        =  Prod_chorisos::where('id',$id)->first();
-        return view('chorisos.edit', compact('madeja','prod_productos','insumos','chorisos','n'));
+
     }
 
     public function update(Request $request, Prod_chorisos $prod_chorisos)
@@ -108,7 +99,7 @@ class ProdChorisosController extends Controller
         Insumos::where('nombre' ,'carne_picada')->increment('total',$producion->carne_picada);
         Insumos::where('nombre' ,'tocino_choriso')->increment('total',$producion->tocino_choriso);
         Insumos::where('nombre' ,'papada')->increment('total',$producion->papada);
-        Materia::where('id' ,$producion->madeja_id)->increment('resto',$producion->madeja);
+        Producto::where('id' ,1)->increment('cantidad_inicial',$producion->madeja);
 
         Prod_chorisos::find($producion->id)->delete();
         echo '<script type="text/javascript">localStorage.mensaje_codetime="Corte anulado con éxito."; window.location ="' . url('cortes') . '";</script>';
