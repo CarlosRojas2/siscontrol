@@ -52,8 +52,8 @@
 		<link href="{{asset('assets/switcher/css/switcher.css')}}" rel="stylesheet">
 		<link href="{{asset('assets/switcher/demo.css')}}" rel="stylesheet">
 
-		<!-- Internal Sweet-Alert css-
-		<link href="{{asset('assets/plugins/sweet-alert/sweetalert.css')}}" rel="stylesheet">-->
+		<!-- Internal Sweet-Alert css-->
+		{{--<link href="{{asset('assets/plugins/sweet-alert/sweetalert.css')}}" rel="stylesheet">--}}
 
 	</head>
 

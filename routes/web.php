@@ -1,9 +1,7 @@
 <?php
 
-use App\Http\Controllers\CargaController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\CategoriaController;
-use App\Http\Controllers\DesgloseController;
 use App\Http\Controllers\MateriaController;
 use App\Http\Controllers\CorteController;
 use App\Http\Controllers\ProdChorisosController;
@@ -31,6 +29,8 @@ Route::get('/dashboard', function () {
 
 require __DIR__.'/auth.php';
 Route::resource('categorias', CategoriaController ::class)->middleware(['auth']);
+Route::get('inicioreporte', [ProductoController::class, 'inicioreporte'])->name('reportespro')->middleware(['auth']);
+Route::post('reportepro', [ProductoController::class, 'reportepro'])->name('reporteproducto')->middleware(['auth']);
 Route::resource('productos', ProductoController ::class)->middleware(['auth']);
 Route::resource('proveedors', ProveedorController ::class)->middleware(['auth']);
 Route::resource('materias', MateriaController ::class)->middleware(['auth']);
