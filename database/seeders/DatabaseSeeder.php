@@ -23,13 +23,13 @@ class DatabaseSeeder extends Seeder
     public function run()
     {
         // \App\Models\User::factory(10)->create();
-        $unidadmedida = new Unidadmedida();
-        $unidadmedida->nombre = "Unid";
-        $unidadmedida->save();
-
         $unidadmedida2 = new Unidadmedida();
         $unidadmedida2->nombre = "Kg";
         $unidadmedida2->save();
+
+        $unidadmedida = new Unidadmedida();
+        $unidadmedida->nombre = "Unid";
+        $unidadmedida->save();
 
         // categorias
         $categoria = new Categoria();
@@ -41,19 +41,6 @@ class DatabaseSeeder extends Seeder
         $producto->nombre = "MADEJA";
         $producto->categoria_id = "1";
         $producto->save();
-
-
-        // materias
-        $materia = new Materia();
-        $materia->usuario_id = 1;
-        $materia->producto_id = 1;
-        $materia->proveedor_id = 1;
-        $materia->unidadmedida_id = 1;
-        $materia->cantidad = 0;
-        $materia->precio_compra = 0;
-        $materia->importe = 0;
-        $materia->resto = 0;
-        $materia->save();
 
         // users
         $user = new User();
@@ -113,6 +100,13 @@ class DatabaseSeeder extends Seeder
         $insumos->insumos_tipos_id = "2";
         $insumos->nombre = "costilla";
         $insumos->descripcion = "Costilla";
+        $insumos->total = 0;
+        $insumos->save();
+
+        $insumos = new Insumos();
+        $insumos->insumos_tipos_id = "2";
+        $insumos->nombre = "cuero";
+        $insumos->descripcion = "Cuero";
         $insumos->total = 0;
         $insumos->save();
 

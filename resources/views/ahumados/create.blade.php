@@ -7,7 +7,7 @@
 
  
                 <!-- Page Header -->
-                <div class="page-header">
+                <div class="page-header"> 
                     <div>
                         <h2 class="main-content-title tx-24 mg-b-5">Sección Producción de Productos/Ahumar</h2>
                         <ol class="breadcrumb">
