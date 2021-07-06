@@ -28,3 +28,6 @@
     background-color: #04b386;
     border-color: #04b386;
 }
+.o_o_disabled{
+	pointer-events: none;
+}

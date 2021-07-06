@@ -19,10 +19,14 @@ class CreateUnidadmedidasTable extends Migration
             $table->softDeletes();
             $table->timestamps();
         });
+<<<<<<< HEAD
 
+=======
+>>>>>>> 691648bb15853a9f53cee09b6c0f87489214934a
     }
     /**
-     * Reverse the migrations.
+     * Reverse 
+     * the migrations.
      *
      * @return void
      */

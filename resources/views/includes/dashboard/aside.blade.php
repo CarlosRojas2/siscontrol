@@ -12,6 +12,18 @@
             <li class="nav-header"><span class="nav-label">Módulos</span></li>
         
             <li class="nav-item">
+                <a class="nav-link with-sub" href="#"><span class="shape1"></span><span class="shape2"></span><i class="ti-receipt sidemenu-icon"></i><span class="sidemenu-label">PRODUCCIÓN</span><i class="angle fe fe-chevron-right"></i></a>
+                <ul class="nav-sub">
+                    <li class="nav-sub-item">
+                        <a class="nav-sub-link" href="{{route('prod_chorisos.index')}}">CHORISOS</a>
+                    </li>
+                    <li class="nav-sub-item">
+                        <a class="nav-sub-link" href="{{route('prod_ahumados.index')}}">PRODUCTOS/AHUMAR</a>
+                    </li>
+                </ul>
+            </li>
+            
+            <li class="nav-item">
                 <a class="nav-link with-sub" href="#"><span class="shape1"></span><span class="shape2"></span><i class="ti-panel sidemenu-icon"></i><span class="sidemenu-label">PROCESOS</span><i class="angle fe fe-chevron-right"></i></a>
                 <ul class="nav-sub">
                     <li class="nav-sub-item">
@@ -41,21 +53,10 @@
                 </ul>
             </li>
             <li class="nav-item">
-                <a class="nav-link with-sub" href="#"><span class="shape1"></span><span class="shape2"></span><i class="ti-receipt sidemenu-icon"></i><span class="sidemenu-label">PRODUCCIÓN</span><i class="angle fe fe-chevron-right"></i></a>
-                <ul class="nav-sub">
-                    <li class="nav-sub-item">
-                        <a class="nav-sub-link" href="{{route('prod_chorisos.index')}}">CHORISOS</a>
-                    </li>
-                    <li class="nav-sub-item">
-                        <a class="nav-sub-link" href="{{route('prod_ahumados.index')}}">AHUMADOS</a>
-                    </li>
-                </ul>
-            </li>
-            <li class="nav-item">
                 <a class="nav-link with-sub" href="#"><span class="shape1"></span><span class="shape2"></span><i class="ti-bar-chart sidemenu-icon"></i><span class="sidemenu-label">REPORTES</span><i class="angle fe fe-chevron-right"></i></a>
                 <ul class="nav-sub">
                     <li class="nav-sub-item">
-                        <a class="nav-sub-link" href="tablebasic.html">MATERIA PRIMA</a>
+                        <a class="nav-sub-link" href="{{route('reportespro')}}">PRODUCTOS</a>
                     </li>
                     <li class="nav-sub-item">
                         <a class="nav-sub-link" href="tabledata.html">CORTES</a>
@@ -64,7 +65,7 @@
                         <a class="nav-sub-link" href="tabledata.html">SALIDA CHORISO</a>
                     </li>
                     <li class="nav-sub-item">
-                        <a class="nav-sub-link" href="tabledata.html">SALIDA AHUMADOS</a>
+                        <a class="nav-sub-link" href="{{url('reportes_ahumados')}}">SALIDA AHUMADOS</a>
                     </li>
                 </ul>
             </li>

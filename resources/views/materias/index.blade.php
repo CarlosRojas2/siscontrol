@@ -35,14 +35,12 @@
                                         <thead>
                                             <tr>
                                                 <th>#</th>
-                                                <th>Nombre</th>
-                                                <th>Proveedor</th>
-                                                <th>UM</th>
-                                                <th>Can</th>
+                                                <th>Descripción</th>
+                                                <th>Fecha Registro</th>
+                                                <th>Cantidad</th>
+                                                <th>Pre. compra</th>
+                                                <th>Imp. total</th>
                                                 <th>Sin procesar</th>
-                                                <th>P. compra</th>
-                                                <th>I. total</th>
-                                                <th>Fecha</th>
                                                 <th class="wd-lg-20p text-center">Opciones</th>
                                             </tr>
                                         </thead>
@@ -51,30 +49,21 @@
                                                 @foreach ($materias as $item)
                                                     <tr>
                                                         <td>{{$n=$n+1}}</td>
-                                                        <td>{{$item->producto->nombre}}</td>
-                                                        <td>{{$item->proveedor->nombre}}</td>
-                                                        <td>{{$item->unidadmedida->nombre}}</td>
-                                                        <td>{{$item->cantidad}}</td>
-                                                        <td>{{$item->resto}} Kg</td>
+                                                        <td>{{$item->producto->nombre}} - {{$item->proveedor->nombre}}</td>
+                                                        <td>{{$item->created_at}}</td>
+                                                        <td class="text-center">{{$item->cantidad}} {{$item->unidadmedida->nombre}}</td>
                                                         <td>{{$item->precio_compra}} S/</td>
                                                         <td>{{$item->importe}} S/</td>
-                                                        <td>{{$item->created_at}}</td>
+                                                        <td>{{($item->producto->id==1)? ' ':  $item->resto.' '.$item->unidadmedida->nombre }}</td>
                                                         <td class="text-center">
-                                                            <form action="{{route('materias.destroy', $item)}}" class="eliminar-materia" method="POST">
-                                                                @csrf
-                                                                @method('delete')
-                                                                <?php if ($item->resto != 0 and $item->unidadmedida_id != 1){ ?>
+                                                                @if($item->resto != 0 and $item->producto->id != 1)
                                                                     <a href="{{route('crear_corte', $item->id)}}" class="btn btn-sm btn-primary" title="Cortes">
                                                                         <i class="fe fe-scissors"></i>
                                                                     </a>
-                                                                <?php } ?>
+                                                                @endif
                                                                 <a href="{{route('materias.edit', $item->id)}}" class="btn btn-sm btn-success" title="Editar" {{($item->cantidad != $item->resto)? 'hidden': ' '}}>
                                                                     <i class="fe fe-edit-2" ></i>
                                                                 </a>
-                                                                <button tipe="submit" class="btn btn-sm btn-danger">
-                                                                    <i class="fe fe-trash"></i>
-                                                                </button>
-                                                            </form>
                                                         </td>
                                                     </tr>
                                                 @endforeach
@@ -94,32 +83,27 @@
 @section('scripts')
 <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
-@if (session('eliminar')=='ok')
+@if (session('registrar')=='ok')
     <script>
-        swal.fire("¡Eliminado!", "El producto se eliminó con éxito.", "success")
+        swal.fire({
+                  title: "¡Registrado!",
+                  text: "¡La materia fue registrada con éxito.",
+                  icon: "success",
+                  showConfirmButton: false,
+                  timer: 1500
+                });
     </script>
 @endif
-
-<script>
-    $('.eliminar-producto').submit(function(e){
-        e.preventDefault();
+@if (session('editar')=='ok')
+    <script>
         swal.fire({
-		  title: "¿Está seguro?",
-		  text: "No podrá recuperar éste archivo!",
-		  type: "warning",
-		  showCancelButton: true,
-		  confirmButtonClass: "btn btn-danger",
-		  confirmButtonText: "¡Sí, Bórralo!",
-		  cancelButtonText: "Cancelar",
-		  closeOnConfirm: false
-		}).then((result)=>{
-            if(result.value){
-                this.submit();
-                // swal.fire("Deleted!", "Your imaginary file has been deleted.", "success")
-            }
-        })
-        
-    })
-</script>
+                  title: "¡Editado!",
+                  text: "La materia fue editada con éxito.",
+                  icon: "success",
+                  showConfirmButton: false,
+                  timer: 1500
+                });
+    </script>
+@endif
     
 @endsection

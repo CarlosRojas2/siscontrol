@@ -36,22 +36,19 @@
                                             <tr>
                                                 <th>#</th>
                                                 <th>Nombre</th>
-                                                <th>Opciones</th>
+                                                <th width="20%" class="text-center">Opciones</th>
                                             </tr>
                                         </thead>
                                         <tbody>
                                             @foreach ($categorias as $cat)
                                                 <tr>
                                                     <td>{{$n++}}</td>
-                                                    <td>{{$cat->nombre}}</a></td>
-                                                    <td>
+                                                    <td><a href="{{route('categorias.show', $cat->id)}}">{{$cat->nombre}}</a></td>
+                                                    <td class="text-center">
                                                         <form action="{{route('categorias.destroy', $cat)}}" class="eliminar-categoria" method="POST">
                                                             @csrf
                                                             @method('delete')
 
-                                                            <a href="{{route('categorias.show', $cat->id)}}" class="btn btn-sm btn-warning">
-                                                                <i class="fe fe-eye"></i>
-                                                            </a>
                                                             <a href="{{route('categorias.edit', $cat->id)}}" class="btn btn-sm btn-success">
                                                                 <i class="fe fe-edit-2"></i>
                                                             </a>

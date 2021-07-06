@@ -79,6 +79,7 @@ class CorteController extends Controller
         Insumos::where('nombre' ,'carne_file')->increment('total',$formulario->carne_file);
         Insumos::where('nombre' ,'costilla')->increment('total',$formulario->costilla);
         Insumos::where('nombre' ,'hueso_colum')->increment('total',$formulario->hueso_colum);
+        Insumos::where('nombre' ,'cuero')->increment('total',$formulario->cuero);
         Insumos::where('nombre' ,'hueso_raspado')->increment('total',$formulario->hueso_raspado);
         Insumos::where('nombre' ,'cabeza')->increment('total',$formulario->cabeza);
         Insumos::where('nombre' ,'patas')->increment('total',$formulario->patas);
@@ -140,6 +141,8 @@ class CorteController extends Controller
         Insumos::where('nombre' ,'costilla')->increment('total',$formulario->costilla);
         Insumos::where('nombre' ,'hueso_colum')->decrement('total',$corte->hueso_colum);
         Insumos::where('nombre' ,'hueso_colum')->increment('total',$formulario->hueso_colum);
+        Insumos::where('nombre' ,'cuero')->decrement('total',$corte->cuero);
+        Insumos::where('nombre' ,'cuero')->increment('total',$formulario->cuero);
         Insumos::where('nombre' ,'hueso_raspado')->decrement('total',$corte->hueso_raspado);
         Insumos::where('nombre' ,'hueso_raspado')->increment('total',$formulario->hueso_raspado);
         Insumos::where('nombre' ,'cabeza')->decrement('total',$corte->cabeza);
@@ -165,6 +168,7 @@ class CorteController extends Controller
         Insumos::where('nombre' ,'carne_file')->decrement('total',$corte->carne_file);
         Insumos::where('nombre' ,'costilla')->decrement('total',$corte->costilla);
         Insumos::where('nombre' ,'hueso_colum')->decrement('total',$corte->hueso_colum);
+        Insumos::where('nombre' ,'cuero')->decrement('total',$corte->cuero);
         Insumos::where('nombre' ,'hueso_raspado')->decrement('total',$corte->hueso_raspado);
         Insumos::where('nombre' ,'cabeza')->decrement('total',$corte->cabeza);
         Insumos::where('nombre' ,'patas')->decrement('total',$corte->patas);
