@@ -23,6 +23,7 @@ class CreateProveedorsTable extends Migration
             $table->softDeletes();
             $table->timestamps();
         });
+
     }
 
     /**

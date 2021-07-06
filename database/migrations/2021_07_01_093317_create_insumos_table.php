@@ -23,22 +23,7 @@ class CreateInsumosTable extends Migration
             $table->softDeletes();
             $table->timestamps();
         });
-        
-        DB::table("insumos")
-            ->insert([
-                ["insumos_tipos_id"=> 1,"nombre" => 'carne_picada',"descripcion" => 'Carne Picada',"total" => 0],
-                ["insumos_tipos_id"=> 1,"nombre" => 'tocino_choriso',"descripcion" => 'Tocino Choriso',"total" => 0],
-                ["insumos_tipos_id"=> 1,"nombre" => 'papada',"descripcion" => 'Papada',"total" => 0],
 
-                ["insumos_tipos_id"=> 2,"nombre" => 'carne_cecina',"descripcion" => 'Cecina',"total" => 0],
-                ["insumos_tipos_id"=> 2,"nombre" => 'carne_file',"descripcion" => 'Lomo',"total" => 0],
-                ["insumos_tipos_id"=> 2,"nombre" => 'costilla',"descripcion" => 'Costilla',"total" => 0],
-                ["insumos_tipos_id"=> 2,"nombre" => 'hueso_colum',"descripcion" => 'Hueso',"total" => 0],
-                ["insumos_tipos_id"=> 2,"nombre" => 'cuero',"descripcion" => 'Cuero',"total" => 0],
-                ["insumos_tipos_id"=> 2,"nombre" => 'hueso_raspado',"descripcion" => 'Hueso Raspado',"total" => 0],
-                ["insumos_tipos_id"=> 2,"nombre" => 'cabeza',"descripcion" => 'Cabeza',"total" => 0],
-                ["insumos_tipos_id"=> 2,"nombre" => 'patas',"descripcion" => 'Patas',"total" => 0]
-        ]);
     }
 
     /**

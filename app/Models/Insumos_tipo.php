@@ -8,6 +8,6 @@ use Illuminate\Database\Eloquent\Model;
 class Insumos_tipo extends Model
 {
     use HasFactory;
-    protected $table        = 'insumos_tipo';
+    protected $table        = 'insumos_tipos';
     protected $primaryKey   = 'id';
 }

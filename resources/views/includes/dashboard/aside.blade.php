@@ -56,7 +56,7 @@
                 <a class="nav-link with-sub" href="#"><span class="shape1"></span><span class="shape2"></span><i class="ti-bar-chart sidemenu-icon"></i><span class="sidemenu-label">REPORTES</span><i class="angle fe fe-chevron-right"></i></a>
                 <ul class="nav-sub">
                     <li class="nav-sub-item">
-                        <a class="nav-sub-link" href="tablebasic.html">MATERIA PRIMA</a>
+                        <a class="nav-sub-link" href="{{route('reportespro')}}">PRODUCTOS</a>
                     </li>
                     <li class="nav-sub-item">
                         <a class="nav-sub-link" href="tabledata.html">CORTES</a>
@@ -65,7 +65,7 @@
                         <a class="nav-sub-link" href="tabledata.html">SALIDA CHORISO</a>
                     </li>
                     <li class="nav-sub-item">
-                        <a class="nav-sub-link" href="tabledata.html">SALIDA AHUMADOS</a>
+                        <a class="nav-sub-link" href="{{url('reportes_ahumados')}}">SALIDA AHUMADOS</a>
                     </li>
                 </ul>
             </li>
