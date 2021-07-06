@@ -164,6 +164,13 @@
 
 		<!-- Switcher js -->
 		<script src="{{asset('assets/switcher/js/switcher.js')}}"></script>
+
+		<!--Highcharts-->
+        <script src="{{asset('assets/plugins/highcharts/highcharts.js')}}"></script>
+        <script src="{{asset('assets/plugins/highcharts/highcharts-3d.js')}}"></script>
+        <script src="{{asset('assets/plugins/highcharts/exporting.js')}}"></script>
+        <script src="{{asset('assets/plugins/highcharts/export-data.js')}}"></script>
+
 		@yield('scripts')
 		@yield('myjs')
 	</body>
