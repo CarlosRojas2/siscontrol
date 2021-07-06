@@ -31,8 +31,8 @@
                         <div class="card custom-card">
                             <div class="card-body">
                                 <div>
-                                    <h6 class="main-content-label mb-1">Registro de una nueva Producción</h6>
-                                    <p class="text-muted card-sub-title">Complete el formulario para registrar una nueva Producción de Productos/Ahumar.</p>
+                                    <h6 class="main-content-label mb-1">Registro de un nuevo Ahumado</h6>
+                                    <p class="text-muted card-sub-title">Complete el formulario para registrar una nueva Producción de ahumados.</p>
                                 </div>
                                 <form id="ahumados" onsubmit="procesar(event)">
 

@@ -104,4 +104,28 @@ class ProdChorisosController extends Controller
         Prod_chorisos::find($producion->id)->delete();
         echo '<script type="text/javascript">localStorage.mensaje_codetime="Corte anulado con éxito."; window.location ="' . url('cortes') . '";</script>';
     }
+    public function prodChorisos(Request $request){
+
+        $n=1;
+        if($request->desde ==1 and $request->hasta==1){
+            $consulta = Prod_chorisos::withTrashed()->select('prod_chorisos.*','prod_productos.descripcion as producto')
+                        ->join('prod_productos','prod_productos.id','=','prod_chorisos.prod_productos_id')
+                        ->orderby('prod_chorisos.id','desc')->get();
+            $desde='';
+            $hasta='';
+        }else{
+            $consulta = Prod_chorisos::withTrashed()->select('prod_chorisos.*','prod_productos.descripcion as producto')
+                        ->join('prod_productos','prod_productos.id','=','prod_chorisos.prod_productos_id')
+                        ->whereBetween('prod_chorisos.fecha_reg', [$request->desde,$request->hasta])
+                        ->orderby('prod_chorisos.id','desc')->get();
+            $desde=$request->desde;
+            $hasta=$request->hasta;
+        }
+        return view('reportes.prodChorisos', compact('consulta','n','desde','hasta'));
+    }
+    public function chorisos(Request $request){
+        $n=1;
+        $consulta = Prod_productos::get();
+        return view('reportes.chorisos', compact('consulta','n'));
+    }
 }

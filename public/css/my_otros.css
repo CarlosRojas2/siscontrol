@@ -31,3 +31,8 @@
 .o_o_disabled{
 	pointer-events: none;
 }
+.o_o_bt-reporte{
+	padding: 0px;
+	border: none !important;
+	background: #fff !important;
+}

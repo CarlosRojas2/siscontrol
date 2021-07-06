@@ -15,7 +15,7 @@
                 <a class="nav-link with-sub" href="#"><span class="shape1"></span><span class="shape2"></span><i class="ti-receipt sidemenu-icon"></i><span class="sidemenu-label">PRODUCCIÓN</span><i class="angle fe fe-chevron-right"></i></a>
                 <ul class="nav-sub">
                     <li class="nav-sub-item">
-                        <a class="nav-sub-link" href="{{route('prod_chorisos.index')}}">CHORISOS</a>
+                        <a class="nav-sub-link" href="{{route('prod_chorisos.index')}}">PRODUCTOS/CHORISOS</a>
                     </li>
                     <li class="nav-sub-item">
                         <a class="nav-sub-link" href="{{route('prod_ahumados.index')}}">PRODUCTOS/AHUMAR</a>
@@ -62,10 +62,22 @@
                         <a class="nav-sub-link" href="tabledata.html">CORTES</a>
                     </li>
                     <li class="nav-sub-item">
-                        <a class="nav-sub-link" href="tabledata.html">SALIDA CHORISO</a>
+                        <a class="nav-sub-link" href="{{route('reporte.chorisos')}}">CHORISOS</a>
                     </li>
                     <li class="nav-sub-item">
-                        <a class="nav-sub-link" href="{{url('reportes_ahumados')}}">SALIDA AHUMADOS</a>
+                        <form method="POST" action="{{ route('reporte.prodChorisos') }}">
+                            @csrf
+                            <input type="hidden" name="desde" value="1">
+                            <input type="hidden" name="hasta" value="1">
+                            <button class="nav-sub-link o_o_bt-reporte" :href="route('reporte.prodChorisos')"
+                                    onclick="event.preventDefault();
+                                                this.closest('form').submit();">
+                                {{ __('PRODUCCIÓN CHORISO') }}
+                            </a>
+                        </form>
+                    </li>
+                    <li class="nav-sub-item">
+                        <a class="nav-sub-link" href="{{url('reportes_ahumados')}}">PRODUCTOS/AHUMAR</a>
                     </li>
                 </ul>
             </li>
