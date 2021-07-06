@@ -27,30 +27,26 @@
                                     <h6 class="main-content-label mb-1">Listado de insumos ahumados</h6>
                                     <p class="text-muted card-sub-title">Eres libre de exportar los datos</p>
                                 </div>
-                                <form method="POST" action="">
-                                    {{ csrf_field() }}
-                                    <div class="row">
-                                        <div class="col-lg-4">
-                                            <div class="form-group">
-                                                <label for="">Desde:</label>
-                                                <input type="date" class="form-control" name="fecha_inicio" value="{{ old('fecha_inicio') }}" required>
+                                <div class="row table-filter">
+                                    <div class="col-lg-9 d-lg-flex">
+                                        <form method="POST" action="{{route('reportes_ahumados')}}">
+                                            @csrf
+                                            <div class="d-flex mt-4 mt-lg-0">
+                                                <div class="filter-group">
+                                                    <label>Desde    :</label>
+                                                    <input class="form-control fc-datepicker" value="{{old('fecha_inicio')}}" type="date" placeholder="MM/DD/YYYY" name="fecha_inicio" required="true">
+                                                </div>
+                                                <div class="filter-group ml-3">
+                                                    <label>Hasta    :</label>
+                                                    <input class="form-control" value="{{old('fecha_fin')}}" type="date" name="fecha_fin" required = "true">
+                                                </div>
+                                                <div class="input-group-btn search-panel">
+                                                    <button type="submit" class="btn ripple btn-primary btn-icon"><i class="fe fe-refresh-ccw"></i></button>
+                                                </div>
                                             </div>
-                                        </div>
-                                        <div class="col-lg-4">
-                                            <div class="form-group">
-                                                <label for="">Hasta:</label>
-                                                <input type="date" class="form-control" name="fecha_fin" value="{{ old('fecha_fin') }}" required>
-                                            </div>
-                                        </div>
-                                        <div class="col-lg-4">
-                                            <div class="form-group">
-                                                <label for=""></label>
-                                                <input class="btn btn-success" class="form-control" type="submit" value="Generar" formaction="reportes_ahumados">
-                                            </div>
-                                        </div>
+                                        </form>
                                     </div>
-                                    
-                                </form>
+                                </div>
                                 <div class="table-responsive">
                                     <table id="exportexample" class="table table-bordered border-t0 key-buttons text-nowrap w-100" >
                                         <thead>
@@ -114,18 +110,20 @@
     </div>
 
     @section('scripts')
-    <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-    
-    @if (session('reporte')=='error')
-    
-        <script>
-            Swal.fire({
-            icon: 'error',
-            title: 'UPS...',
-            text: '!Algo salio mal!',
-            footer: 'Acción denegada, ingrese rango de fechas valida'
-            })
-        </script>
+        <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
         
-    @endif
+        @if (session('reporte')=='error')
+        
+            <script>
+                Swal.fire({
+                icon: 'error',
+                title: 'UPS...',
+                text: '!Algo salio mal!',
+                footer: 'Acción denegada, ingrese rango de fechas valida'
+                })
+            </script>
+            
+        @endif
+    @endsection
+
 @endsection

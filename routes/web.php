@@ -42,5 +42,5 @@ Route::resource('prod_chorisos', ProdChorisosController ::class)->middleware(['a
 Route::resource('prod_ahumados', ProdAhumadosController ::class)->middleware(['auth']);
 
 Route::get('reportes_ahumados',[ReportsProdAhumadosController::Class,'ahumados'])->middleware('auth');
-Route::post('reportes_ahumados',[ReportsProdAhumadosController::Class,'result_ahumados'])->middleware('auth');
+Route::post('reportes_ahumados',[ReportsProdAhumadosController::Class,'result_ahumados'])->name('reportes_ahumados')->middleware('auth');
 
