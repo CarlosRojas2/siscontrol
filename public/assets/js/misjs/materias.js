@@ -15,6 +15,4 @@ function calculoimporte(){
     cantidad = document.getElementById('cantidad').value;
     importe = precio_compra*cantidad;
     $('#importe').val(importe);
-    $('#importever').val(importe);
-
 }

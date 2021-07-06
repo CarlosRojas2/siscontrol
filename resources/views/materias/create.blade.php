@@ -6,7 +6,7 @@
             <div class="inner-body">
 
 
-                <!-- Page Header -->
+                <!-- Page Header --> 
                 <div class="page-header">
                     <div>
                         <h2 class="main-content-title tx-24 mg-b-5">Sección de Materia Prima</h2>
@@ -24,8 +24,18 @@
                     </div>
                 </div>
                 <!-- End Page Header -->
-
-                <!--Row-->
+                <!-- Page Mensaje de errores -->
+                @if ($errors->any())
+                    <div class="alert alert-danger">
+                        <ul>
+                            @foreach ($errors->all() as $error)
+                                <li>{{ $error }}</li>
+                            @endforeach
+                        </ul>
+                    </div>
+                @endif
+                <!-- End Mensaje de errores -->       
+               <!--Row-->
                 <div class="row row-sm">
                     <div class="col-lg-12 col-md-12">
                         <div class="card custom-card">
@@ -38,36 +48,35 @@
                                     @csrf
                                     <div class="row row-sm mg-t-20">
                                         <div class="col-lg">
-                                            <p class="mg-b-10">Producto*</p>
+                                            <p class="mg-b-10">Producto</p>
                                             <div class="form-group">
                                                 <select name="producto_id" id="producto_id" class="form-control select-lg select2">
-                                                    <option value="">Large Select</option>
+                                                    <option value="">Seleccione</option>
                                                     @foreach ($productos as $item)
-                                                    <option value="{{$item->id}}">{{$item->nombre}} - {{$item->stock}}</option>
+                                                    <option value="{{$item->id}}" {{( old('producto_id')== $item->id)? 'selected' : ''}}>{{$item->nombre}} - {{$item->stock}}</option>
                                                     @endforeach
-                                                </select>
+                                                </select> 
                                             </div>
                                         </div>
 
                                         <div class="col-lg">
-                                            <p class="mg-b-10">Unidad medida*</p>
+                                            <p class="mg-b-10">Unidad medida</p>
                                             <div class="form-group">
                                                 <select name="unidadmedida_id" id="unidadmedida_id" class="form-control select-lg select2">
-                                                    <option value="">Large Select</option>
                                                     @foreach ($unidadmedida as $item)
-                                                    <option value="{{$item->id}}">{{$item->nombre}}</option>
+                                                    <option value="{{$item->id}}" {{( old('unidadmedida_id')== $item->id)? 'selected' : ''}} >{{$item->nombre}}</option>
                                                     @endforeach
                                                 </select>
                                             </div>
                                         </div>
 
                                         <div class="col-lg">
-                                            <p class="mg-b-10">Proveedor*</p>
+                                            <p class="mg-b-10">Proveedor</p>
                                             <div class="form-group">
                                                 <select name="proveedor_id" id="proveedor_id" class="form-control select-lg select2">
-                                                    <option value="">Large Select</option>
+                                                    <option value="">Seleccione</option>
                                                     @foreach ($proveedors as $item)
-                                                    <option value="{{$item->id}}">{{$item->nombre}}</option>
+                                                    <option value="{{$item->id}}" {{( old('proveedor_id')== $item->id)? 'selected' : ''}} >{{$item->nombre}}</option>
                                                     @endforeach
                                                 </select>
                                             </div>
@@ -78,19 +87,18 @@
                                         
 
                                         <div class="col-lg">
-                                            <p class="mg-b-10">Cantidad kg*</p>
-                                            <input id="cantidad" name="cantidad" class="form-control" placeholder="Kg" type="number" onkeyup="calculoimporte()">
+                                            <p class="mg-b-10">Cantidad</p>
+                                            <input id="cantidad" name="cantidad" class="form-control" type="text" value="{{ old('cantidad') }}" onkeypress="return filterFloat(event,this);" onkeyup="calculoimporte()">
                                         </div>
 
                                         <div class="col-lg">
-                                            <p class="mg-b-10">Precio compra*</p>
-                                            <input id="precio_compra" name="precio_compra" class="form-control" placeholder="S/" type="number" onkeyup="calculoimporte()">
+                                            <p class="mg-b-10">Precio compra</p>
+                                            <input id="precio_compra" name="precio_compra" class="form-control" placeholder="S/" type="text" value="{{ old('precio_compra') }}" onkeypress="return filterFloat(event,this);" onkeyup="calculoimporte()">
                                         </div>
 
                                         <div class="col-lg">
-                                            <p class="mg-b-10">Importe total*</p>
-                                            <input type="hidden" id="importe" name="importe">
-                                            <input id="importever" name="importever" class="form-control" placeholder="S/" type="number" disabled="true">
+                                            <p class="mg-b-10">Importe total</p>
+                                            <input id="importe" name="importe" class="o_o_disabled form-control" placeholder="S/" type="text" value="{{ old('importe') }}">
                                         </div>
                                     </div>
                                     <div class="form-group row justify-content-end mb-0 mg-t-30" align="center">

@@ -23,11 +23,6 @@ class CreateProveedorsTable extends Migration
             $table->softDeletes();
             $table->timestamps();
         });
-
-        DB::table("proveedors")
-            ->insert([
-                ["nombre" => 'MADEJA',"email" => 'madeja@gmail.com',"numero_ruc" => '10203040506','telefono' => '987654321']
-        ]);
     }
 
     /**

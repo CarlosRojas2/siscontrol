@@ -6,7 +6,7 @@
             <div class="inner-body"> 
 
                 <!-- Page Header -->
-                <div class="page-header">
+                <div class="page-header"> 
                     <div>
                         <h2 class="main-content-title tx-24 mg-b-5">Sección de Proveedores</h2>
                         <ol class="breadcrumb">
@@ -61,13 +61,13 @@
                                         <div class="col-md-6">
                                             <div class="position-relative form-group">
                                                 <label for="ruc" class="">Numero ruc</label>
-                                                <input name="numero_ruc" id="numero_ruc" placeholder="Numero ruc ..." type="number" class="form-control" value="{{ old('numero_ruc') }}" min="10000000000" max="20999999999" required>
+                                                <input name="numero_ruc" placeholder="Numero ruc ..." type="text" class="form-control" value="{{ old('numero_ruc') }}" onkeypress="return validaNumericos(event);" maxlength="11" oninput="if(this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);" required>
                                             </div>
                                         </div>
                                         <div class="col-md-6">
                                             <div class="position-relative form-group">
                                                 <label for="telefono" class="">Teléfono</label>
-                                                <input name="telefono"  placeholder="Telefono ..." type="number" class="form-control" value="{{ old('telefono') }}" min="900000000" max="999999999" required>
+                                                <input name="telefono"  placeholder="Telefono ..." type="text" class="form-control" value="{{ old('telefono') }}" onkeypress="return validaNumericos(event);" maxlength="9" oninput="if(this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);" required>
                                             </div>
                                         </div>
                                         <div class="col-lg-12 col-md-12 col-sm-12">

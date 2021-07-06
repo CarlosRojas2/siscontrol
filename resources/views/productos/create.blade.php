@@ -43,36 +43,24 @@
                             <div class="card-body">
                                 <div>
                                     <h6 class="main-content-label mb-1">Registros de productos</h6>
-                                    <p class="text-muted card-sub-title">Complete el formulario para registrar una nueva Materia Prima.</p>
+                                    <p class="text-muted card-sub-title">Complete el formulario para registrar un nuevo Producto.</p>
                                 </div>
                                 <form id="productos" method="POST" action="{{route('productos.store')}}">
                                     @csrf
                                     <div class="row row-sm">
                                         <div class="col-lg">
-                                            <p class="mg-b-10">Producto*</p>
+                                            <p class="mg-b-10">Producto</p>
                                             <input id="nombre" name="nombre" class="form-control" placeholder="...." type="text" value="{{ old('nombre') }}">
-                                            @error('nombre')
-                                            <br>
-                                            <small class="text-danger">*{{$message}}</small>
-                                            <br>
-                                            @enderror
-                                            <br>
                                         </div>
                                         
                                         <div class="col-lg">
-                                            <p class="mg-b-10">Categoría*</p>
+                                            <p class="mg-b-10">Categoría</p>
                                             <div class="form-group">
                                                 <select name="categoria_id" id="categoria_id" class="form-control select-lg select2" value="{{ old('categoria_id') }}">
-                                                    <option value="">Large Select</option>
                                                     @foreach ($categorias as $item)
                                                     <option value="{{$item->id}}">{{$item->nombre}}</option>
                                                     @endforeach
                                                 </select>
-                                                @error('categoria_id')
-                                            <br>
-                                            <small class="text-danger">*{{$message}}</small>
-                                            <br>
-                                            @enderror
                                             </div>
                                             
                                         </div>

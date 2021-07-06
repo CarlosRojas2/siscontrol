@@ -40,22 +40,21 @@
                                                 <th>Email</th>                                    
                                                 <th>Numero de RUC</th>
                                                 <th>Teléfono</th>
-                                                <th>Opciones</th>
+                                                <th class="text-center">Opciones</th>
                                             </tr>
                                         </thead>
                                         <tbody>
                                             @foreach ($proveedors as $prov)
                                                 <tr>
                                                     <td>{{$n++}}</td>
-                                                    <td>{{$prov->nombre}}</a></td>
+                                                    <td><a href="{{route('proveedors.show', $prov->id)}}">{{$prov->nombre}}</a></td>
                                                     <td>{{$prov->email}}</td>
                                                     <td>{{$prov->numero_ruc}}</td>
                                                     <td>{{$prov->telefono}}</td>
-                                                    <td>
+                                                    <td class="text-center">
                                                         <form action="{{route('proveedors.destroy', $prov)}}" class="eliminar-proveedor" method="POST">
                                                             @csrf
                                                             @method('delete')
-                                                            <a href="{{route('proveedors.show', $prov->id)}}" class="btn btn-sm btn-warning"><i class="fe fe-eye"></i></a>
                                                             <a href="{{route('proveedors.edit', $prov->id)}}" class="btn btn-sm btn-success"><i class="fe fe-edit-2"></i></a>
                                                             <button tipe="submit" class="btn btn-sm btn-danger"><i class="fe fe-trash"></i></button>
                                                         </form>

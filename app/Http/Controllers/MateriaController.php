@@ -25,10 +25,18 @@ class MateriaController extends Controller
     }
     public function store(Request $request)
     {
+        $request->validate([
+            'producto_id'=>'required',
+            'unidadmedida_id'=>'required',
+            'proveedor_id'=>'required',
+            'cantidad'=>'required',
+            'precio_compra'=>'required',
+            'importe'=>'required'
+        ]);
         $materia = Materia::create($request->all());
         $materia->update(['codigo'=>$materia->id, 'resto'=>$materia->cantidad, 'usuario_id'=>Auth::user()->id]);
         $materia->update_stock($request->producto_id, $request->cantidad);
-        return redirect()->route('materias.index');
+        return redirect()->route('materias.index')->with('registrar','ok');
     }
     public function show(Materia $materia)
     {
@@ -38,15 +46,25 @@ class MateriaController extends Controller
     {
         $proveedors = Proveedor::get();
         $productos = Producto::get();
-        return view('materias.edit', compact('materia', 'productos', 'proveedors'));
+        $unidadmedida = Unidadmedida::get();
+        return view('materias.edit', compact('materia', 'productos', 'proveedors','unidadmedida'));
     }
     public function update(Request $request, Materia $materia)
     {
+        $request->validate([
+            'producto_id'=>'required',
+            'unidadmedida_id'=>'required',
+            'proveedor_id'=>'required',
+            'cantidad'=>'required',
+            'precio_compra'=>'required',
+            'importe'=>'required'
+        ]);
+
         $materia->producto_stock($request->producto_id, $request->refe_pro, $request->cantidad);
         $materia->update($request->all());
         $materia->update(['resto'=>$materia->cantidad]);
 
-        return redirect()->route('materias.index');
+        return redirect()->route('materias.index')->with('editar','ok');
     }
     public function destroy(Materia $materia)
     {

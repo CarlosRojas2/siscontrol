@@ -39,28 +39,35 @@
                                     @method('put')
                                     <div class="row row-sm mg-t-20">
                                         <div class="col-lg">
-                                            <p class="mg-b-10">Producto*</p>
+                                            <p class="mg-b-10">Producto</p>
                                             <div class="form-group">
                                                 <select name="producto_id" id="producto_id" class="form-control select-lg select2">
                                                     <option value="">Large Select</option>
                                                     @foreach ($productos as $item)
-                                                    <option value="{{$item->id}}" @if ($materia->producto_id == $item->id)
-                                                        selected
-                                                    @endif>{{$item->nombre}}</option>
+                                                    <option value="{{$item->id}}" <?php if( old('producto_id') == $item->id){ echo "selected"; } else{ if($materia->producto_id == $item->id){ echo 'selected'; }} ?> >{{$item->nombre}}</option>
                                                     @endforeach
                                                 </select>
                                             </div>
                                         </div>
 
                                         <div class="col-lg">
-                                            <p class="mg-b-10">Proveedor*</p>
+                                            <p class="mg-b-10">Unidad medida</p>
+                                            <div class="form-group">
+                                                <select name="unidadmedida_id" id="unidadmedida_id" class="form-control select-lg select2">
+                                                    @foreach ($unidadmedida as $item)
+                                                    <option value="{{$item->id}}" <?php if( old('unidadmedida_id') == $item->id){ echo "selected"; } else{ if($materia->unidadmedida_id == $item->id){ echo 'selected'; }} ?> >{{$item->nombre}}</option>
+                                                    @endforeach
+                                                </select>
+                                            </div>
+                                        </div>
+
+                                        <div class="col-lg">
+                                            <p class="mg-b-10">Proveedor</p>
                                             <div class="form-group">
                                                 <select name="proveedor_id" id="proveedor_id" class="form-control select-lg select2">
                                                     <option value="">Large Select</option>
                                                     @foreach ($proveedors as $item)
-                                                    <option value="{{$item->id}}" @if ($materia->proveedor_id == $item->id)
-                                                        selected
-                                                    @endif>{{$item->nombre}}</option>
+                                                    <option value="{{$item->id}}" <?php if( old('proveedor_id') == $item->id){ echo "selected"; } else{ if($materia->proveedor_id == $item->id){ echo 'selected'; }} ?> >{{$item->nombre}}</option>
                                                     @endforeach
                                                 </select>
                                             </div>
@@ -73,19 +80,19 @@
                                         
 
                                         <div class="col-lg">
-                                            <p class="mg-b-10">Cantidad kg*</p>
-                                            <input id="cantidad" name="cantidad" class="form-control" placeholder="Kg" type="number" onkeyup="calculoimporte()" value="{{$materia->cantidad}}">
+                                            <p class="mg-b-10">Cantidad</p>
+                                            <input id="cantidad" name="cantidad" class="form-control" placeholder="Kg" type="text" onkeypress="return filterFloat(event,this);" onkeyup="calculoimporte()" value="{{old('cantidad',$materia->cantidad)}}">
                                         </div>
 
                                         <div class="col-lg">
-                                            <p class="mg-b-10">Precio compra*</p>
-                                            <input id="precio_compra" name="precio_compra" class="form-control" placeholder="S/" type="number" onkeyup="calculoimporte()" value="{{$materia->precio_compra}}">
+                                            <p class="mg-b-10">Precio compra</p>
+                                            <input id="precio_compra" name="precio_compra" class="form-control" placeholder="S/" type="text" onkeypress="return filterFloat(event,this);" onkeyup="calculoimporte()" value="{{old('precio_compra',$materia->precio_compra)}}">
                                         </div>
 
                                         <div class="col-lg">
-                                            <p class="mg-b-10">Importe total*</p>
+                                            <p class="mg-b-10">Importe total</p>
                                             <input type="hidden" id="importe" name="importe" value="{{$materia->importe}}">
-                                            <input id="importever" name="importever" class="form-control" placeholder="S/" type="number" value="{{$materia->importe}}" disabled="true">
+                                            <input id="importever" name="importever" class="o_o_disabled form-control" placeholder="S/" type="text" value="{{old('importe',$materia->importe)}}">
                                         </div>
                                     </div>
                                     <div class="form-group row justify-content-end mb-0 mg-t-20" align="center">

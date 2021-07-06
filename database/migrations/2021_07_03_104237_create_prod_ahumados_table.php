@@ -20,6 +20,7 @@ class CreateProdAhumadosTable extends Migration
             $table->decimal('carne_file',12, 2)->nullable();
             $table->decimal('costilla',12, 2)->nullable();
             $table->decimal('hueso_colum',12, 2)->nullable();
+            $table->decimal('cuero',12, 2)->nullable();
             $table->decimal('hueso_raspado',12, 2)->nullable();
             $table->decimal('cabeza',12, 2)->nullable();
             $table->decimal('patas',12, 2)->nullable();
