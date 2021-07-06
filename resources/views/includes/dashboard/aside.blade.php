@@ -64,7 +64,7 @@
                         <a class="nav-sub-link" href="tabledata.html">SALIDA CHORISO</a>
                     </li>
                     <li class="nav-sub-item">
-                        <a class="nav-sub-link" href="tabledata.html">SALIDA AHUMADOS</a>
+                        <a class="nav-sub-link" href="{{url('reportes_ahumados')}}">SALIDA AHUMADOS</a>
                     </li>
                 </ul>
             </li>

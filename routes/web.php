@@ -8,6 +8,7 @@ use App\Http\Controllers\ProdChorisosController;
 use App\Http\Controllers\ProdAhumadosController;
 use App\Http\Controllers\ProductoController;
 use App\Http\Controllers\ProveedorController;
+use App\Http\Controllers\ReportsProdAhumadosController;
 use Illuminate\Support\Facades\Route;
  
 /*
@@ -39,4 +40,7 @@ Route::resource('cortes', CorteController ::class)->middleware(['auth']);
 Route::get('corte/{id}/crear', [CorteController::class, 'crear'])->name('crear_corte')->middleware(['auth']);
 Route::resource('prod_chorisos', ProdChorisosController ::class)->middleware(['auth']);
 Route::resource('prod_ahumados', ProdAhumadosController ::class)->middleware(['auth']);
+
+Route::get('reportes_ahumados',[ReportsProdAhumadosController::Class,'ahumados'])->middleware('auth');
+Route::post('reportes_ahumados',[ReportsProdAhumadosController::Class,'result_ahumados'])->middleware('auth');
 
