@@ -66,5 +66,5 @@ class MateriaController extends Controller
         
         return view('productosproveedor.index',compact('consulta', 'n'));
     }
-    
+
 }

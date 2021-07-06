@@ -51,11 +51,13 @@
                                     <table id="exportexample" class="table table-bordered border-t0 key-buttons text-nowrap w-100" >
                                         <thead>
                                             <tr>
-                                                <th>Cod</th>
-                                                <th>Nombre</th>
-                                                <th>Categoría</th>
-                                                <th>Cantidad</th>
-                                                <th>Cargas</th>
+                                                <th>Item</th>
+                                                <th>Proveedor</th>
+                                                <th>Producto</th>
+                                                <th>cargas</th>
+                                                <th>Can inicial</th>
+                                                <th>Can cortada</th>
+                                                <th>Can restante</th>
                                             </tr>
                                         </thead>
                                         <tbody>
@@ -63,10 +65,12 @@
                                                 @foreach ($productos as $item)
                                                     <tr>
                                                         <td>{{$n = $n+1}}</td>
-                                                        <td>{{$item->nombre}}</a></td>
-                                                        <td>{{$item->categoria->nombre}}</td>
-                                                        <td>{{$item->cantidad_inicial}}</td>
-                                                        <td>{{$item->stock}}</td>
+                                                        <td>{{$item->proveedor}}</a></td>
+                                                        <td>{{$item->producto}}</td>
+                                                        <td>{{$item->cargas}}</td>
+                                                        <td>{{$item->cantidad}}</td>
+                                                        <td>{{$item->cantidad-$item->cantidad_cortada}}</td>
+                                                        <td>{{$item->cantidad_cortada}}</td>
                                                     </tr>
                                                 @endforeach
                                             @endif
