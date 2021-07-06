@@ -128,13 +128,13 @@
 										<div class="card custom-card overflow-hidden">
 											<div class="card-header border-bottom-0">
 												<div>
-													<label class="main-content-label mb-2">Reporte de entradas por </label> <span class="d-block tx-12 mb-0 text-muted">The Project Budget is a tool used by project managers to estimate the total cost of a project</span>
+													<label class="main-content-label mb-2">Reporte por insumos </label> <span class="d-block tx-12 mb-0 text-muted">Se muestra reporte gráfico de insumos</span>
 												</div>
 											</div>
 											<div class="card-body pl-0">
 												<div class>
 													<div class="container">
-													   <canvas id="chartLine" class="chart-dropshadow2 ht-250"></canvas>
+														<div id="container" style="min-width: 310px; height: 400px; margin: 0 auto"></div>
 													</div>
 												</div>
 											</div>
@@ -385,29 +385,74 @@
     </div>
 </x-app-layout> --}}
 @section('scripts')
-<script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
-@if (session('registrar')=='ok')
     <script>
-        swal.fire({
-                  title: "¡Registrado!",
-                  text: "¡La materia fue registrada con éxito.",
-                  icon: "success",
-                  showConfirmButton: false,
-                  timer: 1500
-                });
+		$(function(){
+			iniciargraficobarras();
+		});
+		function iniciargraficobarras(){
+			var ruta="{{route('insumos.index')}}";
+			$.ajax({
+				url     : ruta,
+				type    : 'GET',
+				dataType: "Json",
+				success : function(data){
+						var insumos = new Array();
+						var cantidad = new Array();
+						var datos = [];
+						$.each(data, function(key, value){
+							insu = String(value.nombre);
+							insumos.push(insu);
+							total = Number(value.total);
+							cantidad.push(total);
+							datos.push([String(value.nombre),Number(value.total)]);
+						});
+						graficobarras(cantidad,insumos);
+				},
+			});
+		}
+		function graficobarras(cantidad, insumos){
+			Highcharts.chart('container', {
+				chart: {
+					type: 'column'
+				},
+				title: {
+					text: 'INSUMOS'
+				},
+				subtitle: {
+					text: 'Fuente: Sistema procesos '
+				},
+				xAxis: {
+					categories: insumos,
+					crosshair: true
+				},
+				yAxis: {
+					min: 0,
+					title: {
+						text: 'cantidad (kg)'
+					}
+				},
+				tooltip: {
+					headerFormat: '<span style="font-size:10px">{point.key}</span><table>',
+					pointFormat: '<tr><td style="color:{series.color};padding:0">{series.name}: </td>' +
+						'<td style="padding:0"><b>{point.y:.1f} kg</b></td></tr>',
+					footerFormat: '</table>',
+					shared: true,
+					useHTML: true
+				},
+				plotOptions: {
+					column: {
+						pointPadding: 0.2,
+						borderWidth: 0
+					}
+				},
+				series: [{
+					name: 'Insumos',
+					data: cantidad
+
+				}]
+			});
+		}
     </script>
-@endif
-@if (session('editar')=='ok')
-    <script>
-        swal.fire({
-                  title: "¡Editado!",
-                  text: "La materia fue editada con éxito.",
-                  icon: "success",
-                  showConfirmButton: false,
-                  timer: 1500
-                });
-    </script>
-@endif
     
 @endsection

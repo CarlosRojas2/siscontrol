@@ -4,6 +4,7 @@ use App\Http\Controllers\HomeController;
 use App\Http\Controllers\CategoriaController;
 use App\Http\Controllers\MateriaController;
 use App\Http\Controllers\CorteController;
+use App\Http\Controllers\InsumosController;
 use App\Http\Controllers\ProdChorisosController;
 use App\Http\Controllers\ProdAhumadosController;
 use App\Http\Controllers\ProductoController;
@@ -40,11 +41,13 @@ Route::resource('cortes', CorteController ::class)->middleware(['auth']);
 Route::get('corte/{id}/crear', [CorteController::class, 'crear'])->name('crear_corte')->middleware(['auth']);
 Route::resource('prod_chorisos', ProdChorisosController ::class)->middleware(['auth']);
 Route::resource('prod_ahumados', ProdAhumadosController ::class)->middleware(['auth']);
+Route::resource('insumos', InsumosController ::class)->middleware(['auth']);
 
-Route::get('reportes_ahumados',[ReportsProdAhumadosController::Class,'ahumados'])->middleware('auth');
-Route::post('reportes_ahumados',[ReportsProdAhumadosController::Class,'result_ahumados'])->name('reportes_ahumados')->middleware('auth');
 
-Route::get('reportes/detChorisos',[ProdChorisosController::Class,'chorisos'])->name('reporte.chorisos')->middleware('auth');
-Route::post('reportes/prodChorisos',[ProdChorisosController::Class,'prodChorisos'])->name('reporte.prodChorisos')->middleware('auth');
+Route::get('reportes_ahumados',[ReportsProdAhumadosController::class,'ahumados'])->middleware('auth');
+Route::post('reportes_ahumados',[ReportsProdAhumadosController::class,'result_ahumados'])->name('reportes_ahumados')->middleware('auth');
+
+Route::get('reportes/detChorisos',[ProdChorisosController::class,'chorisos'])->name('reporte.chorisos')->middleware('auth');
+Route::post('reportes/prodChorisos',[ProdChorisosController::class,'prodChorisos'])->name('reporte.prodChorisos')->middleware('auth');
 
 

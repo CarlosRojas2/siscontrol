@@ -12,7 +12,7 @@
                         <h2 class="main-content-title tx-24 mg-b-5">Sección de reportes por producto</h2>
                         <ol class="breadcrumb">
                             <li class="breadcrumb-item"><a href="{{route('dashboard')}}">Inicio</a></li>
-                            <li class="breadcrumb-item active" aria-current="page">Reportes por producto</li>
+                            <li class="breadcrumb-item active" aria-current="page">Reportes por producto</li><a href="{{route('insumos.index')}}">prueba</a>
                         </ol>
                     </div>
                 </div>
