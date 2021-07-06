@@ -20,12 +20,6 @@ class CreateInsumosTiposTable extends Migration
             $table->softDeletes();
             $table->timestamps();
         });
-
-        DB::table("insumos_tipos")
-            ->insert([
-                ["nombre" => 'chorisos',"descripcion" => 'CHORISOS'],
-                ["nombre" => 'ahumados',"descripcion" => 'AHUMADOS']
-        ]);
     }
 
     /**
