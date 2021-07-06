@@ -6,6 +6,7 @@ use App\Http\Requests\Producto\StoreRequest;
 use App\Http\Requests\Producto\UpdateRequest;
 use Illuminate\Http\Request;
 use App\Models\Categoria;
+use App\Models\Materia;
 use App\Models\Producto;
 use App\Models\Proveedor;
 use Carbon\Carbon;
@@ -67,7 +68,16 @@ class ProductoController extends Controller
     }
     public function inicioreporte(){
         $n = 0;
-        $productos = Producto::whereDate('created_at', '=', Carbon::today('America/Lima'))->get();
+
+        $productos=Materia::select('productos.nombre as producto','proveedors.nombre as proveedor',
+                DB::raw('COUNT(materias.producto_id) as cargas'),
+                DB::raw('SUM(materias.cantidad) as cantidad'),
+                DB::raw('SUM(materias.resto) as cantidad_cortada'))
+                ->join('productos','productos.id','=','materias.producto_id')
+                ->join('proveedors','proveedors.id','=','materias.proveedor_id')
+                ->whereDate('materias.created_at', '=', Carbon::today('America/Lima'))
+                ->groupBy('producto', 'proveedor')
+                ->orderby('materias.proveedor_id')->orderby('proveedors.id', 'desc')->get();
         
         return view('reportes.productos', compact('productos','n'));
     }
@@ -75,7 +85,16 @@ class ProductoController extends Controller
         $n = 0;
         $desde = $request->desde.' 00:00:00';
         $hasta = $request->hasta.' 23:59:59';
-        $productos = Producto::whereBetween('created_at', [$desde,$hasta])->get();
+
+        $productos=Materia::select('productos.nombre as producto','proveedors.nombre as proveedor',
+                DB::raw('COUNT(materias.producto_id) as cargas'),
+                DB::raw('SUM(materias.cantidad) as cantidad'),
+                DB::raw('SUM(materias.resto) as cantidad_cortada'))
+                ->join('productos','productos.id','=','materias.producto_id')
+                ->join('proveedors','proveedors.id','=','materias.proveedor_id')
+                ->whereBetween('materias.created_at', [$desde,$hasta])
+                ->groupBy('producto', 'proveedor')
+                ->orderby('materias.proveedor_id')->orderby('proveedors.id', 'desc')->get();
         
         return view('reportes.productos', compact('productos','n'));
     }
