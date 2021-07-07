@@ -25,9 +25,7 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', [HomeController::class, 'index'])->name('inicio'); 
 
-Route::get('/dashboard', function () {
-    return view('dashboard');
-})->name('dashboard')->middleware(['auth']);
+Route::get('/dashboard', [HomeController::class, 'index'])->name('dashboard')->middleware(['auth']);
 
 require __DIR__.'/auth.php';
 Route::resource('categorias', CategoriaController ::class)->middleware(['auth']);
@@ -48,7 +46,7 @@ Route::get('reportes/detChorisos',[ProdChorisosController::Class,'chorisos'])->n
 Route::post('reportes/prodChorisos',[ProdChorisosController::Class,'prodChorisos'])->name('reporte.prodChorisos')->middleware('auth');
 
 
-Route::get('reportes/producto_corte',[ReportesController::class,'productos_cortes'])->name('productos_cortes')->middleware('auth');
+Route::get('reportes/productos_corte',[ReportesController::class,'productos_cortes'])->name('productos_cortes')->middleware('auth');
 
 
 
