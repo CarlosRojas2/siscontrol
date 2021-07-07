@@ -71,7 +71,7 @@
                         </form>
                     </li>
                     <li class="nav-sub-item">
-                        <a class="nav-sub-link" href="{{route('reporte.chorisos')}}">CHORISOS</a>
+                        <a class="nav-sub-link" href="{{url('reportes_ahumados')}}">PRODUCTOS CORTE</a>
                     </li>
                     <li class="nav-sub-item">
                         <form method="POST" action="{{ route('reporte.prodChorisos') }}">
@@ -86,7 +86,7 @@
                         </form>
                     </li>
                     <li class="nav-sub-item">
-                        <a class="nav-sub-link" href="{{url('reportes_ahumados')}}">PRODUCTOS/AHUMAR</a>
+                        <a class="nav-sub-link" href="{{route('reporte.chorisos')}}">CHORISOS</a>
                     </li>
                 </ul>
             </li>
