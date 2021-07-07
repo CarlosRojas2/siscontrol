@@ -139,7 +139,25 @@
 												</div>
 											</div>
 										</div>
-									</div><!-- col end -->
+									</div>
+									<!-- col end -->
+									<div class="col-sm-12 col-lg-12 col-xl-12">
+										<div class="card custom-card overflow-hidden">
+											<div class="card-header border-bottom-0">
+												<div>
+													<label class="main-content-label mb-2">Reporte por insumos </label> <span class="d-block tx-12 mb-0 text-muted">Se muestra reporte gráfico de insumos</span>
+												</div>
+											</div>
+											<div class="card-body pl-0">
+												<div class>
+													<div class="container">
+														<div id="insumospiechart" style="min-width: 310px; height: 400px; margin: 0 auto"></div>
+													</div>
+												</div>
+											</div>
+										</div>
+									</div>
+									<!-- col end -->
 									<div class="col-sm-12 col-md-6 col-lg-6 col-xl-6">
 										<div class="card custom-card overflow-hidden">
 											<div class="card-header  border-bottom-0 pb-0">
@@ -397,17 +415,18 @@
 				type    : 'GET',
 				dataType: "Json",
 				success : function(data){
-						var insumos = new Array();
-						var cantidad = new Array();
-						var datos = [];
-						$.each(data, function(key, value){
-							insu = String(value.nombre);
-							insumos.push(insu);
-							total = Number(value.total);
-							cantidad.push(total);
-							datos.push([String(value.nombre),Number(value.total)]);
-						});
-						graficobarras(cantidad,insumos);
+					var insumos = new Array();
+					var cantidad = new Array();
+					var datos = [];
+					$.each(data, function(key, value){
+						insu = String(value.nombre);
+						insumos.push(insu);
+						total = Number(value.total);
+						cantidad.push(total);
+						datos.push([String(value.nombre),Number(value.total)]);
+					});
+					graficobarras(cantidad,insumos);
+					graficopiechart(cantidad,insumos, datos);
 				},
 			});
 		}
@@ -449,7 +468,49 @@
 				series: [{
 					name: 'Insumos',
 					data: cantidad
+				}]
+			});
+		}
 
+		function graficopiechart(cantidad,insumos,datos){
+				Highcharts.chart('insumospiechart', {
+				chart: {
+					plotBackgroundColor: null,
+					plotBorderWidth: null,
+					plotShadow: false,
+					type: 'pie'
+				},
+				title: {
+					text: 'Cantidad de insumos'
+				},
+				subtitle: {
+					text: 'Otro dato'
+				},
+				tooltip: {
+					pointFormat: '{series.name}: <b>{point.percentage:.1f}%</b><br>Cantidad: <b>{point.y:.0f}</b>'
+				},
+				plotOptions: {
+					pie: {
+						allowPointSelect: true,
+						cursor: 'pointer',
+						
+						dataLabels: {
+							enabled: true,
+							format: '<br>{point.percentage:.1f} %',
+							distance: 30,
+							filter: {
+								property: 'percentage',
+								operator: '>',
+								value: 5
+							}
+						},
+						showInLegend: true
+					}
+				},
+				series: [{
+					name: 'Promedio',
+					colorByPoint: true,
+					data: datos
 				}]
 			});
 		}
