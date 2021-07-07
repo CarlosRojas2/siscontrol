@@ -247,9 +247,12 @@
 					useHTML: true
 				},
 				plotOptions: {
-					column: {
-						pointPadding: 0.2,
-						borderWidth: 0
+					series: {
+						borderWidth: 0,
+						dataLabels: {
+							enabled: true,
+							format: '{point.y:.0f}'
+						}
 					}
 				},
 				series: [{
