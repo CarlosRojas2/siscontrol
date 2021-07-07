@@ -169,6 +169,40 @@
 										</div>
 									</div>
 								</div>
+								<div class="row row-sm">
+									<div class="col-lg-12">
+										<div class="card custom-card">
+											<div class="card-body">
+												<div>
+													<h6 class="main-content-label mb-1">Tabla Insumos</h6>
+													<p class="text-muted card-sub-title">Se muestra a detalle las cantidades actuales de los Insumos. </p>
+												</div>
+												<div class="table-responsive border">
+													<table class="table text-nowrap text-md-nowrap mg-b-0">
+														<thead>
+				                                            <tr>
+				                                                <th>#</th>
+				                                                <th>Insumos</th>
+				                                                <th class="text-center">Stock ACTUAL</th>
+				                                            </tr>
+				                                        </thead>
+				                                        <tbody>
+				                                            @if (!empty($insumos))
+				                                                @foreach ($insumos as $item)
+				                                                    <tr>
+				                                                        <td class="text-center">{{$n_i++}}</td>
+				                                                        <td>{{$item->descripcion}}</td>
+				                                                        <td class="text-center">{{$item->total}} kg</td>
+				                                                    </tr>
+				                                                @endforeach
+				                                            @endif
+				                                        </tbody>
+													</table>
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
 
                     </div><!-- col end -->
                     

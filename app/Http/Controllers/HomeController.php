@@ -17,6 +17,7 @@ class HomeController extends Controller
         if(isset(Auth::user()->name)){
             $n_p = 1;
             $n_c = 1;
+            $n_i = 1;
             $madeja= Prod_chorisos::select(DB::raw('SUM(madeja) as can_cortada'))->first();
             $productos=Materia::select('unidadmedidas.nombre as uni_medida','productos.id as productos_id','productos.nombre as producto','proveedors.nombre as proveedor',
                     DB::raw('COUNT(materias.producto_id) as cargas'),
@@ -30,7 +31,7 @@ class HomeController extends Controller
 
             $chorisos = Prod_productos::get();
             $insumos  = Insumos::select('descripcion','total')->distinct()->orderBy('total', 'desc')->get(['nombre']);
-            return view('dashboard',compact('productos','chorisos','insumos','n_p','n_c','madeja')); 
+            return view('dashboard',compact('productos','chorisos','insumos','n_i','n_p','n_c','madeja')); 
         }
         return redirect()->route('login'); 
     }

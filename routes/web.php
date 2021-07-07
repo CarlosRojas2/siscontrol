@@ -46,7 +46,7 @@ Route::get('reportes/detChorisos',[ProdChorisosController::Class,'chorisos'])->n
 Route::post('reportes/prodChorisos',[ProdChorisosController::Class,'prodChorisos'])->name('reporte.prodChorisos')->middleware('auth');
 
 
-Route::get('reportes/productos_corte',[ReportesController::class,'productos_cortes'])->name('productos_cortes')->middleware('auth');
+Route::get('reportes/producto_corte',[ReportesController::class,'productos_cortes'])->name('productos_cortes')->middleware('auth');
 
 
 
