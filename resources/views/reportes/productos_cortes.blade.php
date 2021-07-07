@@ -37,61 +37,15 @@
                                             </tr>
                                         </thead>
                                         <tbody>
-                                            <tr>
-                                                <td class="text-center">{{$n = $n+1}}</td>
-                                                <td>Carne Picada</td>
-                                                <td>{{$carne_cecina}}</td>
-                                            </tr>
-                                            <tr>
-                                                <td class="text-center">{{$n = $n+1}}</td>
-                                                <td>Papada</td>
-                                                <td>{{$papada}}</td>
-                                            </tr>
-                                            <tr>
-                                                <td class="text-center">{{$n = $n+1}}</td>
-                                                <td>Cecina</td>
-                                                <td>{{$carne_cecina}}</td>
-                                            </tr>
-                                            <tr>
-                                                <td class="text-center">{{$n = $n+1}}</td>
-                                                <td>Lomo</td>
-                                                <td>{{$carne_file}}</td>
-                                            </tr>
-                                            <tr>
-                                                <td class="text-center">{{$n = $n+1}}</td>
-                                                <td>Costilla</td>
-                                                <td>{{$costilla}}</td>
-                                            </tr>
-                                            <tr>
-                                                <td class="text-center">{{$n = $n+1}}</td>
-                                                <td>Cuero</td>
-                                                <td>{{$cuero}}</td>
-                                            </tr>
-                                            <tr>
-                                                <td class="text-center">{{$n = $n+1}}</td>
-                                                <td>Hueso</td>
-                                                <td>{{$hueso_colum}}</td>
-                                            </tr>
-                                            <tr>
-                                                <td class="text-center">{{$n = $n+1}}</td>
-                                                <td>Hueso Raspado</td>
-                                                <td>{{$hueso_raspado}}</td>
-                                            </tr>
-                                            <tr>
-                                                <td class="text-center">{{$n = $n+1}}</td>
-                                                <td>Cabeza</td>
-                                                <td>{{$cabeza}}</td>
-                                            </tr>
-                                            <tr>
-                                                <td class="text-center">{{$n = $n+1}}</td>
-                                                <td>Patas</td>
-                                                <td>{{$patas}}</td>
-                                            </tr>
-                                            <tr>
-                                                <td class="text-center">{{$n = $n+1}}</td>
-                                                <td>Tocino</td>
-                                                <td>{{$tocino_choriso}}</td>
-                                            </tr>
+                                            @if (!empty($insumos))
+                                                @foreach ($insumos as $item)
+                                                    <tr>
+                                                        <td class="text-center">{{$n++}}</td>
+                                                        <td>{{$item->nombre}}</td>
+                                                        <td>{{$item->total}}</td>
+                                                    </tr>
+                                                @endforeach
+                                            @endif
                                         </tbody>
                                     </table>
                                 </div>
