@@ -14,6 +14,6 @@ class HomeController extends Controller
             $consulta = Insumos::distinct()->get(['nombre']);
             return redirect()->route('dashboard');
         }
-        return redirect()->route('login');
+        return redirect()->route('login'); 
     }
 }

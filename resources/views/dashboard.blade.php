@@ -11,11 +11,11 @@
                     <div>
                         <h2 class="main-content-title tx-24 mg-b-5">Bienvenido Sr(a). <span class="o_o_text_minucula">{{ strtolower(Auth::user()->name) }}</span></h2>
                         <ol class="breadcrumb">
-                            <li class="breadcrumb-item"><a href="#">SisCodetime</a></li>
+                            <li class="breadcrumb-item"><a href="#">Don Harold</a></li>
                             <li class="breadcrumb-item active" aria-current="page">Inicio</li>
-                        </ol>
+                        </ol> 
                     </div>
-                    <div class="d-flex">
+                    {{--<div class="d-flex">
                         <div class="justify-content-center">
                             <button type="button" class="btn btn-white btn-icon-text my-2 mr-2">
                             <i class="fe fe-download mr-2"></i> Import
@@ -27,7 +27,7 @@
                             <i class="fe fe-download-cloud mr-2"></i> Download Report
                             </button>
                         </div>
-                    </div>
+                    </div>--}}
                 </div>
                 <!-- End Page Header -->
 
@@ -56,7 +56,7 @@
                         <!--Row -->
 
                         <!--Row-->
-                        <div class="row row-sm">
+                        {{--<div class="row row-sm">
                             <div class="col-sm-12 col-md-6 col-lg-6 col-xl-4">
                                 <div class="card custom-card">
                                     <div class="card-body">
@@ -120,7 +120,7 @@
                                     </div>
                                 </div>
                             </div>
-                        </div>
+                        </div>--}}
                         <!--End row-->
                         <!--row-->
 								<div class="row row-sm">
@@ -140,221 +140,7 @@
 											</div>
 										</div>
 									</div><!-- col end -->
-									<div class="col-sm-12 col-md-6 col-lg-6 col-xl-6">
-										<div class="card custom-card overflow-hidden">
-											<div class="card-header  border-bottom-0 pb-0">
-												<div>
-													<div class="d-flex">
-														<label class="main-content-label my-auto pt-2">Today tasks</label>
-														<div class="ml-auto mt-3 d-flex">
-															<div class="mr-3 d-flex text-muted tx-13"><span class="legend bg-primary rounded-circle"></span>Project</div>
-															<div class="d-flex text-muted tx-13"><span class="legend bg-light rounded-circle"></span>Inprogress</div>
-														</div>
-													</div>
-													<span class="d-block tx-12 mt-2 mb-0 text-muted"> UX UI & Backend Developement. </span>
-												</div>
-											</div>
-											<div class="card-body">
-												<div class="row">
-													<div class="col-sm-6 my-auto">
-														<h6 class="mb-3 font-weight-normal">Project-Budget</h6>
-														<div class="text-left">
-															<h3 class="font-weight-bold mr-3 mb-2 text-primary">$5,240</h3>
-															<p class="tx-13 my-auto text-muted">May 28 - June 01 (2018)</p>
-														</div>
-													</div>
-													<div class="col-md-6 my-auto">
-														<div class="forth circle">
-															<div class="chart-circle-value circle-style"><div class="tx-16 font-weight-bold">75%</div></div>
-														</div>
-													</div>
-												</div>
-											</div>
-										</div>
-									</div><!-- col end -->
-									<div class="col-sm-12 col-md-6 col-lg-6 col-xl-6">
-										<div class="card custom-card">
-											<div class="card-header  border-bottom-0 pb-0">
-												<div>
-													<div class="d-flex">
-														<label class="main-content-label my-auto pt-2">Top Inquiries</label>
-													</div>
-													<span class="d-block tx-12 mt-2 mb-0 text-muted"> project work involves a group of students investigating . </span>
-												</div>
-											</div>
-											<div class="card-body">
-												<div class="row mt-1">
-													<div class="col-5">
-														<span class="">Brand identity</span>
-													</div>
-													<div class="col-4 my-auto">
-														<div class="progress ht-6 my-auto">
-															<div class="progress-bar ht-6 wd-80p" role="progressbar"  aria-valuenow="15" aria-valuemin="0" aria-valuemax="100"></div>
-														</div>
-													</div>
-													<div class="col-3">
-														<div class="d-flex">
-															<span class="tx-13"><i class="text-success fe fe-arrow-up"></i><b>24.75%</b></span>
-														</div>
-													</div>
-												</div>
-												<div class="row mt-4">
-													<div class="col-5">
-														<span class="">UI & UX design</span>
-													</div>
-													<div class="col-4 my-auto">
-														<div class="progress ht-6 my-auto">
-															<div class="progress-bar ht-6 wd-70p" role="progressbar"  aria-valuenow="15" aria-valuemin="0" aria-valuemax="100"></div>
-														</div>
-													</div>
-													<div class="col-3">
-														<div class="d-flex">
-															<span class="tx-13"><i class="text-danger fe fe-arrow-down"></i><b>12.34%</b></span>
-														</div>
-													</div>
-												</div>
-												<div class="row mt-4">
-													<div class="col-5">
-														<span class="">Product design</span>
-													</div>
-													<div class="col-4 my-auto">
-														<div class="progress ht-6 my-auto">
-															<div class="progress-bar ht-6 wd-40p" role="progressbar"  aria-valuenow="15" aria-valuemin="0" aria-valuemax="100"></div>
-														</div>
-													</div>
-													<div class="col-3">
-														<div class="d-flex">
-															<span class="tx-13"><i class="text-success  fe fe-arrow-up"></i><b>12.75%</b></span>
-														</div>
-													</div>
-												</div>
-											</div>
-										</div>
-									</div><!-- col end -->
-									<div class="col-lg-12">
-										<div class="card custom-card mg-b-20">
-											<div class="card-body">
-												<div class="card-header border-bottom-0 pt-0 pl-0 pr-0 d-flex">
-													<div>
-														<label class="main-content-label mb-2">Tasks</label> <span class="d-block tx-12 mb-3 text-muted">A task is accomplished by a set deadline, and must contribute toward work-related objectives.</span>
-													</div>
-													<div class="ml-auto">
-														<a href="#" class="option-dots" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fe fe-more-vertical"></i></a>
-														<div class="dropdown-menu">
-															<a class="dropdown-item" href="#">Task</a>
-															<a class="dropdown-item" href="#">Team</a>
-															<a class="dropdown-item" href="#">Status</a>
-															<div class="dropdown-divider"></div>
-															<a class="dropdown-item" href="#"><i class="fa fa-cog mr-2"></i> Settings</a>
-														</div>
-													</div>
-												</div>
-												<div class="table-responsive tasks">
-													<table class="table card-table table-vcenter text-nowrap mb-0  border">
-														<thead>
-															<tr>
-																<th class="wd-lg-10p">Task</th>
-																<th class="wd-lg-20p">Team</th>
-																<th class="wd-lg-20p text-center">Open task</th>
-																<th class="wd-lg-20p">Prority</th>
-																<th class="wd-lg-20p">Status</th>
-															</tr>
-														</thead>
-														<tbody>
-															<tr>
-																<td class="font-weight-semibold d-flex"><label class="ckbox my-auto mr-4 mt-1"><input checked="" type="checkbox"><span></span></label><span class="mt-1">Evaluating the design</span></td>
-																<td class="text-nowrap">
-																	<div class="demo-avatar-group my-auto float-right">
-																		<div class="main-img-user avatar-sm">
-																			<img alt="avatar" class="rounded-circle" src="assets/img/users/1.jpg">
-																		</div>
-																		<div class="main-img-user avatar-sm">
-																			<img alt="avatar" class="rounded-circle" src="assets/img/users/2.jpg">
-																		</div>
-																		<div class="main-img-user avatar-sm">
-																			<img alt="avatar" class="rounded-circle" src="assets/img/users/3.jpg">
-																		</div>
-																		<div class="main-img-user avatar-sm">
-																			<img alt="avatar" class="rounded-circle" src="assets/img/users/4.jpg">
-																		</div>
-																	</div>
-																</td>
-																<td class="text-center">37<i class=""></i></td>
-																<td class="text-primary">High</td>
-																<td><span class="badge badge-pill badge-primary-light">Completed</span></td>
-															</tr>
-															<tr>
-																<td class="font-weight-semibold d-flex"><label class="ckbox my-auto mr-4"><input checked="" type="checkbox"><span></span></label><span class="mt-1"> Generate ideas for design</span></td>
-																<td class="text-nowrap">
-																	<div class="demo-avatar-group my-auto float-right">
-																		<div class="main-img-user avatar-sm">
-																			<img alt="avatar" class="rounded-circle" src="assets/img/users/5.jpg">
-																		</div>
-																		<div class="main-img-user avatar-sm">
-																			<img alt="avatar" class="rounded-circle" src="assets/img/users/6.jpg">
-																		</div>
-																		<div class="main-img-user avatar-sm">
-																			<img alt="avatar" class="rounded-circle" src="assets/img/users/7.jpg">
-																		</div>
-																		<div class="main-img-user avatar-sm">
-																			<img alt="avatar" class="rounded-circle" src="assets/img/users/8.jpg">
-																		</div>
-																	</div>
-																</td>
-																<td class="text-center">37<i class=""></i></td>
-																<td class="text-secondary">Normal</td>
-																<td><span class="badge badge-pill badge-warning-light">Pending</span></td>
-															</tr>
-															<tr>
-																<td class="font-weight-semibold d-flex"><label class="ckbox my-auto mr-4"><input type="checkbox"><span></span></label><span class="mt-1">Define the problem</span></td>
-																<td class="text-nowrap">
-																	<div class="demo-avatar-group my-auto float-right">
-																		<div class="main-img-user avatar-sm">
-																			<img alt="avatar" class="rounded-circle" src="assets/img/users/11.jpg">
-																		</div>
-																		<div class="main-img-user avatar-sm">
-																			<img alt="avatar" class="rounded-circle" src="assets/img/users/12.jpg">
-																		</div>
-																		<div class="main-img-user avatar-sm">
-																			<img alt="avatar" class="rounded-circle" src="assets/img/users/9.jpg">
-																		</div>
-																		<div class="main-img-user avatar-sm">
-																			<img alt="avatar" class="rounded-circle" src="assets/img/users/10.jpg">
-																		</div>
-																	</div>
-																</td>
-																<td class="text-center">37<i class=""></i></td>
-																<td class="text-warning">Low</td>
-																<td><span class="badge badge-pill badge-primary-light">Completed</span></td>
-															</tr>
-															<tr>
-																<td class="font-weight-semibold d-flex"><label class="ckbox my-auto mr-4"><input type="checkbox"><span></span></label><span class="mt-1">Empathize with users</span></td>
-																<td class="text-nowrap">
-																	<div class="demo-avatar-group my-auto float-right">
-																		<div class="main-img-user avatar-sm">
-																			<img alt="avatar" class="rounded-circle" src="assets/img/users/7.jpg">
-																		</div>
-																		<div class="main-img-user avatar-sm">
-																			<img alt="avatar" class="rounded-circle" src="assets/img/users/9.jpg">
-																		</div>
-																		<div class="main-img-user avatar-sm">
-																			<img alt="avatar" class="rounded-circle" src="assets/img/users/11.jpg">
-																		</div>
-																		<div class="main-img-user avatar-sm">
-																			<img alt="avatar" class="rounded-circle" src="assets/img/users/12.jpg">
-																		</div>
-																	</div>
-																</td>
-																<td class="text-center">37<i class=""></i></td>
-																<td class="text-primary">High</td>
-																<td><span class="badge badge-pill badge-danger-light">Rejected</span></td>
-															</tr>
-														</tbody>
-													</table>
-												</div>
-											</div>
-										</div>
-									</div><!-- col end -->
+									
 								</div><!-- Row end -->
 
                     </div><!-- col end -->
