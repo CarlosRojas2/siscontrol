@@ -74,6 +74,11 @@
                                             </tr>
                                             <tr>
                                                 <td class="text-center">{{$n = $n+1}}</td>
+                                                <td>Cuero</td>
+                                                <td>{{$cuero}}</td>
+                                            </tr>
+                                            <tr>
+                                                <td class="text-center">{{$n = $n+1}}</td>
                                                 <td>Hueso</td>
                                                 <td>{{$hueso_colum}}</td>
                                             </tr>
