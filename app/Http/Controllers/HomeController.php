@@ -12,7 +12,6 @@ class HomeController extends Controller
     {
         if(isset(Auth::user()->name)){
             $consulta = Insumos::distinct()->get(['nombre']);
-            dd($consulta);
             return redirect()->route('dashboard');
         }
         return redirect()->route('login');
