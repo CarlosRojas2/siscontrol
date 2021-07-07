@@ -86,7 +86,7 @@
                         </form>
                     </li>
                     <li class="nav-sub-item">
-                        <a class="nav-sub-link" href="{{url('reportes_ahumados')}}">PRODUCTOS/AHUMAR</a>
+                        <a class="nav-sub-link" href="{{route('productos_cortes')}}">PRODUCTOS/CORTES</a>
                     </li>
                 </ul>
             </li>
