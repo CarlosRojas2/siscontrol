@@ -176,4 +176,21 @@ class CorteController extends Controller
         Corte::find($corte->id)->delete();
         echo '<script type="text/javascript">localStorage.mensaje_codetime="Corte anulado con éxito."; window.location ="' . url('cortes') . '";</script>';
     }
+
+    public function detCortes(Request $request)
+    {
+        $n  = 1;
+        if($request->desde ==1 and $request->hasta==1){
+            $consulta = Corte::withTrashed()->orderby('id', 'desc')->get();
+            $desde='';
+            $hasta='';
+        }else{
+            $consulta = Corte::withTrashed()
+                        ->whereBetween('fecha_reg', [$request->desde,$request->hasta])
+                        ->orderby('id', 'desc')->get();
+            $desde=$request->desde;
+            $hasta=$request->hasta;
+        }
+        return view('reportes.detCortes', compact('consulta', 'n','desde','hasta'));
+    }
 }

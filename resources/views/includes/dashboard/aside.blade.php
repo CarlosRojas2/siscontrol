@@ -7,7 +7,7 @@
             <img src="{{asset('assets/img/brand/icon.png')}}" class="header-brand-img icon-logo theme-logo" alt="logo">
         </a>
     </div>
-    <div class="main-sidebar-body">
+    <div class="main-sidebar-body"> 
         <ul class="nav">
             <li class="nav-header"><span class="nav-label">Módulos</span></li>
         
@@ -59,7 +59,16 @@
                         <a class="nav-sub-link" href="{{route('reportespro')}}">PRODUCTOS</a>
                     </li>
                     <li class="nav-sub-item">
-                        <a class="nav-sub-link" href="tabledata.html">CORTES</a>
+                        <form method="POST" action="{{ route('reporte.detCortes') }}">
+                            @csrf
+                            <input type="hidden" name="desde" value="1">
+                            <input type="hidden" name="hasta" value="1">
+                            <a class="nav-sub-link o_o_bt-reporte" href="route('reporte.detCortes')"
+                                    onclick="event.preventDefault();
+                                                this.closest('form').submit();">
+                                {{ __('CORTES') }}
+                            </a>
+                        </form>
                     </li>
                     <li class="nav-sub-item">
                         <a class="nav-sub-link" href="{{route('reporte.chorisos')}}">CHORISOS</a>
@@ -69,10 +78,10 @@
                             @csrf
                             <input type="hidden" name="desde" value="1">
                             <input type="hidden" name="hasta" value="1">
-                            <button class="nav-sub-link o_o_bt-reporte" :href="route('reporte.prodChorisos')"
+                            <a class="nav-sub-link o_o_bt-reporte" href="route('reporte.prodChorisos')"
                                     onclick="event.preventDefault();
                                                 this.closest('form').submit();">
-                                {{ __('PRODUCCIÓN CHORISO') }}
+                                {{ __('PRODUCCIÓN/CHORISOS') }}
                             </a>
                         </form>
                     </li>

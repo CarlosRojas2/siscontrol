@@ -44,10 +44,12 @@ Route::resource('prod_ahumados', ProdAhumadosController ::class)->middleware(['a
 Route::resource('insumos', InsumosController ::class)->middleware(['auth']);
 
 
+Route::post('reportes/detCortes',[CorteController::Class,'detCortes'])->name('reporte.detCortes')->middleware('auth');
+Route::get('reportes/detChorisos',[ProdChorisosController::Class,'chorisos'])->name('reporte.chorisos')->middleware('auth');
+Route::post('reportes/prodChorisos',[ProdChorisosController::Class,'prodChorisos'])->name('reporte.prodChorisos')->middleware('auth');
+
 Route::get('reportes_ahumados',[ReportsProdAhumadosController::class,'ahumados'])->middleware('auth');
 Route::post('reportes_ahumados',[ReportsProdAhumadosController::class,'result_ahumados'])->name('reportes_ahumados')->middleware('auth');
 
-Route::get('reportes/detChorisos',[ProdChorisosController::class,'chorisos'])->name('reporte.chorisos')->middleware('auth');
-Route::post('reportes/prodChorisos',[ProdChorisosController::class,'prodChorisos'])->name('reporte.prodChorisos')->middleware('auth');
 
 

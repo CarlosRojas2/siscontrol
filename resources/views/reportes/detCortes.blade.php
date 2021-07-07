@@ -2,25 +2,18 @@
 @section('content')
 
     <div class="main-content side-content pt-0">
-        <div class="container-fluid">  
+        <div class="container-fluid"> 
             <div class="inner-body"> 
 
 
                 <!-- Page Header -->
                 <div class="page-header">
                     <div>
-                        <h2 class="main-content-title tx-24 mg-b-5">Sección de Productos/Ahumar</h2>
+                        <h2 class="main-content-title tx-24 mg-b-5">Sección de reportes de Cortes</h2>
                         <ol class="breadcrumb">
                             <li class="breadcrumb-item"><a href="{{route('dashboard')}}">Inicio</a></li>
-                            <li class="breadcrumb-item active" aria-current="page">Producción de Productos/Ahumar</li>
+                            <li class="breadcrumb-item active" aria-current="page">Reportes Cortes</li>
                         </ol>
-                    </div>
-                    <div class="d-flex">
-                        <div class="justify-content-center text-white">
-                            <a type="button" href="{{route('prod_ahumados.create')}}" class="o_o_pd_top_7 btn btn-primary my-2 btn-icon-text">
-                            <i class="fe fe-plus mr-2 o_o_ico_btn"></i> Registrar Nuevo Ahumado
-                            </a>
-                        </div>
                     </div>
                 </div>
                 <!-- End Page Header -->
@@ -31,8 +24,28 @@
                         <div class="card custom-card overflow-hidden">
                             <div class="card-body">
                                 <div>
-                                    <h6 class="main-content-label mb-1">Listado de Productos/Ahumar</h6>
+                                    <h6 class="main-content-label mb-1">Listado de cortes</h6>
                                     <p class="text-muted card-sub-title">Eres libre de exportar los datos</p>
+                                </div>
+                                <div class="row table-filter">
+                                    <div class="col-lg-9 d-lg-flex">
+                                        <form method="POST" action="{{route('reporte.detCortes')}}">
+                                            @csrf
+                                            <div class="d-flex mt-4 mt-lg-0">
+                                                <div class="filter-group">
+                                                    <label>Desde    :</label>
+                                                    <input class="form-control fc-datepicker" value="{{$desde}}" type="date" placeholder="MM/DD/YYYY" name="desde" id="desde" required="true">
+                                                </div>
+                                                <div class="filter-group ml-3">
+                                                    <label>Hasta    :</label>
+                                                    <input class="form-control" value="{{$hasta}}" type="date" name="hasta" id="hasta" required = "true">
+                                                </div>
+                                                <div class="input-group-btn search-panel">
+                                                    <button type="submit" id="filtrar" class="btn ripple btn-primary btn-icon"><i class="fe fe-refresh-ccw"></i></button>
+                                                </div>
+                                            </div>
+                                        </form>
+                                    </div>
                                 </div>
                                 <div class="table-responsive">
                                     <table id="exportexample" class="table table-bordered border-t0 key-buttons text-nowrap w-100" >
@@ -40,35 +53,29 @@
                                             <tr>
                                                 <th>#</th>
                                                 <th>Descripción</th>
-                                                <th>Cant. Producida</th>
-                                                <th>Fecha Registro</th>
+                                                <th>Materia</th>
+                                                <th>Fecha</th>
+                                                <th>Corte</th>
+                                                <th>Merma</th>
                                                 <th class="text-center">Estado</th>
-                                                <th class="text-center">Opciones</th>
                                             </tr>
                                         </thead>
                                         <tbody>
-                                            @if (!empty($ahumados))
-                                                @foreach ($ahumados as $item)
+                                            @if (!empty($consulta))
+                                                @foreach ($consulta as $item)
                                                     <tr>
-                                                        <td class="text-center">{{$n=$n+1}}</td>
-                                                        <td><a href="{{route('prod_ahumados.show', $item->id)}}">{{$item->descripcion}}</td>
-                                                        <td>{{$item->cantidad_producida}}</td>
+                                                        <td class="text-center">{{$n++}}</td>
+                                                        <td>{{$item->descripcion}}</td>
+                                                        <td>{{$item->producto}}</td>
                                                         <td>{{$item->fecha_reg}}</td>
+                                                        <td>{{$item->cantidad}} kg</td>
+                                                        <td>{{$item->merma}} kg</td>
                                                         <td class="text-center">
                                                             @if($item->deleted_at == null)
                                                             <span class="badge badge-pill badge-primary-light">Activo</span>
                                                             @else
                                                             <span class="badge badge-pill badge-danger-light">Anulado</span>
                                                             @endif
-                                                        </td>
-                                                        <td class="text-center">
-                                                                <form class="form_delete" action="{{route('prod_ahumados.destroy', $item)}}"  method="POST">
-                                                                    @csrf
-                                                                    @method('delete')
-                                                                    <button tipe="submit" class="btn btn-sm btn-danger" {{ ($item->deleted_at == null)? ' ': 'disabled'}}>
-                                                                        <i class="fe fe-trash"></i>
-                                                                    </button>
-                                                                </form>
                                                         </td>
                                                     </tr>
                                                 @endforeach
@@ -84,5 +91,4 @@
             </div>
         </div>
     </div>
-@include('ahumados._myjs')
 @endsection
