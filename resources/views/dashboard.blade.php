@@ -140,7 +140,7 @@
 											</div>
 										</div>
 									</div>
-									<!-- col end -->
+									<!-- col end -
 
 									<div class="col-sm-12 col-lg-12 col-xl-12">
 										<div class="card custom-card overflow-hidden">
@@ -158,7 +158,7 @@
 											</div>
 										</div>
 									</div>
-									<!-- col end -->
+									 col end -->
 									
 								</div><!-- Row end -->
 
@@ -206,14 +206,14 @@
 					var cantidad = new Array();
 					var datos = [];
 					$.each(data, function(key, value){
-						insu = String(value.nombre);
+						insu = String(value.descripcion);
 						insumos.push(insu);
 						total = Number(value.total);
 						cantidad.push(total);
-						datos.push([String(value.nombre),Number(value.total)]);
+						datos.push([String(value.descripcion),Number(value.total)]);
 					});
 					graficobarras(cantidad,insumos);
-					graficopiechart(cantidad,insumos, datos);
+					/*graficopiechart(cantidad,insumos, datos);*/
 				},
 			});
 		}

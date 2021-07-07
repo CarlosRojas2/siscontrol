@@ -1,5 +1,6 @@
 <?php
 namespace App\Http\Controllers;
+use App\Models\Prod_chorisos;
 use App\Models\Materia;
 use App\Models\Producto;
 use App\Models\Proveedor;
@@ -73,16 +74,17 @@ class MateriaController extends Controller
     public function detalle()
     {
         $n = 0;
-        $consulta=Materia::select('productos.nombre as producto','proveedors.nombre as proveedor',
+        $madeja= Prod_chorisos::select(DB::raw('SUM(madeja) as can_cortada'))->first();
+        $consulta=Materia::select('unidadmedidas.nombre as uni_medida','productos.id as productos_id','productos.nombre as producto','proveedors.nombre as proveedor',
                 DB::raw('COUNT(materias.producto_id) as cargas'),
                 DB::raw('SUM(materias.cantidad) as cantidad'),
                 DB::raw('SUM(materias.resto) as cantidad_cortada'))
                 ->join('productos','productos.id','=','materias.producto_id')
                 ->join('proveedors','proveedors.id','=','materias.proveedor_id')
-                ->groupBy('producto', 'proveedor')
+                ->join('unidadmedidas','unidadmedidas.id','=','materias.unidadmedida_id')
+                ->groupBy('producto', 'proveedor','productos_id','uni_medida')
                 ->orderby('materias.proveedor_id')->orderby('proveedors.id', 'desc')->get();
-        
-        return view('productosproveedor.index',compact('consulta', 'n'));
+        return view('productosproveedor.index',compact('consulta', 'n','madeja'));
     }
 
 }

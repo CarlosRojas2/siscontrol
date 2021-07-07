@@ -40,7 +40,7 @@
                                                 <th>Cantidad</th>
                                                 <th>Pre. compra</th>
                                                 <th>Imp. total</th>
-                                                <th>Sin procesar</th>
+                                                <th>Cant. Restante</th>
                                                 <th class="wd-lg-20p text-center">Opciones</th>
                                             </tr>
                                         </thead>
@@ -54,7 +54,11 @@
                                                         <td class="text-center">{{$item->cantidad}} {{$item->unidadmedida->nombre}}</td>
                                                         <td>{{$item->precio_compra}} S/</td>
                                                         <td>{{$item->importe}} S/</td>
-                                                        <td>{{($item->producto->id==1)? ' ':  $item->resto.' '.$item->unidadmedida->nombre }}</td>
+                                                        <td class="o_o_f_bold text-center {{($item->resto==0)? 'text-secondary':'text-success'}}">
+                                                            @if($item->producto->id!=1)
+                                                                {{$item->resto.' '.$item->unidadmedida->nombre}}
+                                                            @endif
+                                                        </td>
                                                         <td class="text-center">
                                                                 @if($item->resto != 0 and $item->producto->id != 1)
                                                                     <a href="{{route('crear_corte', $item->id)}}" class="btn btn-sm btn-primary" title="Cortes">

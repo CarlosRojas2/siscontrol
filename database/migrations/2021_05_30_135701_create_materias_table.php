@@ -26,7 +26,7 @@ class CreateMateriasTable extends Migration
             $table->unsignedBigInteger('unidadmedida_id');
             $table->foreign('unidadmedida_id')->references('id')->on('unidadmedidas');
 
-            $table->integer('cantidad');
+            $table->decimal('cantidad', 12, 2);
             $table->decimal('precio_compra', 12, 2);
             $table->decimal('importe', 12, 2);
             $table->decimal('resto', 12, 2)->nullable();

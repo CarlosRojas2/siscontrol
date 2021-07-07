@@ -39,9 +39,6 @@
                 <a class="nav-link with-sub" href="#"><span class="shape1"></span><span class="shape2"></span><i class="ti-package sidemenu-icon"></i><span class="sidemenu-label">PRODUCTOS</span><i class="angle fe fe-chevron-right"></i></a>
                 <ul class="nav-sub">
                     <li class="nav-sub-item">
-                        <a class="nav-sub-link" href="{{route('materias_det')}}">PRODUCTOS PROVEEDOR</a>
-                    </li>
-                    <li class="nav-sub-item">
                         <a class="nav-sub-link" href="{{route('productos.index')}}">PRODUCTOS</a>
                     </li>
                     <li class="nav-sub-item">
@@ -56,7 +53,7 @@
                 <a class="nav-link with-sub" href="#"><span class="shape1"></span><span class="shape2"></span><i class="ti-bar-chart sidemenu-icon"></i><span class="sidemenu-label">REPORTES</span><i class="angle fe fe-chevron-right"></i></a>
                 <ul class="nav-sub">
                     <li class="nav-sub-item">
-                        <a class="nav-sub-link" href="{{route('reportespro')}}">PRODUCTOS</a>
+                        <a class="nav-sub-link" href="{{route('materias_det')}}">PRODUCTOS/PROVEEDOR</a>
                     </li>
                     <li class="nav-sub-item">
                         <form method="POST" action="{{ route('reporte.detCortes') }}">
@@ -71,7 +68,7 @@
                         </form>
                     </li>
                     <li class="nav-sub-item">
-                        <a class="nav-sub-link" href="{{url('reportes_ahumados')}}">PRODUCTOS CORTE</a>
+                        <a class="nav-sub-link" href="{{route('productos_cortes')}}">PRODUCTOS/CORTES</a>
                     </li>
                     <li class="nav-sub-item">
                         <form method="POST" action="{{ route('reporte.prodChorisos') }}">
