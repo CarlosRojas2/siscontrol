@@ -65,9 +65,6 @@
                                                                 <form class="form_delete" action="{{route('prod_ahumados.destroy', $item)}}"  method="POST">
                                                                     @csrf
                                                                     @method('delete')
-                                                                    <a href="{{route('prod_ahumados.show', $item->id)}}" class="btn btn-sm btn-warning">
-                                                                        <i class="fe fe-eye"></i>
-                                                                    </a>
                                                                     <button tipe="submit" class="btn btn-sm btn-danger" {{ ($item->deleted_at == null)? ' ': 'disabled'}}>
                                                                         <i class="fe fe-trash"></i>
                                                                     </button>
