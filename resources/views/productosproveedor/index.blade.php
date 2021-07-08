@@ -39,12 +39,12 @@
                                         <thead>
                                             <tr>
                                                 <th>Item</th>
-                                                <th>Proveedor</th>
                                                 <th>Producto</th>
+                                                <th>Proveedor</th>
                                                 <th>cargas</th>
-                                                <th>Can inicial</th>
-                                                <th>Can cortada</th>
-                                                <th>Can restante</th>
+                                                <th>Cant. Inicial</th>
+                                                <th>Cant. Cortada</th>
+                                                <th>Cant. Restante</th>
                                             </tr>
                                         </thead>
                                         <tbody>
@@ -53,12 +53,29 @@
                                                 @foreach ($consulta as $item)
                                                     <tr>
                                                         <td>{{$n=$n+1}}</td>
-                                                        <td>{{$item->proveedor}}</td>
                                                         <td>{{$item->producto}}</td>
+                                                        <td>{{$item->proveedor}}</td>
                                                         <td>{{$item->cargas}}</td>
-                                                        <td>{{$item->cantidad}} Kg</td>
-                                                        <td>{{$item->cantidad-$item->cantidad_cortada}} Kg</td>
-                                                        <td>{{$item->cantidad_cortada}} Kg</td>
+                                                        <td>{{$item->cantidad}} {{$item->uni_medida}}  </td>
+                                                        <td>
+                                                            @if($item->productos_id == 1)
+                                                                {{$madeja->can_cortada}} {{$item->uni_medida}}  
+                                                            @else
+                                                                {{$item->cantidad-$item->cantidad_cortada}} {{$item->uni_medida}} 
+                                                            @endif
+                                                        </td>
+                                                        <td class="o_o_f_bold 
+                                                            @if($item->productos_id == 1)
+                                                                {{($madeja->can_cortada==$item->cantidad)? 'text-secondary':'text-success'}}
+                                                            @else
+                                                                {{($item->cantidad_cortada==0)? 'text-secondary':'text-success'}}
+                                                            @endif">
+                                                            @if($item->productos_id == 1)
+                                                                {{$item->cantidad-$madeja->can_cortada}} {{$item->uni_medida}} 
+                                                            @else
+                                                                {{$item->cantidad_cortada}} {{$item->uni_medida}} 
+                                                            @endif 
+                                                        </td>
                                                     </tr>
                                                 @endforeach
                                             @endif

@@ -141,7 +141,7 @@ class DatabaseSeeder extends Seeder
         $insumos = new Insumos();
         $insumos->insumos_tipos_id = "2";
         $insumos->nombre = "tocino_choriso";
-        $insumos->descripcion = "Tocino";
+        $insumos->descripcion = "Tocino Choriso";
         $insumos->total = 0;
         $insumos->save();
 

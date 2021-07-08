@@ -65,7 +65,7 @@
                                                 @foreach ($consulta as $item)
                                                     <tr>
                                                         <td class="text-center">{{$n++}}</td>
-                                                        <td>{{$item->descripcion}}</td>
+                                                        <td><a href="{{route('cortes.show', $item->id)}}">{{$item->descripcion}}</a></td>
                                                         <td>{{$item->producto}}</td>
                                                         <td>{{$item->fecha_reg}}</td>
                                                         <td>{{$item->cantidad}} kg</td>
