@@ -9,7 +9,7 @@ class InsumosController extends Controller
 {
     public function index()
     {
-        $consulta = Insumos::select('nombre', 'total')
+        $consulta = Insumos::select('descripcion', 'total')
         ->orderBy('total', 'desc')
         ->get();
         echo json_encode($consulta);
