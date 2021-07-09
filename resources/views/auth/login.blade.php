@@ -12,7 +12,7 @@
 		<link rel="icon" href="{{asset('assets/img/brand/favicon.ico')}}" type="image/x-icon"/>
 
 		<!-- Title -->
-		<title>Login Pocoyo</title>
+		<title>Login DonHarold</title>
 
 		<!-- Bootstrap css-->
 		<link href="{{asset('assets/plugins/bootstrap/css/bootstrap.min.css')}}" rel="stylesheet"/>
@@ -157,9 +157,9 @@
 						<div class="row row-sm">
 							<div class="col-lg-6 col-xl-5 d-none d-lg-block text-center bg-primary details">
 								<div class="mt-5 pt-4 p-2 pos-absolute">
-									<img src="{{asset('assets/img/brand/logo-light.png')}}" class="header-brand-img mb-4" alt="logo">
+									
 									<div class="clearfix"></div>
-									<img src="{{asset('assets/img/brand/logo.jpg')}}" class="ht-100 mb-0" alt="user">
+									<img src="{{asset('assets/img/brand/poco.jpg')}}" class="ht-100 mb-0" alt="user">
 									<h5 class="mt-4 text-white">Accede a tu cuenta</h5>
 									<span class="tx-white-6 tx-13 mb-5 mt-xl-0">Inicie sesión para crear, descubrir y conectarse con la comunidad global</span>
 								</div>
@@ -168,7 +168,7 @@
 								<div class="container-fluid">
 									<div class="row row-sm">
 										<div class="card-body mt-2 mb-2">
-											<img src="{{asset('assets/img/brand/logo.png')}}" class=" d-lg-none header-brand-img text-left float-left mb-4" alt="logo">
+											<img src="{{asset('assets/img/brand/poco.png')}}" class=" d-lg-none header-brand-img text-left float-left mb-4" alt="logo">
 											<div class="clearfix"></div>
 											<!-- Session Status -->
 											<x-auth-session-status class="mb-4" :status="session('status')" />
@@ -190,9 +190,6 @@
 												</div>
 												<button class="btn ripple btn-main-primary btn-block">Iniciar sesión</button>
 											</form>
-											<div class="text-left mt-5 ml-0">
-												<div class="mb-1"><a href="#">¿Se te olvidó la contrsaeña?</a></div>
-											</div>
 										</div>
 									</div>
 								</div>

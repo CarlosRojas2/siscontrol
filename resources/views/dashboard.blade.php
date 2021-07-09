@@ -246,16 +246,13 @@
 				success : function(data){
 					var insumos = new Array();
 					var cantidad = new Array();
-					var datos = [];
 					$.each(data, function(key, value){
 						insu = String(value.descripcion);
 						insumos.push(insu);
 						total = Number(value.total);
 						cantidad.push(total);
-						datos.push([String(value.descripcion),Number(value.total)]);
 					});
 					graficobarras(cantidad,insumos);
-					/*graficopiechart(cantidad,insumos, datos);*/
 				},
 			});
 		}
@@ -303,49 +300,5 @@
 				}]
 			});
 		}
-
-		function graficopiechart(cantidad,insumos,datos){
-				Highcharts.chart('insumospiechart', {
-				chart: {
-					plotBackgroundColor: null,
-					plotBorderWidth: null,
-					plotShadow: false,
-					type: 'pie'
-				},
-				title: {
-					text: 'Cantidad de insumos'
-				},
-				subtitle: {
-					text: 'Otro dato'
-				},
-				tooltip: {
-					pointFormat: '{series.name}: <b>{point.percentage:.1f}%</b><br>Cantidad: <b>{point.y:.0f}</b>'
-				},
-				plotOptions: {
-					pie: {
-						allowPointSelect: true,
-						cursor: 'pointer',
-						
-						dataLabels: {
-							enabled: true,
-							format: '<br>{point.percentage:.1f} %',
-							distance: 30,
-							filter: {
-								property: 'percentage',
-								operator: '>',
-								value: 5
-							}
-						},
-						showInLegend: true
-					}
-				},
-				series: [{
-					name: 'Promedio',
-					colorByPoint: true,
-					data: datos
-				}]
-			});
-		}
     </script>
-    
 @endsection
