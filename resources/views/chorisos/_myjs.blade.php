@@ -147,6 +147,5 @@
             return console.log('existe errores');
         }*/
     });
-
 </script>
 @endsection

@@ -65,9 +65,6 @@
                                                                 <form class="form_delete" action="{{route('prod_chorisos.destroy', $item)}}"  method="POST">
                                                                     @csrf
                                                                     @method('delete')
-                                                                    {{--<a href="{{route('prod_chorisos.edit', $item->id)}}" class=" {{ ($item->deleted_at == null)? ' ': 'o_o_enlace_no'}}  btn btn-sm btn-success">
-                                                                        <i class="fe fe-edit-2"></i>
-                                                                    </a>--}}
                                                                     <button tipe="submit" class="btn btn-sm btn-danger" {{ ($item->deleted_at == null)? ' ': 'disabled'}}>
                                                                         <i class="fe fe-trash"></i>
                                                                     </button>

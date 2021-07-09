@@ -128,4 +128,15 @@ class ProdChorisosController extends Controller
         $consulta = Prod_productos::get();
         return view('reportes.chorisos', compact('consulta','n'));
     }
+    public function salida_chorisos(Request $request){
+        $n=1;
+        $consulta = Prod_productos::get();
+        return view('salidas.chorisos', compact('consulta','n'));
+    }
+    public function salir_chorisos(Request $request){
+        
+        Prod_productos::where('id' ,$request->id_choriso)->decrement('stock',$request->cant_salida);
+        Prod_productos::where('id' ,$request->id_choriso)->increment('cant_salida',$request->cant_salida);
+        echo '<script type="text/javascript">localStorage.mensaje_codetime="Salida realizada con éxito."; window.location ="' . url('salidas/salida_chorisos') . '";</script>';
+    }
 }

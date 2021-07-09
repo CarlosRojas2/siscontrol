@@ -41,6 +41,8 @@ Route::resource('prod_chorisos', ProdChorisosController ::class)->middleware(['a
 Route::resource('prod_ahumados', ProdAhumadosController ::class)->middleware(['auth']);
 Route::resource('insumos', InsumosController ::class)->middleware(['auth']);
 
+Route::get('salidas/salida_chorisos',[ProdChorisosController::Class,'salida_chorisos'])->name('salidas.chorisos')->middleware('auth');
+Route::post('salidas/salir_chorisos',[ProdChorisosController::Class,'salir_chorisos'])->name('salir.chorisos')->middleware('auth');
 Route::post('reportes/detCortes',[CorteController::Class,'detCortes'])->name('reporte.detCortes')->middleware('auth');
 Route::get('reportes/detChorisos',[ProdChorisosController::Class,'chorisos'])->name('reporte.chorisos')->middleware('auth');
 Route::post('reportes/prodChorisos',[ProdChorisosController::Class,'prodChorisos'])->name('reporte.prodChorisos')->middleware('auth');

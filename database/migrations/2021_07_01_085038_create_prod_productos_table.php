@@ -18,17 +18,18 @@ class CreateProdProductosTable extends Migration
             $table->id();
             $table->string('descripcion');
             $table->decimal('stock',12, 2)->nullable();
+            $table->decimal('cant_salida',12, 2)->nullable();
             $table->softDeletes();
             $table->timestamps();
         });
 
         DB::table("prod_productos")
             ->insert([
-                ["descripcion" => 'CHORISO REGIONAL',"stock" => 0],
-                ["descripcion" => 'CHORISO PARRILLERO ARDIENTE',"stock" => 0],
-                ["descripcion" => 'CHORISO PARRILLERO FINAS HIERVAS',"stock" => 0],
-                ["descripcion" => 'CHORISO PARRILLERO CLASICO',"stock" => 0],
-                ["descripcion" => 'CHORISO PARRILLERO CANTONES',"stock" => 0]
+                ["descripcion" => 'CHORISO REGIONAL',"cant_salida" => 0,"stock" => 0],
+                ["descripcion" => 'CHORISO PARRILLERO ARDIENTE',"cant_salida" => 0,"stock" => 0],
+                ["descripcion" => 'CHORISO PARRILLERO FINAS HIERVAS',"cant_salida" => 0,"stock" => 0],
+                ["descripcion" => 'CHORISO PARRILLERO CLASICO',"cant_salida" => 0,"stock" => 0],
+                ["descripcion" => 'CHORISO PARRILLERO CANTONES',"cant_salida" => 0,"stock" => 0]
         ]);
     }
 
