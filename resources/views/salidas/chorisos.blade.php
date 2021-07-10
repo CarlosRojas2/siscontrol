@@ -9,10 +9,10 @@
                 <!-- Page Header -->
                 <div class="page-header">
                     <div>
-                        <h2 class="main-content-title tx-24 mg-b-5">Sección de reportes de  Chorisos</h2>
+                        <h2 class="main-content-title tx-24 mg-b-5">Sección de Salidas de Chorizos</h2>
                         <ol class="breadcrumb">
                             <li class="breadcrumb-item"><a href="{{route('dashboard')}}">Inicio</a></li>
-                            <li class="breadcrumb-item active" aria-current="page">Reportes de Chorisos</li>
+                            <li class="breadcrumb-item active" aria-current="page">Salidas de Chorizos</li>
                         </ol>
                     </div>
                 </div>
@@ -24,7 +24,7 @@
                         <div class="card custom-card overflow-hidden">
                             <div class="card-body">
                                 <div>
-                                    <h6 class="main-content-label mb-1">Produccion Chorisos</h6>
+                                    <h6 class="main-content-label mb-1">Salidas Chorizos</h6>
                                     <p class="text-muted card-sub-title">Eres libre de exportar los datos</p>
                                 </div>
                                 {{--<div class="row table-filter">
@@ -52,7 +52,7 @@
                                         <thead>
                                             <tr>
                                                 <th class="text-center">Cod</th>
-                                                <th>Tipo Choriso</th>
+                                                <th>Tipo Chorizo</th>
                                                 <th class="text-center">Stock Actual</th>
                                                 <th class="text-center">Opciones</th>
                                             </tr>
@@ -89,13 +89,13 @@
 				<div class="modal-dialog" role="document">
 					<div class="modal-content modal-content-demo">
 						<div class="modal-header">
-							<h6 class="modal-title">Salida de Chorisos</h6><button aria-label="Close" class="close" data-dismiss="modal" type="button"><span aria-hidden="true">&times;</span></button>
+							<h6 class="modal-title">Salida de Chorizos</h6><button aria-label="Close" class="close" data-dismiss="modal" type="button"><span aria-hidden="true">&times;</span></button>
 						</div>
                     <form class="form_salida" action="{{route('salir.chorisos')}}"  method="POST">
                         @csrf
 						<div class="modal-body">
                             <input  type="hidden" name="id_choriso" id="id_choriso" value="0">
-                            <h6>Tipo Choriso</h6>
+                            <h6>Tipo Chorizo</h6>
 							<!-- Select2 -->
 							<input  class="edit-item-date form-control"  type="text" name="tipo_cho" id="tipo_cho" disabled >
 							<!-- Select2 --><br>

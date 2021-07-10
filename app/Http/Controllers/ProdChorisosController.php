@@ -7,6 +7,7 @@ use App\Models\Prod_productos;
 use App\Models\Materia;
 use App\Models\Producto;
 use App\Models\Insumos;
+use App\Models\Salida;
 use Illuminate\Http\Request;
 
 class ProdChorisosController extends Controller
@@ -135,6 +136,12 @@ class ProdChorisosController extends Controller
     }
     public function salir_chorisos(Request $request){
         
+
+        $corte = new Salida;
+        $corte->prod_productos_id   = $request->id_choriso;
+        $corte->cant_salida         = $request->cant_salida;
+        $corte->save(); 
+
         Prod_productos::where('id' ,$request->id_choriso)->decrement('stock',$request->cant_salida);
         Prod_productos::where('id' ,$request->id_choriso)->increment('cant_salida',$request->cant_salida);
         echo '<script type="text/javascript">localStorage.mensaje_codetime="Salida realizada con éxito."; window.location ="' . url('salidas/salida_chorisos') . '";</script>';

@@ -140,15 +140,15 @@
 										<div class="card custom-card">
 											<div class="card-body">
 												<div>
-													<h6 class="main-content-label mb-1">Tabla Chorisos</h6>
-													<p class="text-muted card-sub-title">Se muestra a detalle las cantidades actuales de los chorisos. </p>
+													<h6 class="main-content-label mb-1">Tabla Chorizos</h6>
+													<p class="text-muted card-sub-title">Se muestra a detalle las cantidades actuales de los chorizos. </p>
 												</div>
 												<div class="table-responsive border">
 													<table class="table text-nowrap text-md-nowrap mg-b-0">
 														<thead>
 				                                            <tr>
 				                                                <th class="text-center">Cod</th>
-				                                                <th>Tipo Choriso</th>
+				                                                <th>Tipo Chorizo</th>
 				                                                <th class="text-center">Stock Actual</th>
 				                                            </tr>
 				                                        </thead>

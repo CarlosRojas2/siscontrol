@@ -9,16 +9,16 @@
                 <!-- Page Header -->
                 <div class="page-header"> 
                     <div>
-                        <h2 class="main-content-title tx-24 mg-b-5">Sección Producción de Chorisos</h2>
+                        <h2 class="main-content-title tx-24 mg-b-5">Sección Producción de Chorizos</h2>
                         <ol class="breadcrumb">
                             <li class="breadcrumb-item"><a href="{{route('dashboard')}}">Inicio</a></li>
-                            <li class="breadcrumb-item active" aria-current="page">Producción de Chorisos</li>
+                            <li class="breadcrumb-item active" aria-current="page">Producción de Chorizos</li>
                         </ol>
                     </div>
                     <div class="d-flex"> 
                         <div class="justify-content-center text-white">
                             <a type="button" href="{{route('prod_chorisos.index')}}" class="o_o_pd_top_7 btn btn-primary my-2 btn-icon-text">
-                            <i class="si si-layers mr-2 o_o_ico_btn"></i> Ver Producción de Chorisos
+                            <i class="si si-layers mr-2 o_o_ico_btn"></i> Ver Producción de Chorizos
                             </a>
                         </div>
                     </div>
@@ -32,7 +32,7 @@
                             <div class="card-body">
                                 <div>
                                     <h6 class="main-content-label mb-1">Registro de una nueva Producción</h6>
-                                    <p class="text-muted card-sub-title">Complete el formulario para registrar una nueva Producción de Chorisos.</p>
+                                    <p class="text-muted card-sub-title">Complete el formulario para registrar una nueva Producción de Chorizos.</p>
                                 </div>
                                 <form id="chorisos" onsubmit="procesar(event)">
 

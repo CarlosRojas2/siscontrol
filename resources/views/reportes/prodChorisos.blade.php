@@ -9,10 +9,10 @@
                 <!-- Page Header -->
                 <div class="page-header">
                     <div>
-                        <h2 class="main-content-title tx-24 mg-b-5">Sección de reportes de Produccion Chorisos</h2>
+                        <h2 class="main-content-title tx-24 mg-b-5">Sección de reportes de Produccion Chorizos</h2>
                         <ol class="breadcrumb">
                             <li class="breadcrumb-item"><a href="{{route('dashboard')}}">Inicio</a></li>
-                            <li class="breadcrumb-item active" aria-current="page">Reportes de Produccion Chorisos</li>
+                            <li class="breadcrumb-item active" aria-current="page">Reportes de Produccion Chorizos</li>
                         </ol>
                     </div>
                 </div>
@@ -24,7 +24,7 @@
                         <div class="card custom-card overflow-hidden">
                             <div class="card-body">
                                 <div>
-                                    <h6 class="main-content-label mb-1">Produccion Chorisos</h6>
+                                    <h6 class="main-content-label mb-1">Produccion Chorizos</h6>
                                     <p class="text-muted card-sub-title">Eres libre de exportar los datos</p>
                                 </div>
                                 <div class="row table-filter">
@@ -52,7 +52,7 @@
                                         <thead>
                                             <tr>
                                                 <th>Cod</th>
-                                                <th>Tipo Choriso</th>
+                                                <th>Tipo Chorizo</th>
                                                 <th>Cant. Producida</th>
                                                 <th>Fecha Registro</th>
                                                 <th class="text-center">Estado</th>
