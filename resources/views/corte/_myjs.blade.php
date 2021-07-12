@@ -113,7 +113,7 @@
 	const select_cant=(e)=>{
 		cant_d=parseFloat($('#cantidad_d').val());
 		cant_u=parseFloat(e.value);
-
+		
 		if(cant_u<=0){ 
 			$('#table_1 input').attr('readonly',true);  
 			$('#table_2 input').attr('readonly',true);
@@ -123,23 +123,32 @@
 
 		if(cant_u > cant_d){
 			e.value=cant_d;
+			cant_u=cant_d;
 			$('#cantidad_detalle').val(cant_d);
 		}
 		else{
 			$('#cantidad_detalle').val(cant_u);
 		}
-		var c_t=calcular_total(cant_u);
 
+		if (isNaN(cant_u) | cant_u == undefined){
+			$('#cantidad_detalle').val('');
+			$('#merma').val('');
+			$('#table_1 input').attr('readonly',true);  
+			$('#table_2 input').attr('readonly',true);
+			$('#reg_bt').attr('disabled',true);
+			return false;
+	    }
+		var c_t=calcular_total(cant_u);
+		
 		if(c_t == false){
 			return false;
 		}
-		if($('#merma').val() == cant_u){
+		/*if($('#merma').val() == cant_u){
 			$('#merma').val('');
 		}
-		else{
-			$('#merma').removeClass('o_o_error');
-			$('#reg_bt').attr('disabled',false);
-		}
+		else{}*/
+		$('#merma').removeClass('o_o_error');
+		$('#reg_bt').attr('disabled',false);
 		$('#table_1 input').attr('readonly',false);  
 		$('#table_2 input').attr('readonly',false);  
 	}
@@ -154,12 +163,12 @@
 	   	var c_t			=	calcular_total(cant_usar);
 	   	if(c_t == false){	return false;}
 
-	   	if (cant_t==0) {
+	   	/*if (cant_t==0) {
 	   		$('#merma').val('');
 			$('#merma').removeClass('o_o_error');
 			$('#reg_bt').attr('disabled',true);
 			return false;
-	   	}
+	   	}*/
 		$('#merma').removeClass('o_o_error');
 		$('#reg_bt').attr('disabled',false);
 	});
